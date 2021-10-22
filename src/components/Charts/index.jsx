@@ -1,9 +1,25 @@
 import React from 'react'
-import { Bar, Doughnut, Line } from 'react-chartjs-2'
+import { Bar, Doughnut, Line, Pie } from 'react-chartjs-2'
 
 
 const riskValueData = {
-  labels: ['1º Turno', '2º Turno','3º Turno'],
+  labels: ['066', '388'],  
+  datasets: [
+    {
+      label: 'Shifts',
+      data: [43, 57],
+      backgroundColor: [
+        'rgba(255, 99, 132, 1)',        
+        'rgba(54, 162, 235, 1)',
+      ],
+      borderWidth: 0,
+    },
+  ],
+  
+}
+
+const scrapByShiftData = {
+  labels: ['1º Turno', '2º Turno','3º Turno'],  
   datasets: [
     {
       label: 'Shifts',
@@ -16,16 +32,96 @@ const riskValueData = {
       borderWidth: 0,
     },
   ],
+  
 }
 
-
-
-const data = {
-  labels: ['RED', 'BLUE', 'YELLOW', 'GREEN', 'PURPLE', 'ORANGE'],
+const scrapOverallData = {
+  labels: ['Geral', 'BE', 'CAR', 'FE', 'HP', 'MRB', 'CFC', 'DECATHLON'],
   datasets: [
     {
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
+      label: '$',
+      data: [187399, 59096, 55408, 47991, 20692, 3288, 930, 22],
+      backgroundColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        '#B9CDE5',
+        '#B9CDE5',
+        '#B9CDE5',
+        '#B9CDE5',
+        '#B9CDE5',
+        '#B9CDE5',
+      ],
+      borderWidth: 0,
+    },
+  ],
+}
+
+const trendWeekData = {
+  labels: ['W40', 'W41', 'W42'],
+  datasets: [
+    {
+      label: 'Week',
+      data: [25252, 90090, 58116],
+      backgroundColor: [
+        '#B9CDE5',
+        '#B9CDE5',
+        'rgba(255, 99, 132, 1)',
+      ],
+      borderWidth: 1,
+    },
+  ],
+}
+
+const scrapModalData = {
+  labels: ['CAPRIPLUS', 'JAVA', 'MALTA', 'HP', 'HANOIPLUS', 'FUJI SC', 'MALTA LITE', 'ARUBA', 'HANOI', 'CAPRI ROW'],
+  datasets: [
+    {
+      label: 'MODEL',
+      data: [28269, 26401, 24325, 21472, 18027, 17734, 17712, 13247, 11132, 3762],
+      backgroundColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        '#B9CDE5',
+        '#B9CDE5',
+        '#B9CDE5',
+        '#B9CDE5',
+        '#B9CDE5',
+        '#B9CDE5',
+        '#B9CDE5',
+        '#B9CDE5',
+      ]
+    }
+  ]
+}
+
+const ofensorClassData = {
+  labels: ['MIGRACAO DE SOLDA', 'HOUSING FORNECEDOR', 'CURTO E SOLDA', 'COBRE EXPOSTO', 'EXCESSO DE REPARO', 'CONECTOR CABO FLAT DANIFICADO', 'PROCESSADOR COM CURTO', 'EXCESSO RETRABALHO', 'INSUFICIENCIA DE SOLDA', 'ERRO DE REPARO'],
+  datasets: [
+    {
+      label: 'Error',
+      data: [21964, 10839, 8078, 7642, 7472, 5430, 5124, 4683, 4381, 3951],
+      backgroundColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        '#B9CDE5',
+        '#B9CDE5',
+        '#B9CDE5',
+        '#B9CDE5',
+        '#B9CDE5',
+        '#B9CDE5',
+        '#B9CDE5',
+        '#B9CDE5',
+      ]
+    }
+  ]
+}
+
+const classificationData = {
+  labels: ['Board', 'HP', 'SMT', 'Memoria', 'Baterias', 'Processador', 'OTU', 'Cameras', 'Display', 'Subboard'],
+  datasets: [
+    {
+      label: 'Classes',
+      data: [100749, 29170, 22120, 21463, 16326, 10104, 10007, 5262, 4901, 4436],
       backgroundColor: [
         'rgba(255, 99, 132, 1)',
         'rgba(54, 162, 235, 1)',
@@ -33,65 +129,62 @@ const data = {
         'rgba(75, 192, 192, 1)',
         'rgba(153, 102, 255, 1)',
         'rgba(255, 159, 64, 1)',
-      ],
-      borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
-      ],
-      borderWidth: 0,
-    },
-  ],
+      ]
+    }
+  ]
 }
 
-
-const stackedData = {
-  labels: ['1', '2', '3', '4', '5', '6'],
-  datasets: [
-    {
-      label: '# of Red Votes',
-      data: [12, 19, 3, 5, 2, 3],
-      backgroundColor: 'rgb(255, 99, 132)',
-    },
-    {
-      label: '# of Blue Votes',
-      data: [2, 3, 20, 5, 1, 4],
-      backgroundColor: 'rgb(54, 162, 235)',
-    },
-    {
-      label: '# of Green Votes',
-      data: [3, 10, 13, 15, 22, 30],
-      backgroundColor: 'rgb(75, 192, 192)',
-    },
-  ],
-}
 
 const geral = {
   maintainAspectRatio: false,
+  display: false,
 }
 
 const options = {
   indexAxis: 'y',
   responsive: true,
-  maintainAspectRatio: false,
-  height: '20px',
-  width: '20px',
+  maintainAspectRatio: false, 
 }
 
-const stacked = {
-  indexAxis: 'y',
+const stackedX = {
+  indexAxis: 'x',
   maintainAspectRatio: false,
   scales: {
     y: {
       stacked: true,
+      grid: {
+        display: false,
+      },
       ticks: {
         beginAtZero: true
       }
     },
     x: {
+      grid: {
+        display: false,
+      },
+      stacked: true
+    },
+  }
+}
+
+const stackedY = {
+  indexAxis: 'y',
+  maintainAspectRatio: false,
+  scales: {
+    y: {
+      stacked: true,
+      grid: {
+        display: false,
+      },
+      ticks: {
+        beginAtZero: true
+      }
+    },
+    x: {
+      grid: {
+        display: false,
+      },
       stacked: true
     },
   }
@@ -103,13 +196,7 @@ const stacked = {
 export function ChartRiskValue(){
   return(
     <>
-      <Doughnut data={riskValueData}  style={{
-        marginTop: '-10px',
-        marginLeft: '10px',
-        height: '150px',
-        width: '350px',
-        alignItems: 'center',
-      }} options={geral}/>
+      <Doughnut data={riskValueData} height={50} width={50} options={geral}/>
     </>
   )
 }
@@ -117,7 +204,7 @@ export function ChartRiskValue(){
 export function ChartScrapOverall(){
   return(
     <>
-      <Bar data={data} height={2} width={2} options={options} />
+      <Bar data={scrapOverallData} height={50} width={50} options={options} />
     </>
   )
 }
@@ -125,7 +212,7 @@ export function ChartScrapOverall(){
 export function ChartTrendWeek(){
   return(
     <>
-      <Line data={data} height={2} width={2} options={{maintainAspectRatio: false,}}/>
+      <Line data={trendWeekData} height={50} width={50} options={{maintainAspectRatio: false,}}/>
     </>
   )
 }
@@ -133,7 +220,7 @@ export function ChartTrendWeek(){
 export function ChartScrapModel(){
   return(
     <>
-      <Bar data={stackedData} height={60} width={40} options={stacked}/>
+      <Bar data={scrapModalData} height={40} width={40} options={stackedX}/>
     </>
   )
 }
@@ -141,7 +228,23 @@ export function ChartScrapModel(){
 export function ChartOfensorClassification(){
   return(
     <>
-      <Bar data={stackedData} height={60} width={40} options={stacked}/>
+      <Bar data={ofensorClassData} height={40} width={40} options={stackedY}/>
+    </>
+  )
+}
+
+export function ChartScrapByShift(){
+  return(
+    <>
+      <Doughnut data={scrapByShiftData} height={230} width={100} options={geral}/>
+    </>
+  )
+}
+
+export function ChartClassification(){
+  return(
+    <>
+        <Pie data={classificationData} height={230} width={100} options={geral}/>
     </>
   )
 }

@@ -30,7 +30,7 @@ export const Container = styled.div`
   margin-top: 140px;
   width: 100%;
   height: 100vh;
-  background: #333;
+  background: #dddd;
 }
   position: absolute;
   margin-top: 140px;
@@ -41,8 +41,8 @@ export const Container = styled.div`
 
 export const RiskValue = styled.div`
 @media only screen and (max-width: 1280px){
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  /* display: flexbox;
+  grid-template-columns: repeat(1, 1fr); */
   background: #fff;
   width: 30%;
   height: 30vh;
@@ -100,11 +100,11 @@ export const TrendWeek = styled.div`
 
 export const ScrapModel = styled.div`
 @media only screen and (max-width: 1280px){
-  position: absolute;
-  grid-template-columns: repeat(2, 1fr);
+  /* position: absolute;
+  grid-template-columns: repeat(2, 1fr); */
   background: #fff;
   width: 35%;
-  height: 92vh;
+  height: 45vh;
   left: 390px;
   top: 5px;
 }
@@ -117,15 +117,53 @@ export const ScrapModel = styled.div`
   top: 5px;
 `;
 
+export const Classification = styled.div`
+@media only screen and (max-width: 1280px){
+  /* position: absolute;
+  grid-template-columns: repeat(2, 1fr); */
+  background: #fff;
+  width: 35%;
+  height: 45vh;
+  left: 390px;
+  top: 295px;
+}
+  position: absolute;
+  grid-template-columns: repeat(2, 1fr);
+  background: #fff;
+  width: 35%;
+  height: 700px;
+  left: 490px;
+  top: 5px;
+`;
+
 export const OfensorClass = styled.div`
 @media only screen and (max-width: 1280px){
+  /* position: absolute;
+  grid-template-columns: repeat(2, 1fr); */
+  background: #fff;
+  width: 33.5%;
+  height: 45vh;
+  left: 840px;
+  top: 5px;
+}
   position: absolute;
   grid-template-columns: repeat(2, 1fr);
   background: #fff;
   width: 33.5%;
-  height: 92vh;
-  left: 840px;
+  height: 700px;
+  left: 1050px;
   top: 5px;
+`;
+
+export const ScrapByShift = styled.div`
+@media only screen and (max-width: 1280px){
+  /* position: absolute;
+  grid-template-columns: repeat(2, 1fr); */
+  background: #fff;
+  width: 33.5%;
+  height: 45vh;
+  left: 840px;
+  top: 295px;
 }
   position: absolute;
   grid-template-columns: repeat(2, 1fr);
@@ -142,9 +180,9 @@ export const Input = styled.input`
   position: relative;
   background: #eee;
   border: solid 1px #000;
-  width: 200px;
+  width: 140px;
   height: 40px;
-  left: 400px;
+  left: 300px;
   top: 15px;
   margin-right: 10px;
   margin-top: 10px;
@@ -156,17 +194,23 @@ export const Input = styled.input`
 
 export const Select = styled.select`
   @media only screen and (max-width: 1280px){
-    display: inline-block;
+  display: inline-block;
   position: relative;
   background: #eee;
   border: solid 1px #000;
-  width: 200px;
+  width: 140px;
   height: 40px;
-  left: 400px;
+  left: 300px;
   top: 15px;
   margin-right: 10px;
   margin-top: 10px;
   }
+`;
+
+export const Option = styled.option`
+@media only screen and (max-width: 1280px){
+
+}
 `;
 
 export const Label = styled.label`
@@ -181,7 +225,7 @@ export const Button = styled.button`
   height: 40px;
   cursor: pointer;
   background: greenyellow;
-  left: 1050px;
+  left: 1080px;
   top: -50px;
 }
 `;
