@@ -1,11 +1,15 @@
-import { Topbar, Container, RiskValue, ScrapOverall, TrendWeek, ScrapModel, OfensorClass, ScrapByShift, Classification, Input, Select, Option, Button, Line, Title } from "./style";
+import { Topbar, Container, RiskValue, ScrapOverall, TrendWeek, ScrapModel, OfensorClass, ScrapByShift, Classification, Input, Select, Option, Button, Line, Title } from './style'
 import { ChartOfensorClassification, ChartRiskValue, ChartScrapModel, ChartScrapOverall, ChartTrendWeek, ChartScrapByShift, ChartClassification } from '../Charts/index'
+import './style.css'
 
 
 export default function Dashboard(){
   return(
     <>
       <Topbar>
+      
+
+      
         <Line>
        <Select>
           <Option value="#">CIA</Option>
@@ -90,7 +94,10 @@ export default function Dashboard(){
 
         <ScrapModel>
         <Title>TML Scrap by Model</Title>
+        <Line className="sbm">
           <ChartScrapModel />
+        </Line>
+          
         </ScrapModel>
 
         <Classification>
@@ -101,8 +108,10 @@ export default function Dashboard(){
         </Classification>
 
         <OfensorClass>
-        <Title>TOP 10 Ofensor by Classification</Title>        
+        <Title>TOP 10 Ofensor by Classification</Title>
+        <Line className="sbm">          
           <ChartOfensorClassification />         
+        </Line>
         </OfensorClass>
 
         <ScrapByShift>

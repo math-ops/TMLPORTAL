@@ -1,18 +1,38 @@
 import React from 'react'
 import { Bar, Doughnut, Line, Pie } from 'react-chartjs-2'
+import { Chart } from 'chart.js'
+import ChartDataLabels from 'chartjs-plugin-datalabels'
 
+Chart.register(ChartDataLabels);
+
+//definindo os gráficos
 
 const riskValueData = {
   labels: ['066', '388'],  
   datasets: [
     {
-      label: 'Shifts',
+      label: 'Cia',
       data: [43, 57],
       backgroundColor: [
         'rgba(255, 99, 132, 1)',        
         'rgba(54, 162, 235, 1)',
       ],
       borderWidth: 0,
+      datalabels: {
+        align: 'center',
+        anchor: 'center',
+        color: '#000',
+      },
+      options: {
+        plugins: {
+          datalabels: {
+            color: 'white',
+            font: {
+              weight: 'bold',
+            }
+          }
+        }
+      }
     },
   ],
   
@@ -30,6 +50,21 @@ const scrapByShiftData = {
         'rgba(255, 206, 86, 1)',
       ],
       borderWidth: 0,
+      datalabels: {
+        align: 'center',
+        anchor: 'center',
+        color: '#000',
+      },
+      options: {
+        plugins: {
+          datalabels: {
+            color: 'white',
+            font: {
+              weight: 'bold',
+            }
+          }
+        }
+      }
     },
   ],
   
@@ -39,7 +74,7 @@ const scrapOverallData = {
   labels: ['Geral', 'BE', 'CAR', 'FE', 'HP', 'MRB', 'CFC', 'DECATHLON'],
   datasets: [
     {
-      label: '$',
+      label: 'Value in K',
       data: [187399, 59096, 55408, 47991, 20692, 3288, 930, 22],
       backgroundColor: [
         'rgba(255, 99, 132, 1)',
@@ -52,6 +87,21 @@ const scrapOverallData = {
         '#B9CDE5',
       ],
       borderWidth: 0,
+      datalabels: {
+        align: 'end',
+        anchor: 'end',
+        color: '#000',
+      },
+      options: {
+        plugins: {
+          datalabels: {
+            color: 'white',
+            font: {
+              weight: 'bold',
+            }
+          }
+        }
+      }
     },
   ],
 }
@@ -67,12 +117,27 @@ const trendWeekData = {
         '#B9CDE5',
         'rgba(255, 99, 132, 1)',
       ],
-      borderWidth: 1,
+      borderWidth: 0.5,
+      datalabels: {
+        align: 'end',
+        anchor: 'start',
+        color: '#000',
+      },
+      options: {
+        plugins: {
+          datalabels: {
+            color: 'white',
+            font: {
+              weight: 'bold',
+            }
+          }
+        }
+      }
     },
   ],
 }
 
-const scrapModalData = {
+const scrapModelData = {
   labels: ['CAPRIPLUS', 'JAVA', 'MALTA', 'HP', 'HANOIPLUS', 'FUJI SC', 'MALTA LITE', 'ARUBA', 'HANOI', 'CAPRI ROW'],
   datasets: [
     {
@@ -89,16 +154,31 @@ const scrapModalData = {
         '#B9CDE5',
         '#B9CDE5',
         '#B9CDE5',
-      ]
+      ],
+      datalabels: {
+        align: 'end',
+        anchor: 'end',
+        color: '#000',
+      },
+      options: {
+        plugins: {
+          datalabels: {
+            color: 'white',
+            font: {
+              weight: 'bold',
+            }
+          }
+        }
+      }
     }
   ]
 }
 
 const ofensorClassData = {
-  labels: ['MIGRACAO DE SOLDA', 'HOUSING FORNECEDOR', 'CURTO E SOLDA', 'COBRE EXPOSTO', 'EXCESSO DE REPARO', 'CONECTOR CABO FLAT DANIFICADO', 'PROCESSADOR COM CURTO', 'EXCESSO RETRABALHO', 'INSUFICIENCIA DE SOLDA', 'ERRO DE REPARO'],
+  labels: ['M. SOLDA', 'H. FORNECEDOR', 'CURTO E SOLDA', 'COBRE EXPOSTO', 'EXCS DE REPARO', 'CONECTOR DANIFICADO', 'PROC COM CURTO', 'EXCS RETRABALHO', 'INSF DE SOLDA', 'ERRO DE REPARO'],
   datasets: [
     {
-      label: 'Error',
+      label: 'OFENSSOR',
       data: [21964, 10839, 8078, 7642, 7472, 5430, 5124, 4683, 4381, 3951],
       backgroundColor: [
         'rgba(255, 99, 132, 1)',
@@ -111,7 +191,22 @@ const ofensorClassData = {
         '#B9CDE5',
         '#B9CDE5',
         '#B9CDE5',
-      ]
+      ],
+      datalabels: {
+        align: 'start',
+        anchor: 'end',
+        color: '#000',
+      },
+      options: {
+        plugins: {
+          datalabels: {
+            color: 'white',
+            font: {
+              weight: 'bold',
+            }
+          }
+        }
+      }
     }
   ]
 }
@@ -129,21 +224,73 @@ const classificationData = {
         'rgba(75, 192, 192, 1)',
         'rgba(153, 102, 255, 1)',
         'rgba(255, 159, 64, 1)',
-      ]
+      ],
+      datalabels: {
+        align: 'center',
+        anchor: 'end',
+        color: '#000',
+      },
+      options: {
+        plugins: {
+          datalabels: {
+            color: 'white',
+            font: {
+              weight: 'bold',
+            }
+          }
+        }
+      }
     }
   ]
 }
 
-
+//configurações de exibição dos gráficos
 const geral = {
   maintainAspectRatio: false,
   display: false,
+  options : {
+    plugins: {
+      datalabels: {
+        borderColor: 'white',
+        borderRadius: 5,
+        borderWidth: 2,
+        color: 'white',
+        labels: {
+          title: {
+            font: {
+              weight: 'bold'
+            },
+          padding: 6,
+          },
+          value: {
+            color: 'white',
+          }
+        }
+      }
+    }
+  }
 }
 
 const options = {
   indexAxis: 'y',
   responsive: true,
-  maintainAspectRatio: false, 
+  maintainAspectRatio: false,
+  scales: {
+    y: {
+      grid: {
+        display: false,
+      }
+    },
+    x: {
+      grid: {
+        display: false,
+      },
+      beginAtZero: true,
+      ticks: {
+        display: false,
+      }
+    }
+  }
 }
 
 const stackedX = {
@@ -155,8 +302,9 @@ const stackedX = {
       grid: {
         display: false,
       },
+      beginAtZero: true,
       ticks: {
-        beginAtZero: true
+        display: false,
       }
     },
     x: {
@@ -185,8 +333,31 @@ const stackedY = {
       grid: {
         display: false,
       },
+      beginAtZero: true,
+      ticks: {
+        display: false,
+      },
       stacked: true
     },
+  }
+}
+
+const trends = {
+  maintainAspectRatio: false,
+  scales: {
+    y: {
+      grid: {
+        display: false,
+      },
+      ticks: {
+        display: false,
+      }
+    },
+    x: {
+      grid: {
+        display: false,
+      }
+    }
   }
 }
 
@@ -212,7 +383,7 @@ export function ChartScrapOverall(){
 export function ChartTrendWeek(){
   return(
     <>
-      <Line data={trendWeekData} height={50} width={50} options={{maintainAspectRatio: false,}}/>
+      <Line data={trendWeekData} height={50} width={50} options={trends}/>
     </>
   )
 }
@@ -220,7 +391,7 @@ export function ChartTrendWeek(){
 export function ChartScrapModel(){
   return(
     <>
-      <Bar data={scrapModalData} height={40} width={40} options={stackedX}/>
+      <Bar data={scrapModelData} height={40} width={40} options={stackedX}/>
     </>
   )
 }
@@ -228,7 +399,7 @@ export function ChartScrapModel(){
 export function ChartOfensorClassification(){
   return(
     <>
-      <Bar data={ofensorClassData} height={40} width={40} options={stackedY}/>
+      <Bar data={ofensorClassData} height={20} width={40} options={stackedY}/>
     </>
   )
 }
