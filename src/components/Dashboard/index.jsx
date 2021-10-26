@@ -1,12 +1,17 @@
-import { Topbar, Container, RiskValue, ScrapOverall, TrendWeek, ScrapModel, OfensorClass, ScrapByShift, Classification, Input, Select, Option, Button, Line, Title } from './style'
+import { Topbar, Logo, Container, RiskValue, ScrapOverall, TrendWeek, ScrapModel, OfensorClass, ScrapByShift, Classification, Input, Select, Option, Button, Line, Title, Date } from './style'
 import { ChartOfensorClassification, ChartRiskValue, ChartScrapModel, ChartScrapOverall, ChartTrendWeek, ChartScrapByShift, ChartClassification } from '../Charts/index'
 import './style.css'
+
+const range = '26-10-2021 12:20'
 
 
 export default function Dashboard(){
   return(
     <>
       <Topbar>
+        <Logo>TML Overview</Logo>
+        <Date>Data: {range}</Date>
+        
       
 
       
@@ -80,7 +85,7 @@ export default function Dashboard(){
         
         <ScrapOverall>
         <Title>TML Scrap Overall</Title>
-        <Line>
+        <Line className="cso">
           <ChartScrapOverall />
         </Line>
         </ScrapOverall>
@@ -102,7 +107,7 @@ export default function Dashboard(){
 
         <Classification>
           <Title>Classification</Title>
-          <Line>
+          <Line className="sbs">
             <ChartClassification />
           </Line>
         </Classification>
@@ -116,7 +121,7 @@ export default function Dashboard(){
 
         <ScrapByShift>
           <Title>Scrap By Shift</Title>
-          <Line>
+          <Line className="sbs">
           <ChartScrapByShift />
           </Line>          
         </ScrapByShift>

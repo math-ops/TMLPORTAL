@@ -3,8 +3,6 @@ import styled from 'styled-components'
 
 export const Topbar = styled.div`
 @media only screen and (max-width: 1280px){
-  
-  
   position: absolute;
   margin: 0;
   width: 100%;
@@ -28,7 +26,7 @@ export const Container = styled.div`
 @media only screen and (max-width: 1280px){
   position: absolute;
   margin-top: 140px;
-  width: 100%;
+  width: 100%;  
   height: 100vh;
   background: #dddd;
 }
@@ -112,7 +110,7 @@ export const ScrapModel = styled.div`
   grid-template-columns: repeat(2, 1fr);
   background: #fff;
   width: 35%;
-  height: 700px;
+  height: 43vh;
   left: 490px;
   top: 5px;
 `;
@@ -131,9 +129,9 @@ export const Classification = styled.div`
   grid-template-columns: repeat(2, 1fr);
   background: #fff;
   width: 35%;
-  height: 700px;
+  height: 44vh;
   left: 490px;
-  top: 5px;
+  top: 355px;
 `;
 
 export const OfensorClass = styled.div`
@@ -150,7 +148,7 @@ export const OfensorClass = styled.div`
   grid-template-columns: repeat(2, 1fr);
   background: #fff;
   width: 33.5%;
-  height: 700px;
+  height: 43vh;
   left: 1050px;
   top: 5px;
 `;
@@ -169,9 +167,9 @@ export const ScrapByShift = styled.div`
   grid-template-columns: repeat(2, 1fr);
   background: #fff;
   width: 33.5%;
-  height: 700px;
+  height: 44vh;
   left: 1050px;
-  top: 5px;
+  top: 355px;
 `;
 
 export const Input = styled.input`
@@ -186,9 +184,18 @@ export const Input = styled.input`
   top: 15px;
   margin-right: 10px;
   margin-top: 10px;
-  
-
 }
+  display: inline-block;
+  position: relative;
+  background: #eee;
+  border: solid 1px #000;
+  width: 170px;
+  height: 40px;
+  left: 490px;
+  top: 15px;
+  margin-right: 10px;
+  margin-top: 10px;
+
 
 `;
 
@@ -205,6 +212,16 @@ export const Select = styled.select`
   margin-right: 10px;
   margin-top: 10px;
   }
+  display: inline-block;
+  position: relative;
+  background: #eee;
+  border: solid 1px #000;
+  width: 170px;
+  height: 40px;
+  left: 490px;
+  top: 15px;
+  margin-right: 10px;
+  margin-top: 10px;
 `;
 
 export const Option = styled.option`
@@ -228,6 +245,15 @@ export const Button = styled.button`
   left: 1080px;
   top: -50px;
 }
+  position: relative;
+  border: none;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  background: greenyellow;
+  left: 1410px;
+  top: -50px;
+
 `;
 
 export const Title = styled.h2`
@@ -237,4 +263,39 @@ export const Title = styled.h2`
   font-weight: 400;
   color: #333;
 
+`;
+
+export const Logo = styled.h1`
+  @media only screen and (max-width: 1280px){
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #fff;
+    left: 15px;
+    top: 35px;
+  }
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #fff;
+    left: 15px;
+    top: 35px;
+`;
+
+export const Date = styled.h2`
+  @media only screen and (max-width: 1280px){
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #fff;
+    left: 20px;
+    top: 75px;
+  }
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: #fff;
+    left: 20px;
+    top: 75px;
 `;

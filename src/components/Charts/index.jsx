@@ -71,11 +71,11 @@ const scrapByShiftData = {
 }
 
 const scrapOverallData = {
-  labels: ['Geral', 'BE', 'CAR', 'FE', 'HP', 'MRB', 'CFC', 'DECATHLON'],
+  labels: ['Geral', 'BE', 'CAR', 'FE', 'HP', 'MRB', 'CFC', 'DEC'],
   datasets: [
     {
       label: 'Value in K',
-      data: [187399, 59096, 55408, 47991, 20692, 3288, 930, 22],
+      data: [187339, 59096, 55408, 47991, 20692, 3288, 930, 22],
       backgroundColor: [
         'rgba(255, 99, 132, 1)',
         'rgba(54, 162, 235, 1)',
@@ -87,6 +87,8 @@ const scrapOverallData = {
         '#B9CDE5',
       ],
       borderWidth: 0,
+      stacked: 'combined',
+      type: 'bar',
       datalabels: {
         align: 'end',
         anchor: 'end',
@@ -103,6 +105,18 @@ const scrapOverallData = {
         }
       }
     },
+    {
+      label: '%',
+      data: [0.8, 0.25, 0.24, 0.21, 0.09, 0.01, 0, 0],
+      borderWidth: 0,
+      stack: 'combined',
+      datalabels: {
+        align: 'right',
+        anchor: 'end',
+        color: 'red',
+
+      }
+    }
   ],
 }
 
@@ -117,7 +131,9 @@ const trendWeekData = {
         '#B9CDE5',
         'rgba(255, 99, 132, 1)',
       ],
-      borderWidth: 0.5,
+      borderWidth: 1,
+      stacked: 'combined',
+      borderColor: 'rgba(0, 0, 0, 0.7)',
       datalabels: {
         align: 'end',
         anchor: 'start',
@@ -134,6 +150,18 @@ const trendWeekData = {
         }
       }
     },
+    {
+      label: '%',
+      data: [0.11, 0.39, 0.25],
+      borderWidth: 0,
+      stacked: 'combined',
+      datalabels: {
+        align: 'end',
+        anchor: 'start',
+        color: 'red',
+      }
+
+    }
   ],
 }
 
@@ -226,8 +254,8 @@ const classificationData = {
         'rgba(255, 159, 64, 1)',
       ],
       datalabels: {
-        align: 'center',
-        anchor: 'end',
+        align: 'end',
+        anchor: 'center',
         color: '#000',
       },
       options: {
