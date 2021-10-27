@@ -169,7 +169,7 @@ const scrapModelData = {
   labels: ['CAPRIPLUS', 'JAVA', 'MALTA', 'HP', 'HANOIPLUS', 'FUJI SC', 'MALTA LITE', 'ARUBA', 'HANOI', 'CAPRI ROW'],
   datasets: [
     {
-      label: 'MODEL',
+      label: 'Value',
       data: [28269, 26401, 24325, 21472, 18027, 17734, 17712, 13247, 11132, 3762],
       backgroundColor: [
         'rgba(255, 99, 132, 1)',

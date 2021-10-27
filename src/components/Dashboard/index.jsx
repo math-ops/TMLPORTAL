@@ -44,7 +44,9 @@ export default function Dashboard(){
 
         <Select>
         <Option>Linha</Option>
-        </Select>      
+        </Select> 
+
+        {/* <Select>Campo</Select>      */}
         </Line>
 
         <Line>
@@ -68,7 +70,7 @@ export default function Dashboard(){
         </Select>
 
         <Select>
-        <Option>Areas</Option>
+        <Option>Falhas</Option>
         </Select>
         </Line>
         
@@ -79,28 +81,28 @@ export default function Dashboard(){
 
       <Container> 
         <RiskValue>
-          <Title>TML Risk Value $</Title>
+          <Title>Material Risk Value $</Title>
           <Line>
           <ChartRiskValue />
           </Line>          
         </RiskValue>
         
         <ScrapOverall>
-        <Title>TML Scrap Overall</Title>
+        <Title>Material Scrap Overall</Title>
         <Line className="cso">
           <ChartScrapOverall />
         </Line>
         </ScrapOverall>
 
         <TrendWeek>
-        <Title>TML Trend Week</Title>
+        <Title>Material Trend Week</Title>
         <Line>
           <ChartTrendWeek />        
           </Line>
         </TrendWeek>
 
         <ScrapModel>
-        <Title>TML Scrap by Model</Title>
+        <Title>Material Scrap by Model</Title>
         <Line className="sbm">
           <ChartScrapModel />
         </Line>
@@ -108,21 +110,21 @@ export default function Dashboard(){
         </ScrapModel>
 
         <Classification>
-          <Title>Classification</Title>
+          <Title>Material Scrap by Classification</Title>
           <Line className="sbs">
             <ChartClassification />
           </Line>
         </Classification>
 
         <OfensorClass>
-        <Title>TOP 10 Ofensor by Classification</Title>
+        <Title>TOP 10 Ofensor by Defect Description</Title>
         <Line className="sbm">          
           <ChartOfensorClassification />         
         </Line>
         </OfensorClass>
 
         <ScrapByShift>
-          <Title>Scrap By Shift</Title>
+          <Title>Material Scrap By Shift</Title>
           <Line className="sbs">
           <ChartScrapByShift />
           </Line>          
