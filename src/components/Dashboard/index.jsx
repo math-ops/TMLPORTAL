@@ -1,8 +1,10 @@
 import { Topbar, Logo, Container, RiskValue, ScrapOverall, TrendWeek, ScrapModel, OfensorClass, ScrapByShift, Classification, Input, Select, Option, Button, Line, Title, Date } from './style'
 import { ChartOfensorClassification, ChartRiskValue, ChartScrapModel, ChartScrapOverall, ChartTrendWeek, ChartScrapByShift, ChartClassification } from '../Charts/index'
+import moment from 'moment'
+import 'moment/locale/pt-br'
 import './style.css'
 
-const range = '26-10-2021 12:20'
+const range = moment().format('L - h:mm A');
 
 
 export default function Dashboard(){
