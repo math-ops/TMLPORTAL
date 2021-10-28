@@ -9,7 +9,7 @@
   }
 }
   .sbm{
-    height: 39vh;
+    height: 35vh;
     width: 100%;
   }
   .sbs{
@@ -18,5 +18,9 @@
   }
   .cso{
     height: 25vh;
+    width: 100%;
+  }
+  .ctw{
+    height: 17vh;
     width: 100%;
   }
