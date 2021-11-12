@@ -29,13 +29,13 @@ export const Line = styled.div`
 export const Container = styled.div`
 @media only screen and (max-width: 1280px){
   position: absolute;
-  margin-top: 140px;
+  top: 60px;
   width: 100%;  
-  height: 100vh;
+  height: 93vh;
   background: ${gray};
 }
   position: absolute;
-  margin-top: 140px;
+  top: 65px;
   width: 100%;
   height: 720px;
   background: ${gray};
@@ -86,7 +86,7 @@ export const TrendWeek = styled.div`
   grid-template-columns: repeat(1, 1fr);
   background: ${light};
   width: 30%;
-  height: 30vh;
+  height: 29vh;
   margin-left: 5px;
   margin-top: 5px;
 }
@@ -127,7 +127,7 @@ export const Classification = styled.div`
   width: 35%;
   height: 45vh;
   left: 390px;
-  top: 295px;
+  top: 290px;
 }
   position: absolute;
   grid-template-columns: repeat(2, 1fr);
@@ -145,7 +145,7 @@ export const OfensorClass = styled.div`
   background: ${light};
   width: 33.5%;
   height: 45vh;
-  left: 840px;
+  left: 835px;
   top: 5px;
 }
   position: absolute;
@@ -153,7 +153,7 @@ export const OfensorClass = styled.div`
   background: ${light};
   width: 33.5%;
   height: 43vh;
-  left: 1050px;
+  left: 1055px;
   top: 5px;
 `;
 
@@ -164,15 +164,15 @@ export const ScrapByShift = styled.div`
   background: ${light};
   width: 33.5%;
   height: 45vh;
-  left: 840px;
-  top: 295px;
+  left: 835px;
+  top: 290px;
 }
   position: absolute;
   grid-template-columns: repeat(2, 1fr);
   background: ${light};
   width: 33.5%;
   height: 44vh;
-  left: 1050px;
+  left: 1055px;
   top: 355px;
 `;
 
@@ -184,8 +184,8 @@ export const Input = styled.input`
   border: solid 1px #000;
   width: 140px;
   height: 40px;
-  left: 280px;
-  top: 35px;
+  left: 60px;
+  top: -5px;
   margin-right: 10px;
   margin-top: 10px;
 }
@@ -195,8 +195,8 @@ export const Input = styled.input`
   border: solid 1px #000;
   width: 170px;
   height: 40px;
-  left: 380px;
-  top: 35px;
+  left: 60px;
+  top: -5px;
   margin-right: 10px;
   margin-top: 10px;
 
@@ -211,8 +211,8 @@ export const Select = styled.select`
   border: solid 1px #000;
   width: 140px;
   height: 40px;
-  left: 280px;
-  top: 35px;
+  left: 60px;
+  top: -5px;
   margin-right: 10px;
   margin-top: 10px;
   }
@@ -222,8 +222,8 @@ export const Select = styled.select`
   border: solid 1px #000;
   width: 170px;
   height: 40px;
-  left: 380px;
-  top: 35px;
+  left: 60px;
+  top: -5px;
   margin-right: 10px;
   margin-top: 10px;
 `;
@@ -241,8 +241,8 @@ export const Label = styled.label`
   color: ${light};
   display: inline-block;
   position: relative;
-  left: 280px;
-  top: 35px;
+  left: 60px;
+  top: -5px;
   margin-right: 10px;
   margin-top: 10px;
 }
@@ -251,8 +251,8 @@ export const Label = styled.label`
   color: ${light};
   display: inline-block;
   position: relative;
-  left: 380px;
-  top: 35px;
+  left: 60px;
+  top: -5px;
   margin-right: 10px;
   margin-top: 10px;
 `;
@@ -266,8 +266,8 @@ export const Button = styled.button`
   border-radius: 15px;
   cursor: pointer;
   background: greenyellow;
-  left: 1210px;
-  top: -5px;
+  left: 70px;
+  top: 0px;
 }
   position: relative;
   border: none;
@@ -275,8 +275,8 @@ export const Button = styled.button`
   height: 40px;
   cursor: pointer;
   background: greenyellow;
-  left: 1480px;
-  top: -5px;
+  left: 80px;
+  top: 0px;
 
 `;
 
@@ -335,7 +335,16 @@ export const Date = styled.h2`
 
 export const Filter = styled.select`
   @media only screen and (max-width: 1280px){
-
+    display: inline-block;
+  position: relative;
+  background: #eee;
+  border: solid 1px #000;
+  width: 70px;
+  height: 20px;
+  left: 75px;
+  top: 0px;
+  margin-right: 10px;
+  margin-top: 10px;
   }
   display: inline-block;
   position: relative;

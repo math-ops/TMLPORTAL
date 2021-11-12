@@ -7,20 +7,32 @@
     height: 35vh;
     width: 93%;
   }
+  .ctw .selects{
+    left: -10px;
+  }
+
 }
   .sbm{
     height: 35vh;
     width: 100%;
+
   }
   .sbs{
     height: 35vh;
     width: 100%;
+  }
+  .sbs .selects{
+    left: 160px;
   }
   .cso{
     height: 25vh;
     width: 100%;
   }
   .ctw{
-    height: 17vh;
+    height: 16vh;
     width: 100%;
+  }
+  .ctw .selects{
+    left: 80px;
+    top: -20px;
   }
