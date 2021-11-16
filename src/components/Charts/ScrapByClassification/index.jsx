@@ -28,6 +28,9 @@ const classificationData = {
   ]
 }
 
+console.log(classificationData.datasets[0].data);
+
+
 const config = {
   maintainAspectRatio: false,
   type: 'pie',
@@ -51,18 +54,20 @@ const config = {
       datalabels: {
         display: true,
         formatter: (val, ctx) => {
-          return `${ctx.chart.data.labels[ctx.dataIndex]}`;
+          
+          return `${ctx.chart.data.labels[ctx.dataIndex]}: ${classificationData.datasets[0].data[0]}`;
         },
         color: '#fff',
       },
   }  
 };
 
+
+
 export function ChartClassification(){
   return(
     <>
         <Pie data={classificationData} height={230} width={100} options={config}/>
-        ${console.log(classificationData)}
     </>
   )
 }

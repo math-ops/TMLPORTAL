@@ -1,4 +1,5 @@
-import React from 'react'
+import * as React from 'react'
+//import CircularProgress from '@mui/material/CircularProgress'
 import { Doughnut } from 'react-chartjs-2'
 
 const riskValueData = {
@@ -59,8 +60,12 @@ const geral = {
 }
 
 export function ChartRiskValue(){
+
+  //const [loading, setLoading] = React.useState(false);  
+  
   return(
     <>
+      {/* <CircularProgress /> */}
       <Doughnut data={riskValueData} height={50} width={50} options={geral}/>
     </>
   )

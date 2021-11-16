@@ -11,13 +11,13 @@ const trendWeekData = {
     {
       label: '%',
       type: 'line',
-      data: [11100, 39100, 21500],
+      data: [0.11, 0.39, 0.21],
       borderWidth: 1,
       borderColor: 'red',
       stacked: 'combined',
       datalabels: {
-        align: 'center',
-        anchor: 'center',
+        align: 'end',
+        anchor: 'end',
         color: 'red',
       }
 

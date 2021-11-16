@@ -15,8 +15,13 @@
   .sbm{
     height: 35vh;
     width: 100%;
-
   }
+  .sbm .charts{
+    
+    margin-top: 5px;
+    height: 35vh;
+  }
+
   .sbs{
     height: 35vh;
     width: 100%;

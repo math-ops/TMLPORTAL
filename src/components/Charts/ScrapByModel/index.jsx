@@ -25,7 +25,7 @@ const scrapModelData = {
       ],
       
       datalabels: {
-        align: 'end',
+        align: 'center',
         anchor: 'end',
         color: '#000',
       },

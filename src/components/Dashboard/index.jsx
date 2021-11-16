@@ -55,8 +55,10 @@ export default function Dashboard(){
           <Filter></Filter>
           <Filter></Filter>
           <Filter></Filter>
-          <Filter></Filter>        
+          <Filter></Filter>
+          <div className="charts">
           <ChartScrapModel />
+          </div>        
         </Line>
           
         </ScrapModel>
