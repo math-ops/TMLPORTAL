@@ -2,6 +2,7 @@ import React from 'react'
 import { Pie } from 'react-chartjs-2'
 import { Chart } from 'chart.js'
 import ChartDataLabels from 'chartjs-plugin-datalabels'
+import '../../Dashboard/style.css'
 
 Chart.register(ChartDataLabels);
 
@@ -20,8 +21,8 @@ const classificationData = {
         'rgba(255, 159, 64, 1)',
       ],
       datalabels: {
-        align: 'end',
-        anchor: 'center',
+        align: 'center',
+        anchor: 'end',
         color: '#000',       
       }
     }
@@ -35,6 +36,7 @@ const config = {
   maintainAspectRatio: false,
   type: 'pie',
   classificationData,
+  rotation: 45,
   options: {
     responsive: true,
     plugins: {
@@ -67,7 +69,7 @@ const config = {
 export function ChartClassification(){
   return(
     <>
-        <Pie data={classificationData} height={230} width={100} options={config}/>
+        <Pie data={classificationData} height={80} width={100} options={config}/>
     </>
   )
 }

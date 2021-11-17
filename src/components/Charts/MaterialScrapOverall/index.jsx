@@ -9,6 +9,20 @@ const scrapOverallData = {
   labels: ['Geral', 'BE', 'CAR', 'FE', 'HP', 'MRB', 'CFC', 'DEC'],
   datasets: [
     {
+      label: '%',
+      type: 'line',
+      data: [0.8, 0.25, 0.24, 0.21, 0.09, 0.01, 0, 0],
+      borderWidth: 1,
+      borderColor: 'red',
+      stack: 'combined',
+      datalabels: {
+        align: 'right',
+        anchor: 'end',
+        color: 'red',
+
+      }
+    },
+    {
       label: 'Value in K',
       data: [187339, 59096, 55408, 47991, 20692, 3288, 930, 22],
       backgroundColor: [
@@ -26,7 +40,7 @@ const scrapOverallData = {
       type: 'bar',
       datalabels: {
         align: 'end',
-        anchor: 'end',
+        anchor: '   end',
         color: '#000',
       },
       options: {
@@ -39,19 +53,7 @@ const scrapOverallData = {
           }
         }
       }
-    },
-    {
-      label: '%',
-      data: [0.8, 0.25, 0.24, 0.21, 0.09, 0.01, 0, 0],
-      borderWidth: 0,
-      stack: 'combined',
-      datalabels: {
-        align: 'right',
-        anchor: 'end',
-        color: 'red',
-
-      }
-    }
+    }   
   ],
 }
 

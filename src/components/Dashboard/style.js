@@ -268,6 +268,10 @@ export const Button = styled.button`
   background: greenyellow;
   left: 70px;
   top: 0px;
+  &:hover{
+    background: 	#22bb33;
+    transition: 0.4s ease-out;
+  }
 }
   position: relative;
   border: none;
@@ -277,6 +281,10 @@ export const Button = styled.button`
   background: greenyellow;
   left: 80px;
   top: 0px;
+  &:hover{
+    background: 	#22bb33;
+    transition: 0.4s ease-out;
+  }
 
 `;
 

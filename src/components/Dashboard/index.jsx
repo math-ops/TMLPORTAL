@@ -65,7 +65,7 @@ export default function Dashboard(){
 
         <Classification>
           <Title>Material Scrap by Classification</Title>
-          <Line className="sbs">
+          <Line className="sbc">
           <Filter className="selects"></Filter>
           <Filter className="selects"></Filter>
           <Filter className="selects"></Filter>

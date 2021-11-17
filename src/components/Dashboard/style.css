@@ -11,6 +11,11 @@
     left: -10px;
   }
 
+  .sbc {
+    height: 35vh;
+    width: 100%;
+  }
+
 }
   .sbm{
     height: 35vh;
@@ -41,3 +46,18 @@
     left: 80px;
     top: -20px;
   }
+
+  .sbc {
+    height: 36vh;
+    width: 100%;
+  }
+
+  .sbc .selects {
+    left: 160px;
+    top: -5px;
+  }
+
+  /* .chart {
+    height: 140px;
+    width: 100%;
+  } */
