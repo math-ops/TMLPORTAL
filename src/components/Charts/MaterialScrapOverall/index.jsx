@@ -2,8 +2,43 @@ import React from 'react'
 import { Bar } from 'react-chartjs-2'
 import { Chart } from 'chart.js'
 import ChartDataLabels from 'chartjs-plugin-datalabels'
+import { useEffect, useState } from 'react'
+
+//criando o spinner
+import  CircularProgress  from '@mui/material/CircularProgress'
+
+export default function Spinner(){
+  const [level, setLevel] = React.useState(0);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setLevel((nextLevel) => nextLevel >= 100 ? 0 : nextLevel + 25);
+    }, 500);
+
+    return () => {
+      clearInterval(timer)
+    };
+  }, []);
+  
+
+  return(
+    <>
+      <div style={{marginLeft: 220, marginTop: 50}}>
+      <CircularProgress variant="determinate" value={level} />  
+
+      </div>
+      
+    </>
+  )
+}
 
 Chart.register(ChartDataLabels);
+
+function Grafico(){
+  return(
+    <Bar data={scrapOverallData} height={50} width={50} options={options} />
+  )
+}
 
 const scrapOverallData = {
   labels: ['Geral', 'BE', 'CAR', 'FE', 'HP', 'MRB', 'CFC', 'DEC'],
@@ -88,9 +123,19 @@ const options = {
 }
 
 export function ChartScrapOverall(){
+
+  const [post, setPost] = useState(null);
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts/1")
+    .then(response => response.json())
+    .then(response => {
+      setPost(Grafico)
+    })
+  }, []) 
+
   return(
     <>
-      <Bar data={scrapOverallData} height={50} width={50} options={options} />
+      {post ? post : <Spinner />}
     </>
   )
 }

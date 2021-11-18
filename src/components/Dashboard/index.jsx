@@ -7,6 +7,7 @@ import { ChartTrendWeek } from '../Charts/MaterialTrendWeek'
 import { ChartScrapModel } from '../Charts/ScrapByModel'
 import { ChartClassification } from '../Charts/ScrapByClassification'
 import { ChartOfensorDescription } from '../Charts/OfensorByDescription'
+// import Spinner from '../Spinner/Spinner'
 // import moment from 'moment'
 import 'moment/locale/pt-br'
 import './style.css'
@@ -16,6 +17,8 @@ import './style.css'
 
 
 export default function Dashboard(){
+
+  
   return(
     <>
       <PersistentDrawerLeft />
@@ -57,7 +60,7 @@ export default function Dashboard(){
           <Filter></Filter>
           <Filter></Filter>
           <div className="charts">
-          <ChartScrapModel />
+          <ChartScrapModel />          
           </div>        
         </Line>
           

@@ -1,4 +1,5 @@
-import * as React from 'react'
+import React, {useEffect, useState} from 'react'
+import Spinner from '../../Spinner/Spinner'
 //import CircularProgress from '@mui/material/CircularProgress'
 import { Doughnut } from 'react-chartjs-2'
 
@@ -59,14 +60,29 @@ const geral = {
   }
 }
 
+function Grafico(){
+  return (
+    <Doughnut data={riskValueData} height={50} width={50} options={geral}/>
+  )
+}
+
 export function ChartRiskValue(){
 
-  //const [loading, setLoading] = React.useState(false);  
-  
+
+
+  const [post, setPost] = useState(null);
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts/1")
+    .then(response => response.json())
+    .then(response => {
+      setPost(Grafico)
+    })
+  }, []) 
+
+
   return(
     <>
-      {/* <CircularProgress /> */}
-      <Doughnut data={riskValueData} height={50} width={50} options={geral}/>
+      {post ?  post : <Spinner />}      
     </>
   )
 }
