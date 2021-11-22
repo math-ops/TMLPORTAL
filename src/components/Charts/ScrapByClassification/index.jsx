@@ -8,110 +8,69 @@ import '../../Dashboard/style.css'
 //criando o spinner
 import  CircularProgress  from '@mui/material/CircularProgress'
 
-export default function Spinner(){
-  const [level, setLevel] = React.useState(0);
-
-  React.useEffect(() => {
-    const timer = setInterval(() => {
-      setLevel((nextLevel) => nextLevel >= 100 ? 0 : nextLevel + 25);
-    }, 500);
-
-    return () => {
-      clearInterval(timer)
-    };
-  }, []);
-  
-
-  return(
-    <>
-      <div style={{marginLeft: 275, marginTop: 120}}>
-      <CircularProgress variant="determinate" value={level} />  
-
-      </div>
-      
-    </>
-  )
-}
 
 Chart.register(ChartDataLabels);
 
-const classificationData = {
-  labels: ['Board', 'HP', 'SMT', 'Memoria', 'Baterias', 'Processador', 'OTU', 'Cameras', 'Display', 'Subboard'],
-  datasets: [
-    {
-      label: 'Classification',
-      data: [100749, 29170, 22120, 21463, 16326, 10104, 10007, 5262, 4901, 4436],
-      backgroundColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
-      ],
-      datalabels: {
-        align: 'center',
-        anchor: 'end',
-        color: '#000',       
+export function ChartClassification({data}){
+
+  const classificationData = {
+    labels: data.map((itens)=> itens.FAMILIA),
+    datasets: [
+      {
+        label: 'Classification',
+        data: data.map((itens)=> itens.PERCENT.toFixed(0)),
+        backgroundColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+        ],
+        datalabels: {
+          align: 'center',
+          anchor: 'end',
+          color: '#000',       
+        }
       }
-    }
-  ]
-}
-
-console.log(classificationData.datasets[0].data);
-
-
-const config = {
-  maintainAspectRatio: false,
-  type: 'pie',
-  classificationData,
-  rotation: 45,
-  options: {
-    responsive: true,
+    ]
+  }
+  
+  const config = {
+    maintainAspectRatio: false,
+    type: 'pie',
+    classificationData,
+    rotation: 45,
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: false,
+          text: 'Chart.js Pie Chart'
+        }
+      }
+    },
     plugins: {
-      title: {
-        display: false,
-        text: 'Chart.js Pie Chart'
-      }
-    }
-  },
-  plugins: {
-    legend: {
-      display: false
-    },
-    labels: {
-      render: 'label',
-    },
-      datalabels: {
-        display: true,
-        formatter: (val, ctx) => {
-          
-          return `${ctx.chart.data.labels[ctx.dataIndex]}: ${classificationData.datasets[0].data[0]}`;
-        },
-        color: '#fff',
+      legend: {
+        display: false
       },
-  }  
-};
-
-function Grafico(){
-  return(
-<Pie data={classificationData} height={80} width={100} options={config}/>
-  )
-}
-
-export function ChartClassification(){
-  const [post, setPost] = React.useState(null);
-  React.useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts/1")
-    .then(response => response.json())
-    .then(response => {
-      setPost(Grafico)
-    })
-  }, []) 
+      labels: {
+        render: 'label',
+      },
+        datalabels: {
+          display: true,
+          formatter: (val, ctx) => {
+            
+            return `${ctx.chart.data.labels[ctx.dataIndex]}: ${classificationData.datasets[0].data[0]}`;
+          },
+          color: '#fff',
+        },
+    }  
+  };
 
   return(
     <>
-        {post ? post : <Spinner />}
+        <Pie data={classificationData} height={80} width={100} options={config}/>
     </>
   )
 }

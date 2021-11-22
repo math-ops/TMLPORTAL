@@ -1,7 +1,9 @@
 import * as React from 'react'
-import  CircularProgress  from '@mui/material/CircularProgress'
+import CircularProgress from '@mui/material/CircularProgress'
+import Stack from '@mui/material/Stack'
 
-export default function Spinner(){
+export default function Spinner() {
+
   const [level, setLevel] = React.useState(0);
 
   React.useEffect(() => {
@@ -12,17 +14,15 @@ export default function Spinner(){
     return () => {
       clearInterval(timer)
     };
-  }, []);
+  }, [level]);
 
-  
 
-  return(
+
+  return (
     <>
-      <div style={{marginLeft: 220, marginTop: -10}}>
-      <CircularProgress variant="determinate" value={level} />  
-
-      </div>
-      
+      <Stack alignItems="center" >
+        <CircularProgress variant="determinate" value={level} />
+      </Stack>
     </>
   )
 }
