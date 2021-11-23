@@ -19,6 +19,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import { FiltroContext } from '../../provider/filtros';
+import moment from 'moment';
+moment.locale('pt-br');
 
 const drawerWidth = 240;
 
@@ -49,6 +52,19 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 export default function PersistentDrawerLeft() {
+
+  const { cia, 
+          setCia, 
+          dataInicio, 
+          setDataInicio,
+          dataFim,
+          setDataFim,
+          resultado,
+          setResultado,
+          isSearch,
+          setIsSearch
+        } = React.useContext(FiltroContext);
+
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -59,6 +75,10 @@ export default function PersistentDrawerLeft() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  function formatDataCalendar(data) {
+    return moment(data).add(1, 'days').format('YYYY-MM-DD').toString();
+  }
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -78,36 +98,36 @@ export default function PersistentDrawerLeft() {
             TML Overview
           </Typography>
 
-
           <Line>
         <Label>Cia.:</Label>
-       <Select>
+       <Select value={cia} onChange={(e)=> setCia(e.target.value)}>
+          <Option value="manaus">Manaus</Option>
           <Option value="066">066</Option>
           <Option value="338">338</Option>
        </Select>
 
         <Label>Data Inicio:</Label>
-        <Input type="date"/>
+        <Input type="date" value={dataInicio} onChange={(e)=> setDataInicio(formatDataCalendar(e.target.valueAsDate))}/>
 
        <Label>Data Final:</Label>
-        <Input type="date"/>
+        <Input type="date"  value={dataFim} onChange={(e)=> setDataFim(formatDataCalendar(e.target.valueAsDate))}/>
 
         <Label>Resultado:</Label>
-        <Select>
-          <Option>ALL</Option>
-          <Option>RTV</Option>
-          <Option>UAI</Option>
-          <Option>REW</Option>
-          <Option>SCRP</Option>
-          <Option>HLD</Option>
-          <Option>Cancelada</Option>
-          <Option>E-SCRP</Option>
-          <Option>RTC</Option>
-          <Option>MRB</Option>
-          <Option>SCRP/E-SCRP</Option>
+        <Select value={resultado} onChange={(e)=> setResultado(e.target.value)}>
+          <Option value="ALL">ALL</Option>
+          <Option value="1">RTV</Option>
+          <Option value="2">UAI</Option>
+          <Option value="3">REW</Option>
+          <Option value="4">SCRP</Option>
+          <Option value="5">HLD</Option>
+          <Option value="6">Cancelada</Option>
+          <Option value="7">E-SCRP</Option>
+          <Option value="8">RTC</Option>
+          <Option value="9">MRB</Option>
+          <Option value="4,7">SCRP/E-SCRP</Option>
         </Select>
         </Line>    
-         <Button><Search src={search} /></Button>
+         <Button onClick={(e) => setIsSearch(!isSearch)}><Search src={search} /></Button>
 
         </Toolbar>
       </AppBar>
