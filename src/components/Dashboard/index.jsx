@@ -8,7 +8,7 @@ import { ChartTrendWeek } from '../Charts/MaterialTrendWeek'
 import { ChartScrapModel } from '../Charts/ScrapByModel'
 import { ChartClassification } from '../Charts/ScrapByClassification'
 import { ChartOfensorDescription } from '../Charts/OfensorByDescription'
-import Spinner from '../Spinner';
+import { SpinnerSm, SpinnerBg } from '../Spinner';
 import moment from 'moment'
 import 'moment/locale/pt-br'
 import './style.css'
@@ -100,7 +100,7 @@ export default function Dashboard() {
           <Line>
             {
               processingRiskValue ?
-                <Spinner />
+                <SpinnerSm />
                 :
                 <ChartRiskValue data={dataRiskValue} />
             }
@@ -131,7 +131,7 @@ export default function Dashboard() {
           <Line className="sbm">
             <div className="charts">
               {processingScrapModel ?
-                <Spinner />
+                <SpinnerBg />
                 :
                 <ChartScrapModel data={dataScrapModel} />
               }
@@ -144,7 +144,7 @@ export default function Dashboard() {
           <Line className="sbc">
             {
               processingScrapClassification ?
-                <Spinner />
+                <SpinnerBg />
                 :
                 <ChartClassification data={dataScrapClassification} />
             }
@@ -157,7 +157,7 @@ export default function Dashboard() {
             {
               processingDefectClassification ?
 
-                <Spinner />
+                <SpinnerBg />
                 :
                 <ChartOfensorDescription data={dataDefectClassification} />
 
@@ -170,7 +170,7 @@ export default function Dashboard() {
           <Line className="sbs">
             {
               processingScrapByShift ?
-                <Spinner />
+                <SpinnerBg />
                 :
                 <ChartScrapByShift data={dataScrapByShift} />
             }
