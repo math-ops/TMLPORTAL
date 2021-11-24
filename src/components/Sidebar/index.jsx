@@ -17,10 +17,12 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+// import InboxIcon from '@mui/icons-material/MoveToInbox';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+// import MailIcon from '@mui/icons-material/Mail';
 import { FiltroContext } from '../../provider/filtros';
 import moment from 'moment';
+import { useHistory } from 'react-router-dom';
 moment.locale('pt-br');
 
 const drawerWidth = 240;
@@ -51,7 +53,22 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-export default function PersistentDrawerLeft() {
+export default function PersistentDrawerLeft(props) {
+
+    const history = useHistory();
+ 
+  const menuItems = [
+    {
+      text: 'Cadastro',
+      icon: <AddBoxIcon />,
+      path: '/cad'
+    },
+    {
+      text: 'Menu',
+      icon: <AddBoxIcon />,
+      path: '/'
+    }
+  ]
 
   const { cia, 
           setCia, 
@@ -79,6 +96,8 @@ export default function PersistentDrawerLeft() {
   function formatDataCalendar(data) {
     return moment(data).add(1, 'days').format('YYYY-MM-DD').toString();
   }
+
+
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -149,29 +168,22 @@ export default function PersistentDrawerLeft() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
-          {/* DEFININDO AS OPÇÕES */}
-          {['OPÇÃO 1', 'OPÇÃO 2', 'OPÇÃO 3', 'OPÇÃO 4', 'OPÇÃO 5'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
+       
+          <List>
+            {menuItems.map(item => (
+              <ListItem
+                button
+                key={item.text}
+                onClick={() => history.push(item.path)}
+              >
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItem>
+            ))}
+          </List>
+
       </Drawer>
     </Box>
   );
 }
+

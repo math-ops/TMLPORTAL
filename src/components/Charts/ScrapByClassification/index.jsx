@@ -6,7 +6,7 @@ import '../../Dashboard/style.css'
 
 
 //criando o spinner
-import  CircularProgress  from '@mui/material/CircularProgress'
+// import  CircularProgress  from '@mui/material/CircularProgress'
 
 
 Chart.register(ChartDataLabels);
@@ -59,9 +59,9 @@ export function ChartClassification({data}){
       },
         datalabels: {
           display: true,
-          formatter: (val, ctx) => {
+          formatter: (value, ctx) => {
             
-            return `${ctx.chart.data.labels[ctx.dataIndex]}: ${classificationData.datasets[0].data[0]}`;
+            return `${ctx.chart.data.labels[ctx.dataIndex]}: ${value}`;
           },
           color: '#fff',
         },

@@ -86,7 +86,7 @@ export default function Dashboard() {
       setDataScrapClassification(res_ScrapClassification.data);
 
     })();
-
+// eslint-disable-next-line
   }, [isSearch]);
 
 
