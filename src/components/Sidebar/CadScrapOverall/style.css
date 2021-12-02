@@ -8,6 +8,11 @@
   left: 10%;
 }
 
+.campo_tres{
+  top: 250px;
+  left: 10%
+}
+
 .label_um{
   top: 20px;
   left: 10%;
@@ -16,4 +21,9 @@
 .label_dois{
   top: 120px;
   left: 10%;  
+}
+
+.label_tres{
+  top: 220px;
+  left: 10%;
 }

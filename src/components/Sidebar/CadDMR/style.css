@@ -1,0 +1,35 @@
+.ndmr_campo_um{
+    top: 50px;
+    left: 10%;
+  }
+  
+  .ndmr_campo_dois{
+    top: 150px;
+    left: 10%;
+  }
+  
+  .ndmr_campo_tres{
+    top: 250px;
+    left: 10%
+  }
+  
+  .ndmr_label_um{
+    top: 20px;
+    left: 10%;
+  }
+  
+  .ndmr_label_dois{
+    top: 120px;
+    left: 10%;  
+  }
+  
+  .ndmr_label_tres{
+    top: 220px;
+    left: 10%;
+  }
+  
+  .here{
+      position: absolute;
+      top: 240px;
+      left: 10%;
+  }

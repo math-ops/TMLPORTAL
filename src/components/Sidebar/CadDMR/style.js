@@ -47,9 +47,14 @@ export const Input = styled.input`
   padding: 10px;
   height: 60px;
   width: 450px;
-  border: none;
+  border: solid 1px #009add;
   border-radius: 5px;
-  background: #ccc;
+  background: none;
+  outline: none;
+  transition: 0.4s ease-out;
+  &:focus{
+      box-shadow: 0px 0px 8px #4484c4;
+  }
   
 `;
 

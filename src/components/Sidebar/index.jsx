@@ -59,14 +59,29 @@ export default function PersistentDrawerLeft(props) {
  
   const menuItems = [
     {
+      text: 'Menu',
+      icon: <AddBoxIcon />,
+      path: '/'
+    },
+    {
       text: 'Cadastro',
       icon: <AddBoxIcon />,
       path: '/cad'
     },
     {
-      text: 'Menu',
+      text: 'Visualizar',
       icon: <AddBoxIcon />,
-      path: '/'
+      path: '/view'
+    },
+    {
+      text: 'Cadastro DMR',
+      icon: <AddBoxIcon />,
+      path: '/cdmr'
+    },
+    {
+      text: 'View DMR',
+      icon: <AddBoxIcon />,
+      path: '/vdmr'
     }
   ]
 
