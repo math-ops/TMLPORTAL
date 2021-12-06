@@ -1,5 +1,5 @@
 import PersistentDrawerLeft from '../'
-import { Container, TableName, SearchField, Pesquisa, Campo, Button } from './style'
+import { Container, TableName, Campo, Button } from './style'
 import './style.css'
 
 import * as React from 'react';
@@ -157,22 +157,31 @@ export default function ViewCad(){
   return(
     <>
 <PersistentDrawerLeft />
-    <Pesquisa>
-      <SearchField>Informe os dados abaixo:</SearchField>
-        <div>
-        <Campo className="campo_linha" placeholder="Linha"/>
-        </div>
-        <div>
-        <Campo className="campo_area" placeholder="Area"/>
-        </div>
-        <div>
-        <Campo className="campo_cia" placeholder="Cia."/>
-        </div>
-        <Button>Pesquisar</Button>
-    </Pesquisa>
-
+    
       <Container>
         <TableName>Cadastros realizados</TableName>
+        <div>
+        <Campo className="campo_linha">
+          <option>Linha:</option>
+          <option>value_01</option>
+          <option>value_02</option>
+          </Campo>
+        </div>
+        <div>
+        <Campo className="campo_area">
+          <option>Area:</option>
+          <option>value_01</option>
+          <option>value_02</option>
+          </Campo>
+        </div>
+        <div>
+        <Campo className="campo_cia">
+          <option>Cia.:</option>
+          <option>value_01</option>
+          <option>value_02</option>
+          </Campo>
+        </div>
+        <Button>Pesquisar</Button>
           <StickyHeadTable />
         </Container>
     </>

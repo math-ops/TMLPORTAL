@@ -1,16 +1,14 @@
-.table{
-    position: absolute;
-    top: 70px;
-}
-
 .campo_linha{
-    top: 20%;
+    top: -8%;
+    left: 01%;
 }
 
 .campo_area{
-    top: 40%;
+    top: -8%;
+    left: 25%;
 }
 
 .campo_cia{
-    top: 60%;
+    top: -8%;
+    left: 49%;
 }

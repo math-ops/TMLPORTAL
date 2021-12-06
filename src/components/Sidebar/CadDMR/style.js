@@ -72,6 +72,33 @@ export const Input = styled.input`
   
 `;
 
+export const Select = styled.select`
+@media only screen and (max-width: 1280px){
+  position: absolute;
+  padding: 10px;
+  height: 60px;
+  width: 450px;
+  background: none;
+  border: 1px solid #009add;
+  border-radius: 5px;
+  outline: none;
+  &:focus{
+    box-shadow: 0px 0px 8px #4484c4;
+}
+}
+  position: absolute;
+  padding: 10px;
+  height: 60px;
+  width: 450px;
+  background: none;
+    border: 1px solid #009add;
+    border-radius: 5px;
+    outline: none;
+    &:focus{
+      box-shadow: 0px 0px 8px #4484c4;
+  }
+  `;
+
 export const Label = styled.label`
 @media only screen and (max-width: 1280px){
   font-family: 'Roboto', sans-serif;

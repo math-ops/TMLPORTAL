@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Label, Input, Select, Option, Button, Search, Line } from '../Dashboard/style'
+import { Label, Input, Select, Option, Button, Download, Search, Line } from '../Dashboard/style'
 import search from '../../styles/img/search.svg'
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -17,12 +17,17 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-// import InboxIcon from '@mui/icons-material/MoveToInbox';
-import AddBoxIcon from '@mui/icons-material/AddBox';
-// import MailIcon from '@mui/icons-material/Mail';
+import TableViewIcon from '@mui/icons-material/TableView';
+import CreateIcon from '@mui/icons-material/Create';
+import WindowIcon from '@mui/icons-material/Window';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionActions from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { FiltroContext } from '../../provider/filtros';
 import moment from 'moment';
 import { useHistory } from 'react-router-dom';
+import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 moment.locale('pt-br');
 
 const drawerWidth = 240;
@@ -60,27 +65,33 @@ export default function PersistentDrawerLeft(props) {
   const menuItems = [
     {
       text: 'Menu',
-      icon: <AddBoxIcon />,
+      icon: <WindowIcon />,
       path: '/'
     },
-    {
-      text: 'Cadastro',
-      icon: <AddBoxIcon />,
-      path: '/cad'
-    },
-    {
+  ]
+
+  const cadastros = [
+      {
+        text: 'Cadastro',
+        icon: <CreateIcon />,
+        path: '/cad'
+      },
+      {
+          text: 'Cadastro DMR',
+          icon: <CreateIcon />,
+          path: '/cdmr'
+      },
+  ]
+
+  const visualizarCadastros = [
+     {
       text: 'Visualizar',
-      icon: <AddBoxIcon />,
+      icon: <TableViewIcon />,
       path: '/view'
     },
     {
-      text: 'Cadastro DMR',
-      icon: <AddBoxIcon />,
-      path: '/cdmr'
-    },
-    {
       text: 'View DMR',
-      icon: <AddBoxIcon />,
+      icon: <TableViewIcon />,
       path: '/vdmr'
     }
   ]
@@ -164,6 +175,7 @@ export default function PersistentDrawerLeft(props) {
          <Button onClick={(e) => setIsSearch(!isSearch)}><Search src={search} /></Button>
 
         </Toolbar>
+        <Download><CloudDownloadIcon /></Download>
       </AppBar>
       <Drawer
         sx={{
@@ -186,7 +198,7 @@ export default function PersistentDrawerLeft(props) {
        
           <List>
             {menuItems.map(item => (
-              <ListItem
+               <ListItem
                 button
                 key={item.text}
                 onClick={() => history.push(item.path)}
@@ -195,8 +207,43 @@ export default function PersistentDrawerLeft(props) {
                 <ListItemText primary={item.text} />
               </ListItem>
             ))}
-          </List>
+            <Accordion>
+              <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">CADASTROS</AccordionSummary>
+              <AccordionActions>
+                <List>
+                {cadastros.map(cadastros => (
+                  <ListItem
+                  button
+                  key={cadastros.text}
+                  onClick={() => history.push(cadastros.path)}
+                >
+                  <ListItemIcon>{cadastros.icon}</ListItemIcon>
+                <ListItemText primary={cadastros.text} />
+              </ListItem>
+                ))}
+                </List>
+              </AccordionActions>
+            </Accordion>
 
+            <Accordion>
+              <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">VIEWS</AccordionSummary>
+              <AccordionActions>
+                <List>
+                {visualizarCadastros.map(visualizarCadastros => (
+                  <ListItem
+                  button
+                  key={visualizarCadastros.text}
+                  onClick={() => history.push(visualizarCadastros.path)}
+                >
+                  <ListItemIcon>{visualizarCadastros.icon}</ListItemIcon>
+                <ListItemText primary={visualizarCadastros.text} />
+              </ListItem>
+                ))}
+                </List>
+              </AccordionActions>
+            </Accordion>
+          </List>
+              
       </Drawer>
     </Box>
   );

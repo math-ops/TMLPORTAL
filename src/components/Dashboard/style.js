@@ -278,11 +278,44 @@ export const Button = styled.button`
   width: 70px;
   height: 40px;
   cursor: pointer;
+  border-radius: 4px;
   background: greenyellow;
   left: 80px;
   top: 0px;
   &:hover{
     background: 	#22bb33;
+    transition: 0.4s ease-out;
+  }
+
+`;
+
+export const Download = styled.button`
+@media only screen and (max-width: 1280px){
+  position: relative;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 15px;
+  cursor: pointer;
+  background: none;
+  left: 70px;
+  top: 0px;
+  &:hover{
+    background: 	#22bb33;
+    transition: 0.4s ease-out;
+  }
+}
+  position: relative;
+  border: none;
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
+  background: #dddddd;
+  border-radius: 4px;
+  left: 1450px;
+  top: -53px;
+  &:hover{
+    background: 	#aaaaaa;
     transition: 0.4s ease-out;
   }
 

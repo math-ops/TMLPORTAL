@@ -1,4 +1,4 @@
-import { Background, Container, Form, Input, Label, Button } from './style'
+import { Background, Container, Form, Input, Label, Select, Button } from './style'
 import './style.css'
 import PersistentDrawerLeft from '../'
 import Radio from '@mui/material/Radio'
@@ -19,7 +19,11 @@ export default function CadDMR() {
                         </div>
                         <div>
                             <Label className="ndmr_label_dois">Cia.</Label>
-                            <Input className="ndmr_campo_dois" placeholder="Cia." />
+                            <Select className="campo_dois">
+                                <option value="manaus" >Manaus</option>
+                                <option value="066" >066</option>
+                                <option value="338" >338</option>
+                            </Select>
                         </div>
                         <FormLabel className="ndmr_label_tres" component="legend">Flag</FormLabel>
                         <RadioGroup row aria-label="flag" name="row-radio-buttons-group" className="here">

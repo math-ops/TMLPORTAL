@@ -1,5 +1,5 @@
 import './style.css'
-import { Background, Container, Form, Input, Label, Button } from './style'
+import { Background, Container, Form, Input, Label, Button, Select } from './style'
 import PersistentDrawerLeft from '../'
 
 export default function Cadastro(){
@@ -19,7 +19,11 @@ export default function Cadastro(){
               </div>
               <div >
                 <Label className="label_tres">Cia</Label>
-                  <Input className="campo_tres" placeholder="Cia."/>
+                  <Select className="campo_tres">
+                    <option value="manaus" >Manaus</option>
+                    <option value="066" >066</option>
+                    <option value="338" >338</option>
+                    </Select>
               </div>
                 <Button>Salvar</Button>
           </Form>
