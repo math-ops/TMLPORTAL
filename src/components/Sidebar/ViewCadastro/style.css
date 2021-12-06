@@ -1,4 +1,16 @@
 .table{
     position: absolute;
-    top: 100px;
+    top: 70px;
+}
+
+.campo_linha{
+    top: 20%;
+}
+
+.campo_area{
+    top: 40%;
+}
+
+.campo_cia{
+    top: 60%;
 }
