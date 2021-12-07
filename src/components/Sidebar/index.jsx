@@ -126,7 +126,7 @@ export default function PersistentDrawerLeft(props) {
 
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex'}}>
       <CssBaseline />
       <AppBar position="absolute" open={open}>
         <Toolbar>
@@ -151,6 +151,13 @@ export default function PersistentDrawerLeft(props) {
           <Option value="338">338</Option>
        </Select>
 
+       <Label>Area:</Label>
+       <Select value={cia} onChange={(e)=> setCia(e.target.value)}>
+          <Option value="#">Area</Option>
+          <Option value="#">value_01</Option>
+          <Option value="#">value_02</Option>
+       </Select>
+
         <Label>Data Inicio:</Label>
         <Input type="date" value={dataInicio} onChange={(e)=> setDataInicio(formatDataCalendar(e.target.valueAsDate))}/>
 
@@ -171,11 +178,14 @@ export default function PersistentDrawerLeft(props) {
           <Option value="9">MRB</Option>
           <Option value="4,7">SCRP/E-SCRP</Option>
         </Select>
-        </Line>    
+        </Line> 
+        <Line>   
          <Button onClick={(e) => setIsSearch(!isSearch)}><Search src={search} /></Button>
-
+          </Line>
+          
+          <Download><CloudDownloadIcon /></Download>
+        
         </Toolbar>
-        <Download><CloudDownloadIcon /></Download>
       </AppBar>
       <Drawer
         sx={{

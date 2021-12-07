@@ -29,7 +29,7 @@ export const Line = styled.div`
 export const Container = styled.div`
 @media only screen and (max-width: 1280px){
   position: absolute;
-  top: 60px;
+  top: 65px;
   width: 100%;  
   height: 93vh;
   background: ${gray};
@@ -193,7 +193,7 @@ export const Input = styled.input`
   position: relative;
   background: #eee;
   border: solid 1px #000;
-  width: 170px;
+  width: 125px;
   height: 40px;
   left: 60px;
   top: -5px;
@@ -220,7 +220,7 @@ export const Select = styled.select`
   position: relative;
   background: #eee;
   border: solid 1px #000;
-  width: 170px;
+  width: 125px;
   height: 40px;
   left: 60px;
   top: -5px;
@@ -275,12 +275,12 @@ export const Button = styled.button`
 }
   position: relative;
   border: none;
-  width: 70px;
+  width: 90px;
   height: 40px;
   cursor: pointer;
   border-radius: 4px;
   background: greenyellow;
-  left: 80px;
+  left: 85px;
   top: 0px;
   &:hover{
     background: 	#22bb33;
@@ -312,8 +312,8 @@ export const Download = styled.button`
   cursor: pointer;
   background: #dddddd;
   border-radius: 4px;
-  left: 1450px;
-  top: -53px;
+  left: 150px;
+  top: 0px;
   &:hover{
     background: 	#aaaaaa;
     transition: 0.4s ease-out;

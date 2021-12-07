@@ -1,12 +1,69 @@
 import { Background, Container, Form, Input, Label, Select, Button } from './style'
 import './style.css'
+// import React, { useState } from 'react'
 import PersistentDrawerLeft from '../'
 import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import FormLabel from '@mui/material/FormLabel'
+// import axios from 'axios'
+// import Snackbar from '@mui/material/Snackbar'
+// import MuiAlert from '@mui/material/Alert'
+// import api from '../../../services/api'
 
 export default function CadDMR() {
+    // const [isSucess, setIsSucess] = useState();
+    // const [dmr, setDmr] = useState({
+    //     id: '',
+    //     num_dmr: '',
+    //     cia: '',
+    //     flag: '',
+    // });
+
+    // async function handleSubmit(e) {
+    //     e.preventDefault();
+    //     try {
+    //         const res = await axios.post(api, dmr);
+    //         if (!!res.data) {
+    //             setIsSucess(true);
+    //         } else {
+    //             setIsSucess(false);
+    //         }
+    //     } catch {
+    //         setIsSucess(false);
+    //         console.log('error catch');
+    //     } finally {
+    //         handleClick();
+    //     }
+    // }
+
+    // const handleChange = e => {
+    //     const { name, value } = e.target;
+    //     setDmr(prevState => ({
+    //         ...prevState,
+    //         [name]: value
+    //     }))
+    //     console.log(dmr);
+    // }
+
+    // const Alert = React.forwardRef(function Alert(props, ref) {
+    //     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+    // })
+
+    // const [open, setOpen] = React.useState(false);
+
+    // const handleClick = () => {
+    //     setOpen(true)
+    // }
+
+    // const handleClose = (event, reason) => {
+    //     if (reason === 'clickaway') {
+    //         return;
+    //     }
+    //     setOpen(false);
+    // }
+
+
     return (
         <>
             <PersistentDrawerLeft />
@@ -31,6 +88,19 @@ export default function CadDMR() {
                             <FormControlLabel value="Excluir" control={<Radio />} label="Excluir" />
                         </RadioGroup>
                         <Button>SALVAR</Button>
+                        {/* {isSucess ?
+                            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                                <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                                    Cadastrado com Sucesso!
+                                </Alert>
+                            </Snackbar>
+                            :
+                            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                                <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+                                    Não Foi Possivel Fazer o Cadastro!
+                                </Alert>
+                            </Snackbar>
+                        } */}
                     </Form>
                 </Container>
             </Background>
