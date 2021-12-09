@@ -3,7 +3,7 @@ import { Background, Container, Form, Input, Label, Button, Select } from './sty
 import PersistentDrawerLeft from '../'
 // m
 
-export default function Cadastro() {
+export default function CadArea() {
   // const [isSucess, setIsSucess] = useState();
   // const [area, setArea] = useState({
   //   id: '',

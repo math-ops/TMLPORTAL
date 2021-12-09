@@ -80,7 +80,7 @@ export const Input = styled.input`
   outline: none;
 `;
 
-export const Button = styled.button`
+export const SButton = styled.button`
   @media only screen and (max-width: 1280px) {
     position: absolute;
     top: 80%;

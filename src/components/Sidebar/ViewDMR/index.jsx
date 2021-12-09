@@ -1,5 +1,5 @@
 import './style.css'
-import { Container, TableName, Campo, Input, Button } from './style'
+import { Container, TableName, Campo, Input, SButton } from './style'
 import PersistentDrawerLeft from '..';
 
 import * as React from 'react';
@@ -12,6 +12,15 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
+import IconButton from '@mui/material/IconButton'
+import DeleteIcon from '@mui/icons-material/Delete';
+
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -27,29 +36,11 @@ const StyledTableCell = withStyles((theme) => ({
 }))(TableCell);
 
 const columns = [
-  { id: 'name', label: 'Name', minWidth: 170 },
-  { id: 'code', label: 'ISO\u00a0Code', minWidth: 100 },
-  {
-    id: 'population',
-    label: 'Population',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toLocaleString('en-US'),
-  },
-  {
-    id: 'size',
-    label: 'Size\u00a0(km\u00b2)',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toLocaleString('en-US'),
-  },
-  {
-    id: 'density',
-    label: 'Density',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toFixed(2),
-  },
+  { id: 'num_dmr', label: 'Nº DMR', minWidth: 190 },
+  { id: 'cia', label: 'Companhia', minWidth: 170 },
+  { id: 'flag', label: 'Flag', minWidth: 170 },
+  { id: 'remove', label: 'Remover', minWidth: 150 },
+ 
 ];
 
 const useStyles = makeStyles({
@@ -64,32 +55,25 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(name, code, population, size) {
-  const density = population / size;
-  return { name, code, population, size, density };
+function createData(num_dmr, cia, flag) {
+  
+  return { num_dmr, cia, flag };
 }
 
 const rows = [
-  createData('India', 'IN', 1324171354, 3287263),
-  createData('China', 'CN', 1403500365, 9596961),
-  createData('Italy', 'IT', 60483973, 301340),
-  createData('United States', 'US', 327167434, 9833520),
-  createData('Canada', 'CA', 37602103, 9984670),
-  createData('Australia', 'AU', 25475400, 7692024),
-  createData('Germany', 'DE', 83019200, 357578),
-  createData('Ireland', 'IE', 4857000, 70273),
-  createData('Mexico', 'MX', 126577691, 1972550),
-  createData('Japan', 'JP', 126317000, 377973),
-  createData('France', 'FR', 67022000, 640679),
-  createData('United Kingdom', 'GB', 67545757, 242495),
-  createData('Russia', 'RU', 146793744, 17098246),
-  createData('Nigeria', 'NG', 200962417, 923768),
-  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('00000','CIA_00', 'Inserir'),
+  createData('00000','CIA_01', 'Inserir'),
+  createData('00000','CIA_02', 'Inserir'),
+  createData('00000','CIA_03', 'Excluir'),
+  createData('00000','CIA_04', 'Excluir'),
+  createData('00000','CIA_05', 'Excluir'),
+  createData('00000','CIA_06', 'Excluir'),
 ];
 
 export function StickyHeadTable() {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
+  const [open, setOpen] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const handleChangePage = (event, newPage) => {
@@ -101,7 +85,35 @@ export function StickyHeadTable() {
     setPage(0);
   };
 
+  const handleOpen = () => {
+    setOpen(true);
+  }
+
+  const handleClose = () => {
+    setOpen(false);
+  }
+
+  const deleteButton = (
+    <IconButton aria-label="delete" onClick={handleOpen}>
+      <DeleteIcon color="error" />
+    </IconButton>
+  )
+
   return (
+    <>
+    <Dialog open={open} onClose={handleClose}>
+      <DialogTitle>Deletar DMR</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Deseja remover as informações selecionadas?
+            </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancelar</Button>
+          <Button color="error" onClick={handleClose}>Remover</Button>
+        </DialogActions>
+    </Dialog>
+
     <Paper className={classes.root}>
       <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table">
@@ -123,18 +135,14 @@ export function StickyHeadTable() {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
+                 <>
                   <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                    {columns.map((column) => {
-                      const value = row[column.id];
-                      return (
-                        <StyledTableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === 'number'
-                            ? column.format(value)
-                            : value}
-                        </StyledTableCell>
-                      );
-                    })}
+                    <StyledTableCell align="left">{row.num_dmr}</StyledTableCell>
+                    <StyledTableCell align="left">{row.cia}</StyledTableCell>
+                    <StyledTableCell align="left">{row.flag}</StyledTableCell>
+                    <StyledTableCell align="left">{deleteButton}</StyledTableCell>
                   </TableRow>
+                 </>
                 );
               })}
           </TableBody>
@@ -150,6 +158,7 @@ export function StickyHeadTable() {
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
     </Paper>
+    </>
   );
 }
 
@@ -177,7 +186,7 @@ export default function ViewDMR() {
             <option>Value_02</option>
           </Campo>
         </div>
-        <Button>Pesquisar</Button>
+        <SButton>Pesquisar</SButton>
         <StickyHeadTable />
       </Container>
     </>

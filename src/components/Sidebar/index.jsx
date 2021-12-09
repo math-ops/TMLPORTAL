@@ -72,7 +72,7 @@ export default function PersistentDrawerLeft(props) {
 
   const cadastros = [
       {
-        text: 'Cadastro',
+        text: 'Cadastro Area',
         icon: <CreateIcon />,
         path: '/cad'
       },
@@ -85,7 +85,7 @@ export default function PersistentDrawerLeft(props) {
 
   const visualizarCadastros = [
      {
-      text: 'Visualizar',
+      text: 'View Areas',
       icon: <TableViewIcon />,
       path: '/view'
     },

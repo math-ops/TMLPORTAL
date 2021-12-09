@@ -16,7 +16,7 @@ export const TableName = styled.h1`
   text-align: center;
   font-size: 35px;
   text-shadow: 0px 0px 3px #fff;
-  top: -15%;
+  top: -20%;
   left: 30%;
 `;
 
@@ -59,7 +59,7 @@ export const Campo = styled.select`
   outline: none;
 `;
 
-export const Button = styled.button`
+export const SButton = styled.button`
   @media only screen and (max-width: 1280px) {
     position: absolute;
     top: 80%;
