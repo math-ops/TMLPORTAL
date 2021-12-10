@@ -41,8 +41,8 @@ const columns = [
   { id: 'linha', label: 'Linha', minWidth: 170 },
   { id: 'area', label: 'Área', minWidth: 170 },
   { id: 'cia', label: 'Companhia', minWidth: 170 },
-  { id: 'edit', label: 'Editar', minWidth: 100 },
-  { id: 'remove', label: 'Remover', minWidth: 100 },
+  { id: 'edit', label: 'Editar', minWidth: 70 },
+  { id: 'remove', label: 'Remover', minWidth: 50 },
 ];
 
 const useStyles = makeStyles({
@@ -128,7 +128,7 @@ return (
       </DialogContent>
       <DialogActions>
         <Button onClick={handleEditClose}>Cancelar</Button>
-        <Button onClick={handleEditClose}>Salvar</Button>
+        <Button color="warning" onClick={handleEditClose}>Salvar</Button>
       </DialogActions>
     </Dialog>
 
@@ -171,8 +171,8 @@ return (
                       <StyledTableCell align="left">{row.linha}</StyledTableCell>
                       <StyledTableCell align="left">{row.area}</StyledTableCell>
                       <StyledTableCell align="left">{row.cia}</StyledTableCell>
-                      <StyledTableCell align="left">{editButton}</StyledTableCell>
-                      <StyledTableCell align="left">{deleteButton}</StyledTableCell>
+                      <StyledTableCell align="center">{editButton}</StyledTableCell>
+                      <StyledTableCell align="center">{deleteButton}</StyledTableCell>
                     </TableRow>
                   </>
                 );

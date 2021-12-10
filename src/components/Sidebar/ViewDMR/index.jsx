@@ -14,7 +14,6 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import IconButton from '@mui/material/IconButton'
 import DeleteIcon from '@mui/icons-material/Delete';
-
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -37,9 +36,9 @@ const StyledTableCell = withStyles((theme) => ({
 
 const columns = [
   { id: 'num_dmr', label: 'Nº DMR', minWidth: 190 },
-  { id: 'cia', label: 'Companhia', minWidth: 170 },
-  { id: 'flag', label: 'Flag', minWidth: 170 },
-  { id: 'remove', label: 'Remover', minWidth: 150 },
+  { id: 'cia', label: 'Companhia', minWidth: 190 },
+  { id: 'flag', label: 'Flag', minWidth: 190 },
+  { id: 'remove', label: 'Remover', minWidth: 50 },
  
 ];
 
@@ -140,7 +139,7 @@ export function StickyHeadTable() {
                     <StyledTableCell align="left">{row.num_dmr}</StyledTableCell>
                     <StyledTableCell align="left">{row.cia}</StyledTableCell>
                     <StyledTableCell align="left">{row.flag}</StyledTableCell>
-                    <StyledTableCell align="left">{deleteButton}</StyledTableCell>
+                    <StyledTableCell align="center">{deleteButton}</StyledTableCell>
                   </TableRow>
                  </>
                 );

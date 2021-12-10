@@ -7,6 +7,7 @@ import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import { ThemeProvider, createTheme } from '@mui/material/styles/'
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
@@ -19,7 +20,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import TableViewIcon from '@mui/icons-material/TableView';
 import CreateIcon from '@mui/icons-material/Create';
-import WindowIcon from '@mui/icons-material/Window';
+import InsertChartIcon from '@mui/icons-material/InsertChart';
+// import WindowIcon from '@mui/icons-material/Window';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionActions from '@mui/material/AccordionDetails';
@@ -64,8 +66,8 @@ export default function PersistentDrawerLeft(props) {
  
   const menuItems = [
     {
-      text: 'Menu',
-      icon: <WindowIcon />,
+      text: 'DASHBOARD',
+      icon: <InsertChartIcon />,
       path: '/'
     },
   ]
@@ -127,6 +129,22 @@ export default function PersistentDrawerLeft(props) {
 
   return (
     <Box sx={{ display: 'flex'}}>
+       <ThemeProvider
+        theme={createTheme({
+          components: {
+            MuiListItemButton: {
+              defaultProps: {
+                disableTouchRipple: true,
+              },
+            },
+          },
+          palette: {
+            mode: 'dark',
+            primary: { main: 'rgb(102, 157, 246)' },
+            background: { paper: 'rgb(5, 30, 52)' },
+          },
+        })}
+      >
       <CssBaseline />
       <AppBar position="absolute" open={open}>
         <Toolbar>
@@ -217,8 +235,9 @@ export default function PersistentDrawerLeft(props) {
                 <ListItemText primary={item.text} />
               </ListItem>
             ))}
+
             <Accordion>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">CADASTROS</AccordionSummary>
+              <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header"><ListItemIcon><CreateIcon /></ListItemIcon>CADASTROS</AccordionSummary>
               <AccordionActions>
                 <List>
                 {cadastros.map(cadastros => (
@@ -236,7 +255,7 @@ export default function PersistentDrawerLeft(props) {
             </Accordion>
 
             <Accordion>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">VIEWS</AccordionSummary>
+              <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header"><ListItemIcon><TableViewIcon  /></ListItemIcon>VIEWS</AccordionSummary>
               <AccordionActions>
                 <List>
                 {visualizarCadastros.map(visualizarCadastros => (
@@ -255,6 +274,7 @@ export default function PersistentDrawerLeft(props) {
           </List>
               
       </Drawer>
+      </ThemeProvider>
     </Box>
   );
 }

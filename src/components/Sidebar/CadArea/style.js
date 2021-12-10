@@ -103,11 +103,13 @@ export const Label = styled.label`
   font-weight: 300;
   font-size: 20px;
   position: absolute;
+  color: #000;
 }
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   font-size: 18px;
   position: absolute;
+  color: #000;
 `;
 
 export const Button = styled.button`

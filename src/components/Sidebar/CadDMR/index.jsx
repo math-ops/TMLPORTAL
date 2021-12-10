@@ -6,6 +6,8 @@ import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import FormLabel from '@mui/material/FormLabel'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
 // import axios from 'axios'
 // import Snackbar from '@mui/material/Snackbar'
 // import MuiAlert from '@mui/material/Alert'
@@ -68,6 +70,9 @@ export default function CadDMR() {
         <>
             <PersistentDrawerLeft />
             <Background>
+            <Box sx={{ width: '50%', height: 0, marginTop: '8%', marginLeft: '38%'}}>
+            <Typography variant="h3" component="div" gutterBottom > Cadastro de DMR</Typography>
+            </Box>
                 <Container>
                     <Form>
                         <div>
@@ -84,8 +89,8 @@ export default function CadDMR() {
                         </div>
                         <FormLabel className="ndmr_label_tres" component="legend">Flag</FormLabel>
                         <RadioGroup row aria-label="flag" name="row-radio-buttons-group" className="here">
-                            <FormControlLabel value="Inserir" control={<Radio />} label="Inserir" />
-                            <FormControlLabel value="Excluir" control={<Radio />} label="Excluir" />
+                            <FormControlLabel className="radio" value="Inserir" control={<Radio />} label="Inserir" />
+                            <FormControlLabel className="radio" value="Excluir" control={<Radio />} label="Excluir" />
                         </RadioGroup>
                         <Button>SALVAR</Button>
                         {/* {isSucess ?

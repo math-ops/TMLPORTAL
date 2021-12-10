@@ -9,6 +9,7 @@ export const TableName = styled.h1`
     text-shadow: 0px 0px 3px #fff;
     margin-top: 5px;
     margin-bottom: -5px;
+    color: #333;
   }
   position: absolute;
   font-family: "Roboto", sans-serif;
@@ -18,6 +19,7 @@ export const TableName = styled.h1`
   text-shadow: 0px 0px 3px #fff;
   top: -17%;
   left: 30%;
+  color: #333;
 `;
 
 export const Container = styled.div`
