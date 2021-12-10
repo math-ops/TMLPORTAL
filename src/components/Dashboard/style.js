@@ -32,13 +32,13 @@ export const Container = styled.div`
   top: 65px;
   width: 100%;  
   height: 93vh;
-  background: ${gray};
+  background: ${dark};
 }
   position: absolute;
   top: 65px;
   width: 100%;
   height: 720px;
-  background: ${gray};
+  background: ${dark};
 `;
 
 export const RiskValue = styled.div`
@@ -76,7 +76,7 @@ export const ScrapOverall = styled.div`
   width: 30%;
   height: 230px;
   margin-left: 5px;
-  margin-top: 5px;
+  margin-top: 10px;
 
 `;
 
@@ -96,7 +96,7 @@ export const TrendWeek = styled.div`
   width: 30%;
   height: 230px;
   margin-left: 5px;
-  margin-top: 5px;
+  margin-top: 10px;
 
 `;
 
@@ -114,7 +114,7 @@ export const ScrapModel = styled.div`
   grid-template-columns: repeat(2, 1fr);
   background: ${light};
   width: 35%;
-  height: 43vh;
+  height: 44vh;
   left: 490px;
   top: 5px;
 `;
@@ -135,7 +135,7 @@ export const Classification = styled.div`
   width: 35%;
   height: 44vh;
   left: 490px;
-  top: 355px;
+  top: 366px;
 `;
 
 export const OfensorClass = styled.div`
@@ -152,8 +152,8 @@ export const OfensorClass = styled.div`
   grid-template-columns: repeat(2, 1fr);
   background: ${light};
   width: 33.5%;
-  height: 43vh;
-  left: 1055px;
+  height: 44vh;
+  left: 1060px;
   top: 5px;
 `;
 
@@ -172,8 +172,8 @@ export const ScrapByShift = styled.div`
   background: ${light};
   width: 33.5%;
   height: 44vh;
-  left: 1055px;
-  top: 355px;
+  left: 1060px;
+  top: 366px;
 `;
 
 export const Input = styled.input`

@@ -1,25 +1,34 @@
 import styled from "styled-components";
 
+export const Background = styled.div`
+  padding: 0;
+  position: absolute;
+  background-color: #333;
+  width: 100%;
+  height: 100%;
+
+`;
+
 export const TableName = styled.h1`
   @media only screen and (max-width: 1280px) {
     font-family: "Roboto", sans-serif;
     font-weight: 700;
     text-align: center;
     font-size: 25px;
-    text-shadow: 0px 0px 3px #fff;
+    text-shadow: 0px 0px 1px #fff;
     margin-top: 5px;
     margin-bottom: -5px;
-    color: #333;
+    color: #fff;
   }
   position: absolute;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   text-align: center;
   font-size: 35px;
-  text-shadow: 0px 0px 3px #fff;
-  top: -17%;
+  text-shadow: 0px 0px 1px #fff;
+  top: -20%;
   left: 30%;
-  color: #333;
+  color: #fff;
 `;
 
 export const Container = styled.div`
@@ -47,7 +56,7 @@ export const Campo = styled.select`
     left: 10%;
     height: 50px;
     width: 80%;
-    background: none;
+    background: #fff;
     border: 1px solid #009add;
     border-radius: 5px;
     outline: none;
@@ -55,7 +64,7 @@ export const Campo = styled.select`
   position: absolute;
   height: 50px;
   width: 23%;
-  background: none;
+  background: #fff;
   border: 1px solid #009add;
   border-radius: 5px;
   outline: none;
@@ -67,7 +76,7 @@ export const Input = styled.input`
     left: 10%;
     height: 50px;
     width: 80%;
-    background: none;
+    background: #fff;
     border: 1px solid #009add;
     border-radius: 5px;
     outline: none;
@@ -76,7 +85,7 @@ export const Input = styled.input`
   padding: 5px;
   height: 50px;
   width: 23%;
-  background: none;
+  background: #fff;
   border: 1px solid #009add;
   border-radius: 5px;
   outline: none;

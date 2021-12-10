@@ -1,5 +1,5 @@
 import PersistentDrawerLeft from '../'
-import { Container, TableName, Campo, SButton } from './style'
+import { Background, Container, TableName, Campo, SButton } from './style'
 import './style.css'
 
 import * as React from 'react';
@@ -198,7 +198,7 @@ export default function ViewCad() {
   return (
     <>
       <PersistentDrawerLeft />
-
+    <Background>
       <Container>
         <TableName>Cadastros realizados</TableName>
         <div>
@@ -225,6 +225,7 @@ export default function ViewCad() {
         <SButton>Pesquisar</SButton>
         <StickyHeadTable />
       </Container>
+      </Background>
     </>
   )
 }

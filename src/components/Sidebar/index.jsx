@@ -125,8 +125,6 @@ export default function PersistentDrawerLeft(props) {
     return moment(data).add(1, 'days').format('YYYY-MM-DD').toString();
   }
 
-
-
   return (
     <Box sx={{ display: 'flex'}}>
        <ThemeProvider
@@ -178,9 +176,9 @@ export default function PersistentDrawerLeft(props) {
 
         <Label>Data Inicio:</Label>
         <Input type="date" value={dataInicio} onChange={(e)=> setDataInicio(formatDataCalendar(e.target.valueAsDate))}/>
-
+        
        <Label>Data Final:</Label>
-        <Input type="date"  value={dataFim} onChange={(e)=> setDataFim(formatDataCalendar(e.target.valueAsDate))}/>
+        <Input type="date" value={dataFim} onChange={(e)=> setDataFim(formatDataCalendar(e.target.valueAsDate))}/>
 
         <Label>Resultado:</Label>
         <Select value={resultado} onChange={(e)=> setResultado(e.target.value)}>

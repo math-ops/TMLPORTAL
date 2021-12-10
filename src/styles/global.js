@@ -8,7 +8,8 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
   html {
-    background: #eee;
+    background: #333;
+    overflow-y: hidden;
   }
   a {
     text-decoration: none;

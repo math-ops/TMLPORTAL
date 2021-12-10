@@ -1,5 +1,5 @@
 import './style.css'
-import { Container, TableName, Campo, Input, SButton } from './style'
+import { Background, Container, TableName, Campo, Input, SButton } from './style'
 import PersistentDrawerLeft from '..';
 
 import * as React from 'react';
@@ -166,6 +166,7 @@ export default function ViewDMR() {
   return (
     <>
       <PersistentDrawerLeft />
+      <Background>
       <Container>
         <TableName>DMR Cadastrados</TableName>
         <div>
@@ -188,6 +189,7 @@ export default function ViewDMR() {
         <SButton>Pesquisar</SButton>
         <StickyHeadTable />
       </Container>
+      </Background>
     </>
   )
 }
