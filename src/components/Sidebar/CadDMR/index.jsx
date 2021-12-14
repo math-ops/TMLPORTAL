@@ -64,8 +64,6 @@ export default function CadDMR() {
     //     }
     //     setOpen(false);
     // }
-
-
     return (
         <>
             <PersistentDrawerLeft />

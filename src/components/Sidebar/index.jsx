@@ -83,6 +83,11 @@ export default function PersistentDrawerLeft(props) {
           icon: <CreateIcon />,
           path: '/cdmr'
       },
+      {
+        text: 'Cadastro de Picote',
+        icon: <CreateIcon />,
+        path: '/cpct'
+      }
   ]
 
   const visualizarCadastros = [
@@ -95,6 +100,11 @@ export default function PersistentDrawerLeft(props) {
       text: 'View DMR',
       icon: <TableViewIcon />,
       path: '/vdmr'
+    },
+    {
+      text: 'View Picote',
+      icon: <TableViewIcon />,
+      path: '/vpct'
     }
   ]
 
