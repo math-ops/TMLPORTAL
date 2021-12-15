@@ -18,7 +18,7 @@ export const TableName = styled.h1`
     text-shadow: 0px 0px 1px #fff;
     margin-top: 5px;
     margin-bottom: -5px;
-      color: #fff;
+    color: #fff;
   }
   position: absolute;
   font-family: "Roboto", sans-serif;
@@ -28,7 +28,7 @@ export const TableName = styled.h1`
   text-shadow: 0px 0px 1px #fff;
   top: -20%;
   left: 30%;
-    color: #fff;
+  color: #fff;
 `;
 
 export const Container = styled.div`
@@ -37,7 +37,7 @@ export const Container = styled.div`
     // background-color: #fff;
     height: 80vh;
     width: 50%;
-    top: 10%;
+    top: 11%;
     left: 45%;
     border: none;
   }
@@ -45,7 +45,7 @@ export const Container = styled.div`
   // background-color: #fff;
   height: 80vh;
   width: 50%;
-  top: 27%;
+  top: 28%;
   left: 25%;
   border: none;
 `;
@@ -63,7 +63,28 @@ export const Campo = styled.select`
   }
   position: absolute;
   height: 50px;
-  width: 23%;
+  width: 20%;
+  background: #fff;
+  border: 1px solid #009add;
+  border-radius: 5px;
+  outline: none;
+`;
+
+export const Input = styled.input`
+  @media only screen and (max-width: 1280px) {
+    position: absolute;
+    left: 10%;
+    height: 50px;
+    width: 80%;
+    background: #fff;
+    border: 1px solid #009add;
+    border-radius: 5px;
+    outline: none;
+  }
+  position: absolute;
+  padding: 5px;
+  height: 50px;
+  width: 18%;
   background: #fff;
   border: 1px solid #009add;
   border-radius: 5px;
@@ -76,7 +97,7 @@ export const SButton = styled.button`
     top: 80%;
     left: 33.5%;
     height: 50px;
-    width: 30%;
+    width: 33%;
     border: none;
     border-radius: 3px;
     background: #009add;
@@ -91,9 +112,9 @@ export const SButton = styled.button`
   }
   position: absolute;
   top: -8%;
-  left: 73%;
+  left: 79%;
   height: 50px;
-  width: 23%;
+  width: 17%;
   border: none;
   border-radius: 3px;
   background: #009add;

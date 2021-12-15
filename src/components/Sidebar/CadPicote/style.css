@@ -1,0 +1,59 @@
+.cadpct_pn {
+  top: 20px;
+  left: 10%;
+}
+
+.cadpct_qtd {
+  top: 120px;
+  left: 10%;
+}
+
+.cadpct_data {
+  top: 320px;
+  left: 10%;
+}
+
+.cadpct_linha {
+  top: 220px;
+  left: 10%;
+}
+
+.cadpct_turno {
+  top: 320px;
+  left: 50%;
+}
+
+.cadpct_input_1 {
+  top: 45px;
+  left: 10%;
+}
+
+.cadpct_input_2 {
+  top: 145px;
+  left: 10%;
+}
+
+.cadpct_input_3 {
+  top: 245px;
+  left: 10%;
+}
+
+.cadpct_input_4 {
+  top: 345px;
+  left: 10%;
+}
+
+.cadpct_input_5 {
+  top: 345px;
+  left: 50%;
+}
+
+.here {
+  position: absolute;
+  top: 240px;
+  left: 10%;
+}
+
+.radio {
+  color: #333;
+}

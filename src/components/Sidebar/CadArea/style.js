@@ -13,11 +13,11 @@ export const Container = styled.div`
 @media only screen and (max-width: 1280px){
   padding: 0;
   position: absolute;
-  width: 43%;
+  width: 45%;
   height: 60vh;
   background-color: #fff;
   top: 25%;
-  left: 28%;
+  left: 30%;
   border: none;
   border-radius: 5px;
   box-shadow: 0 0 10px #111;
@@ -48,25 +48,23 @@ export const Input = styled.input`
   padding: 10px;
   height: 60px;
   width: 450px;
-  border: solid 1px #009add;
-  border-radius: 5px;
   background: none;
+  border: 1px solid #009add;
+  border-radius: 5px;
   outline: none;
-  transition: 0.4s ease-out;
   &:focus{
-      box-shadow: 0px 0px 8px #4484c4;
-  }
+    box-shadow: 0px 0px 8px #4484c4;
+}
 }
   position: absolute;
   padding: 10px;
   height: 60px;
   width: 450px;
-  border: solid 1px #009add;
-  border-radius: 5px;
   background: none;
-  outline: none;
-  transition: 0.4s ease-out;
-  &:focus{
+    border: 1px solid #009add;
+    border-radius: 5px;
+    outline: none;
+    &:focus{
       box-shadow: 0px 0px 8px #4484c4;
   }
   
@@ -103,7 +101,7 @@ export const Label = styled.label`
 @media only screen and (max-width: 1280px){
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  font-size: 18px;
+  font-size: 20px;
   position: absolute;
   color: #000;
 }

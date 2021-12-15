@@ -1,5 +1,5 @@
 import PersistentDrawerLeft from '../'
-import { Background, Container, TableName, Campo, SButton } from './style'
+import { Background, Container, TableName, Input, Campo, SButton } from './style'
 import './style.css'
 
 import * as React from 'react';
@@ -38,9 +38,11 @@ const StyledTableCell = withStyles((theme) => ({
 }))(TableCell);
 
 const columns = [
-  { id: 'linha', label: 'Linha', minWidth: 170 },
-  { id: 'area', label: 'Área', minWidth: 170 },
-  { id: 'cia', label: 'Companhia', minWidth: 170 },
+  { id: 'id_pn', label: 'Part Number', minWidth: 150 },
+  { id: 'qtd', label: 'Quantidade', minWidth: 150 },
+  { id: 'data', label: 'Data', minWidth: 150 },
+  { id: 'linha', label: 'Linha', minWidth: 150 },
+  { id: 'turno', label: 'Turno', minWidth: 120 },
   { id: 'edit', label: 'Editar', minWidth: 70 },
   { id: 'remove', label: 'Remover', minWidth: 50 },
 ];
@@ -57,18 +59,18 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(linha, area, cia) {
+function createData(id_pn, qtd, data, linha, turno) {
 
-  return { linha, area, cia };
+  return { id_pn, qtd, data, linha, turno };
 }
 
 const rows = [
-  createData('LINHA_1', 'AREA_A', 'Manaus'),
-  createData('LINHA_2', 'AREA_B', 'Manaus'),
-  createData('LINHA_3', 'AREA_C', '066'),
-  createData('LINHA_4', 'AREA_D', '066'),
-  createData('LINHA_5', 'AREA_E', '338'),
-  createData('LINHA_6', 'AREA_F', '338'),
+  createData('0000', '4', '2020-12-14', 'Linha_01', '1º Turno'),
+  createData('0000', '4', '2020-12-14', 'Linha_01', '1º Turno'),
+  createData('0000', '4', '2020-12-14', 'Linha_02', '2º Turno'),
+  createData('0000', '4', '2020-12-14', 'Linha_02', '2º Turno'),
+  createData('0000', '4', '2020-12-14', 'Linha_03', '3ºTurno'),
+  createData('0000', '4', '2020-12-14', 'Linha_03', '3º Turno'),
 ];
 
 export function StickyHeadTable() { 
@@ -122,9 +124,7 @@ return (
         <DialogContentText>
           Preencha os campos abaixo para efetuar a edição das informações:
         </DialogContentText>
-        <TextField autoFocus margin="dense" id="linha" label="Linha" type="text" fullWidth variant="standard"/>
-        <TextField margin="dense" id="area" label="Área" type="text" fullWidth variant="standard"/>
-        <TextField margin="dense" id="cia" label="Compania" type="text" fullWidth variant="standard"/>          
+        <TextField autoFocus margin="dense" id="qrd" label="Quantidade" type="number" fullWidth variant="standard"/>        
       </DialogContent>
       <DialogActions>
         <Button onClick={handleEditClose}>Cancelar</Button>
@@ -168,9 +168,11 @@ return (
                 return (
                   <>
                     <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                      <StyledTableCell align="left">{row.id_pn}</StyledTableCell>
+                      <StyledTableCell align="left">{row.qtd}</StyledTableCell>
+                      <StyledTableCell align="left">{row.data}</StyledTableCell>
                       <StyledTableCell align="left">{row.linha}</StyledTableCell>
-                      <StyledTableCell align="left">{row.area}</StyledTableCell>
-                      <StyledTableCell align="left">{row.cia}</StyledTableCell>
+                      <StyledTableCell align="left">{row.turno}</StyledTableCell>
                       <StyledTableCell align="center">{editButton}</StyledTableCell>
                       <StyledTableCell align="center">{deleteButton}</StyledTableCell>
                     </TableRow>
@@ -194,38 +196,34 @@ return (
   );
 }
 
-export default function ViewCad() {
-  return (
-    <>
-      <PersistentDrawerLeft />
-    <Background>
-      <Container>
-        <TableName>Cadastros realizados</TableName>
-        <div>
-          <Campo className="campo_linha">
-            <option>Linha:</option>
-            <option>value_01</option>
-            <option>value_02</option>
-          </Campo>
-        </div>
-        <div>
-          <Campo className="campo_area">
-            <option>Area:</option>
-            <option>value_01</option>
-            <option>value_02</option>
-          </Campo>
-        </div>
-        <div>
-          <Campo className="campo_cia">
-            <option>Cia.:</option>
-            <option>value_01</option>
-            <option>value_02</option>
-          </Campo>
-        </div>
-        <SButton>Pesquisar</SButton>
-        <StickyHeadTable />
-      </Container>
-      </Background>
-    </>
-  )
+export default function ViewPct(){
+    return(
+        <>
+            <PersistentDrawerLeft />
+            <Background>
+                <Container>
+                    <TableName>Picotes Cadastrados</TableName>
+                    <div>
+                        <Input className='input_pn' placeholder='Part Number:' />
+                    </div>
+                    <div>
+                        <Input className='input_data' type="date"/>
+                    </div>
+                    <div>
+                        <Input className='input_linha' placeholder='Linha:' />
+                    </div>
+                    <div>
+                        <Campo className='input_turno'>
+                            <option disabled>Turno:</option>
+                            <option value="">1º Turno</option>
+                            <option value="">2º Turno</option>
+                            <option value="">3º Turno</option>
+                            </Campo>
+                    </div>
+                    <SButton>Pesquisar</SButton>
+                    <StickyHeadTable />
+                </Container>
+            </Background>
+        </>
+    )
 }

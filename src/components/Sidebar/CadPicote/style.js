@@ -13,11 +13,11 @@ export const Container = styled.div`
 @media only screen and (max-width: 1280px){
   padding: 0;
   position: absolute;
-  width: 45%;
+  width: 43%;
   height: 60vh;
   background-color: #fff;
   top: 25%;
-  left: 30%;
+  left: 28%;
   border: none;
   border-radius: 5px;
   box-shadow: 0 0 10px #111;
@@ -25,9 +25,9 @@ export const Container = styled.div`
   padding: 0;
   position: absolute;
   width: 35%;
-  height: 50vh;
+  height: 65vh;
   background-color: #fff;
-  top: 30%;
+  top: 28%;
   left: 32.5%;
   border: none;
   border-radius: 5px;
@@ -48,23 +48,55 @@ export const Input = styled.input`
   padding: 10px;
   height: 60px;
   width: 450px;
-  background: none;
-  border: 1px solid #009add;
+  border: solid 1px #009add;
   border-radius: 5px;
+  background: none;
   outline: none;
+  transition: 0.4s ease-out;
   &:focus{
-    box-shadow: 0px 0px 8px #4484c4;
-}
+      box-shadow: 0px 0px 8px #4484c4;
+  }
 }
   position: absolute;
   padding: 10px;
   height: 60px;
   width: 450px;
+  border: solid 1px #009add;
+  border-radius: 5px;
   background: none;
-    border: 1px solid #009add;
-    border-radius: 5px;
-    outline: none;
-    &:focus{
+  outline: none;
+  transition: 0.4s ease-out;
+  &:focus{
+      box-shadow: 0px 0px 8px #4484c4;
+  }
+  
+`;
+
+export const InputS = styled.input`
+@media only screen and (max-width: 1280px){
+  position: absolute;
+  padding: 10px;
+  height: 60px;
+  width: 450px;
+  border: solid 1px #009add;
+  border-radius: 5px;
+  background: none;
+  outline: none;
+  transition: 0.4s ease-out;
+  &:focus{
+      box-shadow: 0px 0px 8px #4484c4;
+  }
+}
+  position: absolute;
+  padding: 10px;
+  height: 60px;
+  width: 180px;
+  border: solid 1px #009add;
+  border-radius: 5px;
+  background: none;
+  outline: none;
+  transition: 0.4s ease-out;
+  &:focus{
       box-shadow: 0px 0px 8px #4484c4;
   }
   
@@ -87,7 +119,7 @@ export const Select = styled.select`
   position: absolute;
   padding: 10px;
   height: 60px;
-  width: 450px;
+  width: 225px;
   background: none;
     border: 1px solid #009add;
     border-radius: 5px;
@@ -101,13 +133,15 @@ export const Label = styled.label`
 @media only screen and (max-width: 1280px){
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  font-size: 20px;
+  font-size: 18px;
   position: absolute;
+  color: #000;
 }
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   font-size: 18px;
   position: absolute;
+  color: #000;
 `;
 
 export const Button = styled.button`
