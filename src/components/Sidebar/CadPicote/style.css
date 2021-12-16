@@ -57,3 +57,55 @@
 .radio {
   color: #333;
 }
+
+@media only screen and (max-width: 1280px){
+  .cadpct_pn {
+    top: 20px;
+    left: 10%;
+  }
+  
+  .cadpct_qtd {
+    top: 100px;
+    left: 10%;
+  }
+  
+  .cadpct_linha {
+    top: 180px;
+    left: 10%;
+  }
+  .cadpct_data {
+    top: 260px;
+    left: 10%;
+  }  
+  
+  .cadpct_turno {
+    top: 260px;
+    left: 50%;
+  }
+  
+  .cadpct_input_1 {
+    top: 45px;
+    left: 10%;
+  }
+  
+  .cadpct_input_2 {
+    top: 125px;
+    left: 10%;
+  }
+  
+  .cadpct_input_3 {
+    top: 205px;
+    left: 10%;
+  }
+  
+  .cadpct_input_4 {
+    top: 290px;
+    left: 10%;
+  }
+  
+  .cadpct_input_5 {
+    top: 290px;
+    left: 50%;
+  }
+  
+ }

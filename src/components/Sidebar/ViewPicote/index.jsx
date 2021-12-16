@@ -221,7 +221,9 @@ export default function ViewPct(){
                             </Campo>
                     </div>
                     <SButton>Pesquisar</SButton>
+                    <div className="pct_table_view">
                     <StickyHeadTable />
+                    </div>
                 </Container>
             </Background>
         </>

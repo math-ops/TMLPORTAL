@@ -1,9 +1,6 @@
 import './style.css'
-import { Background, Container, Form, Input, Label, Button, Select } from './style'
-import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
+import { Background, Container, TableName, Form, Input, Label, Button, Select } from './style'
 import PersistentDrawerLeft from '../'
-// m
 
 export default function CadArea() {
   // const [isSucess, setIsSucess] = useState();
@@ -62,10 +59,9 @@ export default function CadArea() {
     <>
       <Background>
         <PersistentDrawerLeft />
-        <Box sx={{ width: '50%', height: 0, marginTop: '8%', marginLeft: '38%'}}>
-        <Typography variant="h3" component="div" gutterBottom > Cadastro de Área</Typography>
-        </Box>
+       
         <Container>
+          <TableName>Cadastro de Área</TableName>
           <Form>
             <div >
               <Label className="label_um">Linha</Label>

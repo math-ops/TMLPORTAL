@@ -170,24 +170,26 @@ export default function ViewDMR() {
       <Container>
         <TableName>DMR Cadastrados</TableName>
         <div>
-          <Input className="campo_linha" placeholder="Nº DMR" />
+          <Input className="dmr_campo_linha" placeholder="Nº DMR" />
         </div>
         <div>
-          <Campo className="campo_area">
+          <Campo className="dmr_campo_area">
             <option>Cia.:</option>
             <option>Value_01</option>
             <option>Value_02</option>
           </Campo>
         </div>
         <div>
-          <Campo className="campo_cia">
+          <Campo className="dmr_campo_cia">
             <option>Flag</option>
             <option>Value_01</option>
             <option>Value_02</option>
           </Campo>
         </div>
         <SButton>Pesquisar</SButton>
+        <div className='dmr_table_view'>
         <StickyHeadTable />
+        </div>
       </Container>
       </Background>
     </>

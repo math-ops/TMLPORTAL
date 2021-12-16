@@ -9,7 +9,7 @@ export default createGlobalStyle`
   }
   html {
     background: #333;
-    overflow-y: hidden;
+    // overflow-y: hidden;
   }
   a {
     text-decoration: none;

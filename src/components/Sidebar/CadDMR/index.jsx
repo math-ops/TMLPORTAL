@@ -1,4 +1,4 @@
-import { Background, Container, Form, Input, Label, Select, Button } from './style'
+import { Background, Container, TableName, Form, Input, Label, Select, Button } from './style'
 import './style.css'
 // import React, { useState } from 'react'
 import PersistentDrawerLeft from '../'
@@ -6,8 +6,6 @@ import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import FormLabel from '@mui/material/FormLabel'
-import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
 // import axios from 'axios'
 // import Snackbar from '@mui/material/Snackbar'
 // import MuiAlert from '@mui/material/Alert'
@@ -68,10 +66,8 @@ export default function CadDMR() {
         <>
             <PersistentDrawerLeft />
             <Background>
-            <Box sx={{ width: '50%', height: 0, marginTop: '8%', marginLeft: '38%'}}>
-            <Typography variant="h3" component="div" gutterBottom > Cadastro de DMR</Typography>
-            </Box>
                 <Container>
+                    <TableName>Cadastro de DMR</TableName>
                     <Form>
                         <div>
                             <Label className="ndmr_label_um">Nº DMR</Label>

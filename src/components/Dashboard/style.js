@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 const light = '#fff';
+// eslint-disable-next-line
 const gray = '#dddd';
 const dark = '#333';
 
@@ -107,8 +108,8 @@ export const ScrapModel = styled.div`
   background: ${light};
   width: 35%;
   height: 45vh;
-  left: 390px;
-  top: 5px;
+  left: 393px;
+  top: 3px;
 }
   position: absolute;
   grid-template-columns: repeat(2, 1fr);
@@ -126,8 +127,8 @@ export const Classification = styled.div`
   background: ${light};
   width: 35%;
   height: 45vh;
-  left: 390px;
-  top: 290px;
+  left: 393px;
+  top: 287px;
 }
   position: absolute;
   grid-template-columns: repeat(2, 1fr);
@@ -145,8 +146,8 @@ export const OfensorClass = styled.div`
   background: ${light};
   width: 33.5%;
   height: 45vh;
-  left: 835px;
-  top: 5px;
+  left: 845px;
+  top: 3px;
 }
   position: absolute;
   grid-template-columns: repeat(2, 1fr);
@@ -164,8 +165,8 @@ export const ScrapByShift = styled.div`
   background: ${light};
   width: 33.5%;
   height: 45vh;
-  left: 835px;
-  top: 290px;
+  left: 845px;
+  top: 287px;
 }
   position: absolute;
   grid-template-columns: repeat(2, 1fr);
@@ -182,7 +183,7 @@ export const Input = styled.input`
   position: relative;
   background: #eee;
   border: solid 1px #000;
-  width: 140px;
+  width: 125px;
   height: 40px;
   left: 60px;
   top: -5px;
@@ -209,7 +210,7 @@ export const Select = styled.select`
   position: relative;
   background: #eee;
   border: solid 1px #000;
-  width: 140px;
+  width: 120px;
   height: 40px;
   left: 60px;
   top: -5px;
@@ -238,6 +239,7 @@ export const Label = styled.label`
 @media only screen and (max-width: 1280px){
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
+  font-size: 10px;
   color: ${light};
   display: inline-block;
   position: relative;
@@ -297,11 +299,11 @@ export const Download = styled.button`
   height: 40px;
   border-radius: 15px;
   cursor: pointer;
-  background: none;
-  left: 70px;
+  background: #dddd;
+  left: 75px;
   top: 0px;
   &:hover{
-    background: 	#22bb33;
+    background: 	#fff;
     transition: 0.4s ease-out;
   }
 }

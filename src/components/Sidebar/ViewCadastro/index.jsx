@@ -200,7 +200,7 @@ export default function ViewCad() {
       <PersistentDrawerLeft />
     <Background>
       <Container>
-        <TableName>Cadastros realizados</TableName>
+        <TableName>Áreas Cadastradas</TableName>
         <div>
           <Campo className="campo_linha">
             <option>Linha:</option>
@@ -223,7 +223,9 @@ export default function ViewCad() {
           </Campo>
         </div>
         <SButton>Pesquisar</SButton>
+        <div className="table_view">
         <StickyHeadTable />
+        </div>
       </Container>
       </Background>
     </>

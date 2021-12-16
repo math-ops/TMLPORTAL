@@ -12,3 +12,26 @@
     top: -8%;
     left: 49%;
 }
+
+@media only screen and (max-width: 1280px) {
+    .campo_linha{
+        top: 3%;
+        left: 0%;
+    }
+    
+    .campo_area{
+        top: 3%;
+        left: 25%;
+    }
+    
+    .campo_cia{
+        top: 3%;
+        left: 50%;
+    }
+    
+    .table_view{
+        position: absolute;
+        left: -05%;
+        top: 10%;;
+    }
+}

@@ -17,3 +17,31 @@
     top: -8%;
     left: 58%;
 }
+
+@media only screen and (max-width: 1280px) {
+    .input_pn{
+        top: 3%;
+        left: -12%;
+    }
+    
+    .input_data{
+        top: 3%;
+        left: 16.5%;
+    }
+    
+    .input_linha{
+        top: 3%;
+        left: 44.5%;
+    }
+    
+    .input_turno{
+        top: 3%;
+        left: 72.5%;
+    }
+    
+    .pct_table_view{
+        position: absolute;
+        left: -15%;
+        top: 10%;
+    }
+}

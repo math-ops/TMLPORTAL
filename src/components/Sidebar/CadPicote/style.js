@@ -14,9 +14,9 @@ export const Container = styled.div`
   padding: 0;
   position: absolute;
   width: 43%;
-  height: 60vh;
+  height: 67vh;
   background-color: #fff;
-  top: 25%;
+  top: 23%;
   left: 28%;
   border: none;
   border-radius: 5px;
@@ -42,11 +42,34 @@ export const Div = styled.div`
 
 `;
 
+export const TableName = styled.h1`
+  @media only screen and (max-width: 1280px) {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    text-align: center;
+    font-size: 40px;
+    text-shadow: 0px 0px 1px #fff;
+    top: -18%;
+    left: 21%;
+      color: #fff;
+  }
+  position: absolute;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  font-size: 45px;
+  text-shadow: 0px 0px 1px #fff;
+  top: -20%;
+  left: 20%;
+    color: #fff;
+`;
+
+
 export const Input = styled.input`
 @media only screen and (max-width: 1280px){
   position: absolute;
   padding: 10px;
-  height: 60px;
+  height: 40px;
   width: 450px;
   border: solid 1px #009add;
   border-radius: 5px;
@@ -76,8 +99,8 @@ export const InputS = styled.input`
 @media only screen and (max-width: 1280px){
   position: absolute;
   padding: 10px;
-  height: 60px;
-  width: 450px;
+  height: 40px;
+  width: 180px;
   border: solid 1px #009add;
   border-radius: 5px;
   background: none;
@@ -106,8 +129,8 @@ export const Select = styled.select`
 @media only screen and (max-width: 1280px){
   position: absolute;
   padding: 10px;
-  height: 60px;
-  width: 450px;
+  height: 40px;
+  width: 230px;
   background: none;
   border: 1px solid #009add;
   border-radius: 5px;

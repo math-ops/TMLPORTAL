@@ -34,6 +34,28 @@ export const Container = styled.div`
   box-shadow: 0 0 10px #111;
 `;
 
+export const TableName = styled.h1`
+  @media only screen and (max-width: 1280px) {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    text-align: center;
+    font-size: 40px;
+    text-shadow: 0px 0px 1px #fff;
+    top: -18%;
+    left: 21%;
+      color: #fff;
+  }
+  position: absolute;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  font-size: 45px;
+  text-shadow: 0px 0px 1px #fff;
+  top: -20%;
+  left: 20%;
+    color: #fff;
+`;
+
 export const Form = styled.form`
   
 `;

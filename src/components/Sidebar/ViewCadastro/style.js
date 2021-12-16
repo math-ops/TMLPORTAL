@@ -14,10 +14,10 @@ export const TableName = styled.h1`
     font-family: "Roboto", sans-serif;
     font-weight: 700;
     text-align: center;
-    font-size: 25px;
+    font-size: 30px;
     text-shadow: 0px 0px 1px #fff;
-    margin-top: 5px;
-    margin-bottom: -5px;
+    top: -9%;
+    left: 28%;
       color: #fff;
   }
   position: absolute;
@@ -34,11 +34,11 @@ export const TableName = styled.h1`
 export const Container = styled.div`
   @media only screen and (max-width: 1280px) {
     position: absolute;
-    // background-color: #fff;
+    //background-color: #fff;
     height: 80vh;
     width: 50%;
-    top: 10%;
-    left: 45%;
+    top: 20%;
+    left: 25%;
     border: none;
   }
   position: absolute;
@@ -53,9 +53,8 @@ export const Container = styled.div`
 export const Campo = styled.select`
   @media only screen and (max-width: 1280px) {
     position: absolute;
-    left: 10%;
-    height: 50px;
-    width: 80%;
+    height: 30px;
+    width: 20%;
     background: #fff;
     border: 1px solid #009add;
     border-radius: 5px;
@@ -73,10 +72,10 @@ export const Campo = styled.select`
 export const SButton = styled.button`
   @media only screen and (max-width: 1280px) {
     position: absolute;
-    top: 80%;
-    left: 33.5%;
-    height: 50px;
-    width: 30%;
+    top: 3%;
+    left: 75%;
+    height: 30px;
+    width: 20%;
     border: none;
     border-radius: 3px;
     background: #009add;

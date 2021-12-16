@@ -33,14 +33,19 @@ export default function Dashboard() {
 
   const {
     cia,
+    // eslint-disable-next-line
     setCia,
     dataInicio,
+    // eslint-disable-next-line
     setDataInicio,
     dataFim,
+    // eslint-disable-next-line
     setDataFim,
     resultado,
+    // eslint-disable-next-line
     setResultado,
     isSearch,
+    // eslint-disable-next-line
     setIsSearch
   } = React.useContext(FiltroContext);
 

@@ -1,41 +1,34 @@
-import { Background, Container, Form, Label, Input, InputS, Select, Button } from './style'
+import { Background, Container, TableName, Form, Label, Input, InputS, Select, Button } from './style'
 import './style.css'
 import PersistentDrawerLeft from '..'
-import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
 
 export default function CadPct(){
     return(
         <>
           <PersistentDrawerLeft />
           <Background>
-              <Box sx={{ width: '50%', height: 0, marginTop: '8%', marginLeft: '38%'}}>
-                  <Typography variant="h3" component="div" gutterBottom >Cadastro de Picote</Typography>
-              </Box>
               <Container>
+                  <TableName>Cadastro de Picote</TableName>
                   <Form>
                       <div>
                           <Label className='cadpct_pn'>Part Number</Label>
-                          <Input className='cadpct_input_1' />
-                      </div>
-                      
+                          <Input className='cadpct_input_1' placeholder='Part Number' />
+                      </div>                      
                       <div>
                           <Label className='cadpct_qtd'>Quantidade</Label>
-                          <Input className='cadpct_input_2' type="number"/>
-                      </div>
-                      
+                          <Input className='cadpct_input_2' type="number"placeholder='Quantidade' />
+                      </div>                      
                       <div>                          
                           <Label className='cadpct_linha'>Linha</Label>
-                          <Input className='cadpct_input_3' />
-                      </div>
-
-                      
+                          <Input className='cadpct_input_3' placeholder='Linha' />
+                      </div>                      
                       <div>
                         <Label className='cadpct_data'>Data</Label>
                           <InputS className='cadpct_input_4' type="date" />
-                      
+                                                
                           <Label className='cadpct_turno'>Turno</Label>
                           <Select className='cadpct_input_5'>
+                              <option disabled>Turno: </option>
                               <option>1º turno</option>
                               <option>2º turno</option>
                               <option>3º turno</option>
