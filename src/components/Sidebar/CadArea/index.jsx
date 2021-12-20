@@ -1,86 +1,87 @@
-import './style.css'
-import { Background, Container, TableName, Form, Input, Label, Button, Select } from './style'
-import PersistentDrawerLeft from '../'
+import React, {useState} from 'react';
+import './style.css';
+import { Background, Container, TableName, Form, Input, Label, Button, Select } from './style';
+import PersistentDrawerLeft from '../';
+import axios from '../../../services/api';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
 export default function CadArea() {
-  // const [isSucess, setIsSucess] = useState();
-  // const [area, setArea] = useState({
-  //   id: '',
-  //   linha: '',
-  //   area: '',
-  //   cia: '',
-  // });
+  
+  const [isSucess, setIsSucess] = useState();
+  const [linha, setLinha] = useState('');
+  const [area, setArea] = useState('');
+  const [cia, setCia] = useState('');
 
-  // async function handleSubmit(e) {
-  //   e.preventDefault();
-  //   try {
-  //     const res = await axios.post(api, area);
-  //     if (!!res.data) {
-  //       setIsSucess(true);
-  //     } else {
-  //       setIsSucess(false);
-  //     }
-  //   } catch {
-  //     setIsSucess(false);
-  //     console.log('error catch');
-  //   } finally {
-  //     handleClick();
-  //   }
-  // }
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      const res = await axios.post('\area', area);
+      if (!!res.data) {
+        setIsSucess(true);
+      } else {
+        setIsSucess(false);
+      }
+    } catch {
+      setIsSucess(false);
+      console.log('error catch');
+    } finally {
+      handleClick();
+    }
+  }
 
-  // const handleChange = e => {
-  //   const { name, value } = e.target;
-  //   setArea(prevState => ({
-  //     ...prevState,
-  //     [name]: value
-  //   }))
-  //   console.log(area);
-  // }
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setArea(prevState => ({
+      ...prevState,
+      [name]: value
+    }))
+    console.log(area);
+  }
 
-  // const Alert = React.forwardRef(function Alert(props, ref) {
-  //   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-  // })
+  const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  })
 
-  // const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
-  // const handleClick = () => {
-  //   setOpen(true)
-  // }
+  const handleClick = () => {
+    setOpen(true)
+  }
 
-  // const handleClose = (event, reason) => {
-  //   if (reason === 'clickaway') {
-  //     return;
-  //   }
-  //   setOpen(false);
-  // }
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  }
 
 
   return (
     <>
       <Background>
         <PersistentDrawerLeft />
-       
+
         <Container>
           <TableName>Cadastro de Área</TableName>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <div >
               <Label className="label_um">Linha</Label>
-              <Input className="campo_um" placeholder="Linha" />
+              <Input className="campo_um" placeholder="Linha" value={linha} onChange={(e) => setLinha(e.target.value)}/>
             </div>
             <div >
               <Label className="label_dois">Area</Label>
-              <Input className="campo_dois" placeholder="Area" />
+              <Input className="campo_dois" placeholder="Area" value={area} onChange={(e) => setArea(e.target.value)} />
             </div>
             <div >
               <Label className="label_tres">Cia</Label>
               <Select className="campo_tres">
-                <option value="manaus" >Manaus</option>
                 <option value="066" >066</option>
                 <option value="338" >338</option>
               </Select>
             </div>
             <Button>Salvar</Button>
-            {/* {isSucess ?
+             {isSucess ?
               <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
                   Cadastrado com Sucesso!
@@ -92,7 +93,7 @@ export default function CadArea() {
                   Não Foi Possivel Fazer o Cadastro!
                 </Alert>
               </Snackbar>
-            } */}
+            } 
           </Form>
         </Container>
       </Background>
