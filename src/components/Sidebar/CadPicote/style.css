@@ -23,6 +23,11 @@
   left: 50%;
 }
 
+.cadpct_cia {
+  top: 220px;
+  left: 50%;
+}
+
 .cadpct_input_1 {
   top: 45px;
   left: 10%;
@@ -45,6 +50,11 @@
 
 .cadpct_input_5 {
   top: 345px;
+  left: 50%;
+}
+
+.cadpct_input_6 {
+  top: 245px;
   left: 50%;
 }
 
@@ -73,6 +83,12 @@
     top: 180px;
     left: 10%;
   }
+
+  .cadpct_cia {
+    top: 180px;
+    left: 50%;
+  } 
+
   .cadpct_data {
     top: 260px;
     left: 10%;
@@ -108,4 +124,8 @@
     left: 50%;
   }
   
+  .cadpct_input_6 {
+    top: 205px;
+    left: 50%;
+  }
  }

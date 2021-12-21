@@ -36,7 +36,7 @@ export const Container = styled.div`
   background: ${dark};
 }
   position: absolute;
-  top: 65px;
+  top: 68px;
   width: 100%;
   height: 720px;
   background: ${dark};
@@ -77,7 +77,7 @@ export const ScrapOverall = styled.div`
   width: 30%;
   height: 230px;
   margin-left: 5px;
-  margin-top: 10px;
+  margin-top: 6px;
 
 `;
 
@@ -97,7 +97,7 @@ export const TrendWeek = styled.div`
   width: 30%;
   height: 230px;
   margin-left: 5px;
-  margin-top: 10px;
+  margin-top: 7px;
 
 `;
 
@@ -108,7 +108,7 @@ export const ScrapModel = styled.div`
   background: ${light};
   width: 35%;
   height: 45vh;
-  left: 393px;
+  left: 389px;
   top: 3px;
 }
   position: absolute;
@@ -127,7 +127,7 @@ export const Classification = styled.div`
   background: ${light};
   width: 35%;
   height: 45vh;
-  left: 393px;
+  left: 389px;
   top: 287px;
 }
   position: absolute;
@@ -136,7 +136,7 @@ export const Classification = styled.div`
   width: 35%;
   height: 44vh;
   left: 490px;
-  top: 366px;
+  top: 360px;
 `;
 
 export const OfensorClass = styled.div`
@@ -146,7 +146,7 @@ export const OfensorClass = styled.div`
   background: ${light};
   width: 33.5%;
   height: 45vh;
-  left: 845px;
+  left: 835px;
   top: 3px;
 }
   position: absolute;
@@ -154,7 +154,7 @@ export const OfensorClass = styled.div`
   background: ${light};
   width: 33.5%;
   height: 44vh;
-  left: 1060px;
+  left: 1055px;
   top: 5px;
 `;
 
@@ -165,7 +165,7 @@ export const ScrapByShift = styled.div`
   background: ${light};
   width: 33.5%;
   height: 45vh;
-  left: 845px;
+  left: 835px;
   top: 287px;
 }
   position: absolute;
@@ -173,8 +173,8 @@ export const ScrapByShift = styled.div`
   background: ${light};
   width: 33.5%;
   height: 44vh;
-  left: 1060px;
-  top: 366px;
+  left: 1055px;
+  top: 360px;
 `;
 
 export const Input = styled.input`

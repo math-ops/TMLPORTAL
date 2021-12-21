@@ -83,7 +83,7 @@ export default function CadDMR() {
                                     </option>
                                 ))}
                             </Select>
-                        </div>
+                        </div> 
                         <FormLabel className="ndmr_label_tres" component="legend">Flag</FormLabel>
                         <RadioGroup row aria-label="flag" name="row-radio-buttons-group" className="here"  >
                             <FormControlLabel className="radio" checked={type === 0} value={type} control={<Radio />} label="Inserir" onChange={(e) => setType(0)}/>
@@ -91,13 +91,13 @@ export default function CadDMR() {
                         </RadioGroup>
                         <Button>SALVAR</Button>
                         {isSucess ?
-                            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                            <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'right'}} open={open} autoHideDuration={6000} onClose={handleClose}>
                                 <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
                                     Cadastrado com Sucesso!
                                 </Alert>
                             </Snackbar>
                             :
-                            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                            <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'right'}} open={open} autoHideDuration={6000} onClose={handleClose}>
                                 <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
                                     Não Foi Possivel Fazer o Cadastro!
                                 </Alert>

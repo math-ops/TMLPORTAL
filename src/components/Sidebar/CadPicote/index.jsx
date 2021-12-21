@@ -63,7 +63,17 @@ export default function CadPct() {
                         </div>
                         <div>
                             <Label className='cadpct_linha'>Linha</Label>
-                            <Input className='cadpct_input_3' required placeholder='Linha' value={linha} onChange={(e) => setLinha(e.target.value)} />
+                            <InputS className='cadpct_input_3' required placeholder='Linha' value={linha} onChange={(e) => setLinha(e.target.value)} />
+                        </div>
+                        <div>
+                            <Label className='cadpct_cia'>Cia.</Label>
+                            <Select className='cadpct_input_6' onChange={(e) => setCia(e.target.value)}>
+                                {data.map((value) => (
+                                    <option value={value.CIA} key={value.CIA}>
+                                        {value.CIA}
+                                    </option>
+                                ))}
+                            </Select>
                         </div>
                         <div>
                             <Label className='cadpct_data'>Data</Label>
@@ -76,17 +86,7 @@ export default function CadPct() {
                                 <option value="2">2º turno</option>
                                 <option value="3">3º turno</option>
                             </Select>
-                        </div>
-                        <div>
-                            <Label >Cia.</Label>
-                            <Select onChange={(e) => setCia(e.target.value)}>
-                                {data.map((value) => (
-                                    <option value={value.CIA} key={value.CIA}>
-                                        {value.CIA}
-                                    </option>
-                                ))}
-                            </Select>
-                        </div>
+                        </div>                        
                         <Button>SALVAR</Button>
                     </Form>
                 </Container>

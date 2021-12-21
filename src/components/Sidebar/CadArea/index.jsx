@@ -89,13 +89,13 @@ export default function CadArea() {
             </div>
             <Button>Salvar</Button>
             {isSucess ?
-              <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+              <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'right'}} open={open} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
                   Cadastrado com Sucesso!
                 </Alert>
               </Snackbar>
               :
-              <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+              <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'right'}} open={open} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
                   Não Foi Possivel Fazer o Cadastro!
                 </Alert>
