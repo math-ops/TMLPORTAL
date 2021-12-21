@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css';
 import { Background, Container, TableName, Form, Input, Label, Button, Select } from './style';
 import PersistentDrawerLeft from '../';
@@ -7,16 +7,29 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
 export default function CadArea() {
-  
+
   const [isSucess, setIsSucess] = useState();
   const [linha, setLinha] = useState('');
   const [area, setArea] = useState('');
   const [cia, setCia] = useState('');
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+
+    const response = axios.get('dmr/manaus').then((response) => {
+      setData(response.data);
+      console.log(response.data);
+    });
+  }, []);
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const res = await axios.post('\area', area);
+      const res = await axios.post('/area', {
+        line: linha,
+        area,
+        cia
+      });
       if (!!res.data) {
         setIsSucess(true);
       } else {
@@ -28,15 +41,6 @@ export default function CadArea() {
     } finally {
       handleClick();
     }
-  }
-
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setArea(prevState => ({
-      ...prevState,
-      [name]: value
-    }))
-    console.log(area);
   }
 
   const Alert = React.forwardRef(function Alert(props, ref) {
@@ -67,21 +71,24 @@ export default function CadArea() {
           <Form onSubmit={handleSubmit}>
             <div >
               <Label className="label_um">Linha</Label>
-              <Input className="campo_um" placeholder="Linha" value={linha} onChange={(e) => setLinha(e.target.value)}/>
+              <Input className="campo_um" placeholder="Linha" required value={linha} onChange={(e) => setLinha(e.target.value)} />
             </div>
             <div >
               <Label className="label_dois">Area</Label>
-              <Input className="campo_dois" placeholder="Area" value={area} onChange={(e) => setArea(e.target.value)} />
+              <Input className="campo_dois" placeholder="Area" required value={area} onChange={(e) => setArea(e.target.value)} />
             </div>
             <div >
               <Label className="label_tres">Cia</Label>
-              <Select className="campo_tres">
-                <option value="066" >066</option>
-                <option value="338" >338</option>
+              <Select className="campo_tres" onChange={(e) => setCia(e.target.value)}>
+                {data.map((value) => (
+                            <option value={value.CIA} key={value.CIA}>
+                                {value.CIA}
+                            </option>
+                        ))}
               </Select>
             </div>
             <Button>Salvar</Button>
-             {isSucess ?
+            {isSucess ?
               <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
                   Cadastrado com Sucesso!
@@ -93,7 +100,7 @@ export default function CadArea() {
                   Não Foi Possivel Fazer o Cadastro!
                 </Alert>
               </Snackbar>
-            } 
+            }
           </Form>
         </Container>
       </Background>
