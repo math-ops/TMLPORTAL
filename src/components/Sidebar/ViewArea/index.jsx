@@ -1,8 +1,8 @@
-import PersistentDrawerLeft from '../'
+import PersistentDrawerLeft from '..'
 import { Background, Container, TableName, Campo, SButton } from './style'
 import './style.css'
 
-import * as React from 'react';
+import React, {useEffect, useState} from 'react';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -23,6 +23,9 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import axios from '../../../services/api';
+
+
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -57,19 +60,6 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(linha, area, cia) {
-
-  return { linha, area, cia };
-}
-
-const rows = [
-  createData('LINHA_1', 'AREA_A', 'Manaus'),
-  createData('LINHA_2', 'AREA_B', 'Manaus'),
-  createData('LINHA_3', 'AREA_C', '066'),
-  createData('LINHA_4', 'AREA_D', '066'),
-  createData('LINHA_5', 'AREA_E', '338'),
-  createData('LINHA_6', 'AREA_F', '338'),
-];
 
 export function StickyHeadTable() { 
   const classes = useStyles();
@@ -77,6 +67,13 @@ export function StickyHeadTable() {
   const [open, setOpen] = React.useState(false);
   const [remove, setRemove] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [data, setData] = useState([]);
+
+  useEffect(()=>{
+    axios.get('/area').then((response)=>{
+      setData(response.data);
+    })
+  },[])
 
   const handleEditOpen = () => {
     setOpen(true);
@@ -162,13 +159,13 @@ return (
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows
+            {data
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
                   <>
-                    <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                      <StyledTableCell align="left">{row.linha}</StyledTableCell>
+                    <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
+                      <StyledTableCell align="left">{row.line}</StyledTableCell>
                       <StyledTableCell align="left">{row.area}</StyledTableCell>
                       <StyledTableCell align="left">{row.cia}</StyledTableCell>
                       <StyledTableCell align="center">{editButton}</StyledTableCell>
@@ -183,7 +180,7 @@ return (
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
-        count={rows.length}
+        count={data.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}
@@ -194,7 +191,7 @@ return (
   );
 }
 
-export default function ViewCad() {
+export default function ViewArea() {
   return (
     <>
       <PersistentDrawerLeft />

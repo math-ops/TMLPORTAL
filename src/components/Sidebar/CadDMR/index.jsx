@@ -22,7 +22,7 @@ export default function CadDMR() {
 
         axios.get('dmr/manaus').then((response) => {
             setData(response.data);
-            console.log(response.data);
+            setCia(response.data[0].CIA);
         });
     }, []);
 

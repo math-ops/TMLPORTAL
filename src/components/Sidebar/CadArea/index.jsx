@@ -5,8 +5,11 @@ import PersistentDrawerLeft from '../';
 import axios from '../../../services/api';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import { useHistory } from 'react-router-dom';
 
 export default function CadArea() {
+
+  const history = useHistory();
 
   const [isSucess, setIsSucess] = useState();
   const [linha, setLinha] = useState('');
@@ -15,10 +18,9 @@ export default function CadArea() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-
-    const response = axios.get('dmr/manaus').then((response) => {
+    axios.get('dmr/manaus').then((response) => {
       setData(response.data);
-      console.log(response.data);
+      setCia(response.data[0].CIA);
     });
   }, []);
 
@@ -32,6 +34,7 @@ export default function CadArea() {
       });
       if (!!res.data) {
         setIsSucess(true);
+        return history.push('/view/area');
       } else {
         setIsSucess(false);
       }
@@ -55,7 +58,7 @@ export default function CadArea() {
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
-      return;
+      return ;
     }
     setOpen(false);
   }
@@ -94,6 +97,7 @@ export default function CadArea() {
                   Cadastrado com Sucesso!
                 </Alert>
               </Snackbar>
+           
               :
               <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'right'}} open={open} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>

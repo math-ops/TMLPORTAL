@@ -14,7 +14,7 @@ export default function CadPct() {
     const [quantidade, setQuantidade] = useState(0);
     const [linha, setLinha] = useState('');
     const [datePicote, setDatePicote] = useState(moment().format('YYYY-MM-DD').toString());
-    const [turno, setTurno] = useState(0);
+    const [turno, setTurno] = useState(1);
     const [cia, setCia] = useState('');
     const [data, setData] = useState([]);
 
@@ -30,13 +30,13 @@ export default function CadPct() {
         e.preventDefault();
         console.log(partnumber, quantidade, linha, datePicote, turno, cia);
         try {
-            const res = await axios.post('/excessao', {
+            const res = await axios.post('/picote', {
                 partnumber,
                 quantidade,
                 linha,
-                CIA:cia,
+                data: datePicote,
                 turno,
-                datePicote
+                CIA:cia
             });
             if (!!res.data) {
                 setIsSucess(true);

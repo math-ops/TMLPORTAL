@@ -76,17 +76,17 @@ export default function PersistentDrawerLeft(props) {
       {
         text: 'Cadastro Area',
         icon: <CreateIcon />,
-        path: '/cad'
+        path: '/cad/area'
       },
       {
           text: 'Cadastro DMR',
           icon: <CreateIcon />,
-          path: '/cdmr'
+          path: '/cad/dmr'
       },
       {
         text: 'Cadastro de Picote',
         icon: <CreateIcon />,
-        path: '/cpct'
+        path: '/cad/picote'
       }
   ]
 
@@ -94,17 +94,17 @@ export default function PersistentDrawerLeft(props) {
      {
       text: 'View Areas',
       icon: <TableViewIcon />,
-      path: '/view'
+      path: '/view/area'
     },
     {
       text: 'View DMR',
       icon: <TableViewIcon />,
-      path: '/vdmr'
+      path: '/view/dmr'
     },
     {
       text: 'View Picote',
       icon: <TableViewIcon />,
-      path: '/vpct'
+      path: '/view/picote'
     }
   ]
 
