@@ -5,11 +5,8 @@ import PersistentDrawerLeft from '../';
 import axios from '../../../services/api';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
-import { useHistory } from 'react-router-dom';
 
-export default function CadArea() {
-
-  const history = useHistory();
+export default function EditArea() {
 
   const [isSucess, setIsSucess] = useState();
   const [linha, setLinha] = useState('');
@@ -18,14 +15,10 @@ export default function CadArea() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-<<<<<<< HEAD
-    axios.get('dmr/manaus').then((response) => {
-=======
     //eslint-disable-next-line
     const response = axios.get('dmr/manaus').then((response) => {
->>>>>>> f2801327e90532799fc9897b2eef2be634dc0351
       setData(response.data);
-      setCia(response.data[0].CIA);
+      console.log(response.data);
     });
   }, []);
 
@@ -39,7 +32,6 @@ export default function CadArea() {
       });
       if (!!res.data) {
         setIsSucess(true);
-        return history.push('/view/area');
       } else {
         setIsSucess(false);
       }
@@ -63,7 +55,7 @@ export default function CadArea() {
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
-      return ;
+      return;
     }
     setOpen(false);
   }
@@ -75,7 +67,7 @@ export default function CadArea() {
         <PersistentDrawerLeft />
 
         <Container>
-          <TableName>Cadastro de Área</TableName>
+          <TableName>Editar Informações</TableName>
           <Form onSubmit={handleSubmit}>
             <div >
               <Label className="label_um">Linha</Label>
@@ -102,7 +94,6 @@ export default function CadArea() {
                   Cadastrado com Sucesso!
                 </Alert>
               </Snackbar>
-           
               :
               <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'right'}} open={open} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>

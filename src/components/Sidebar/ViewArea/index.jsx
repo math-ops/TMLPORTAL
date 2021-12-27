@@ -1,5 +1,10 @@
+<<<<<<< HEAD:src/components/Sidebar/ViewArea/index.jsx
 import PersistentDrawerLeft from '..'
 import { Background, Container, TableName, Campo, SButton } from './style'
+=======
+import PersistentDrawerLeft from '../'
+import { Background, Container, TableName, Campo, SButton, NButton } from './style'
+>>>>>>> f2801327e90532799fc9897b2eef2be634dc0351:src/components/Sidebar/ViewCadastro/index.jsx
 import './style.css'
 
 import React, {useEffect, useState} from 'react';
@@ -15,9 +20,8 @@ import TableRow from '@mui/material/TableRow';
 import IconButton from '@mui/material/IconButton'
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-
+import {Link} from 'react-router-dom'
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -65,7 +69,6 @@ export function StickyHeadTable() {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [open, setOpen] = React.useState(false);
-  const [remove, setRemove] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [data, setData] = useState([]);
 
@@ -75,20 +78,12 @@ export function StickyHeadTable() {
     })
   },[])
 
-  const handleEditOpen = () => {
+  const handleOpen = () => {
     setOpen(true);
   }
 
-  const handleEditClose = () => {
+  const handleClose = () => {
     setOpen(false);
-  }
-
-  const handleRemoveOpen = () => {
-    setRemove(true);
-  }
-
-  const handleRemoveClose = () => {
-    setRemove(false);
   }
 
 const handleChangePage = (event, newPage) => {
@@ -101,45 +96,31 @@ const handleChangeRowsPerPage = (event) => {
 };
 
 const editButton = (
-  <IconButton aria-label="edit" onClick={handleEditOpen}>
+  <Link to="/earea">
+  <IconButton aria-label="edit">
     <EditIcon color="warning" />
   </IconButton>
+  </Link>
 )
 const deleteButton = (
-  <IconButton aria-label="delete" onClick={handleRemoveOpen}>
+  <IconButton aria-label="delete" onClick={handleOpen}>
     <DeleteIcon color="error" />
   </IconButton>
 )
 
 return (
   <>
-    <Dialog open={open} onClose={handleEditClose}>
-      <DialogTitle>Editar Informações</DialogTitle>
-      <DialogContent>
-        <DialogContentText>
-          Preencha os campos abaixo para efetuar a edição das informações:
-        </DialogContentText>
-        <TextField autoFocus margin="dense" id="linha" label="Linha" type="text" fullWidth variant="standard"/>
-        <TextField margin="dense" id="area" label="Área" type="text" fullWidth variant="standard"/>
-        <TextField margin="dense" id="cia" label="Compania" type="text" fullWidth variant="standard"/>          
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={handleEditClose}>Cancelar</Button>
-        <Button color="warning" onClick={handleEditClose}>Salvar</Button>
-      </DialogActions>
-    </Dialog>
-
-    <Dialog open={remove} onClose={handleRemoveClose}>
-      <DialogTitle>Deletar Informações</DialogTitle>
-      <DialogContent>
-        <DialogContentText>
-          Deseja deletar as informações selecionadas?
-        </DialogContentText>       
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={handleRemoveClose}>Cancelar</Button>
-        <Button color="error" onClick={handleRemoveClose}>Remover</Button>
-      </DialogActions>
+  <Dialog open={open} onClose={handleClose}>
+      <DialogTitle>Deletar DMR</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Deseja remover as informações selecionadas?
+            </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancelar</Button>
+          <Button color="error" onClick={handleClose}>Remover</Button>
+        </DialogActions>
     </Dialog>
 
     <Paper className={classes.root}>
@@ -198,6 +179,11 @@ export default function ViewArea() {
     <Background>
       <Container>
         <TableName>Áreas Cadastradas</TableName>
+        <div>
+          <Link to="cad">
+          <NButton>Novo Cadastro +</NButton>
+          </Link>
+        </div>
         <div>
           <Campo className="campo_linha">
             <option>Linha:</option>
