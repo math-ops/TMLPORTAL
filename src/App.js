@@ -9,6 +9,8 @@ import CadPct from './components/Sidebar/CadPicote'
 import ViewDMR from './components/Sidebar/ViewDMR';
 import ViewCad from './components/Sidebar/ViewCadastro'
 import ViewPct from './components/Sidebar/ViewPicote'
+import EditArea from './components/Sidebar/EditArea'
+import EditPct from './components/Sidebar/EditPicote'
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route path="/vdmr" exact component={ViewDMR} />
           <Route path="/cpct" exact component={CadPct} />
           <Route path="/vpct" exact component={ViewPct} />
+          <Route path="/earea" exact component={EditArea} />
+          <Route path="/epct" exact component={EditPct} />
         </Switch>
       </BrowserRouter>
       <GlobalStyle />

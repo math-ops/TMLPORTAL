@@ -1,0 +1,61 @@
+.campo_um {
+  top: 50px;
+  left: 10%;
+}
+
+.campo_dois {
+  top: 150px;
+  left: 10%;
+}
+
+.campo_tres {
+  top: 250px;
+  left: 10%;
+}
+
+.label_um {
+  top: 20px;
+  left: 10%;
+}
+
+.label_dois {
+  top: 120px;
+  left: 10%;
+}
+
+.label_tres {
+  top: 220px;
+  left: 10%;
+}
+
+@media only screen and (max-width: 1280px){
+  .campo_um {
+    top: 40px;
+    left: 10%;
+  }
+  
+  .campo_dois {
+    top: 140px;
+    left: 10%;
+  }
+  
+  .campo_tres {
+    top: 240px;
+    left: 10%;
+  }
+  
+  .label_um {
+    top: 10px;
+    left: 10%;
+  }
+  
+  .label_dois {
+    top: 110px;
+    left: 10%;
+  }
+  
+  .label_tres {
+    top: 210px;
+    left: 10%;
+  }
+}

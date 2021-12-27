@@ -1,5 +1,5 @@
 import './style.css'
-import { Background, Container, TableName, Campo, Input, SButton } from './style'
+import { Background, Container, TableName, Campo, Input, SButton, NButton } from './style'
 import PersistentDrawerLeft from '..';
 
 import * as React from 'react';
@@ -8,6 +8,7 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
+import {Link} from 'react-router-dom'
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
@@ -169,6 +170,11 @@ export default function ViewDMR() {
       <Background>
       <Container>
         <TableName>DMR Cadastrados</TableName>
+        <div>
+          <Link to="/cdmr">
+            <NButton>Novo Cadastro +</NButton>
+          </Link>
+        </div>
         <div>
           <Input className="dmr_campo_linha" placeholder="Nº DMR" />
         </div>

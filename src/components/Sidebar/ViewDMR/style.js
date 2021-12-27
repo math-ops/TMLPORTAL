@@ -125,3 +125,40 @@ export const SButton = styled.button`
     color: #fff;
   }
 `;
+
+export const NButton = styled.button`
+@media only screen and (max-width: 1280px) {
+  position: absolute;
+  top: -7%;
+  left: 75%;
+  height: 30px;
+  width: 20%;
+  border: #fff;
+  border-radius: 3px;
+  background: none;
+  box-shadow: 0 0 3px #333;
+  cursor: pointer;
+  color: #fff;
+  &:hover {
+    transition: 0.4s ease-out;
+    background: #006add;
+    color: #fff;
+  }
+}
+  position: absolute;
+  top: -17%;
+  left: 78%;
+  height: 20px;
+  width: 15%;
+  border: none;
+  border-radius: 3px;
+  background: none;
+  box-shadow: 0 0 3px #333;
+  cursor: pointer;
+  color: #fff;
+  &:hover {
+    transition: 0.4s ease-out;
+    background: #006add;
+    color: #fff;
+  }
+`;

@@ -6,7 +6,7 @@ import axios from '../../../services/api';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
-export default function CadArea() {
+export default function EditArea() {
 
   const [isSucess, setIsSucess] = useState();
   const [linha, setLinha] = useState('');
@@ -67,7 +67,7 @@ export default function CadArea() {
         <PersistentDrawerLeft />
 
         <Container>
-          <TableName>Cadastro de Área</TableName>
+          <TableName>Editar Informações</TableName>
           <Form onSubmit={handleSubmit}>
             <div >
               <Label className="label_um">Linha</Label>
