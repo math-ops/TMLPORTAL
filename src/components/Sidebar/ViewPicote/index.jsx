@@ -182,7 +182,7 @@ export default function ViewPct(){
                 <Container>
                     <TableName>Picotes Cadastrados</TableName>
                     <div>
-                      <Link to="/cpct">
+                      <Link to="/cad/picote">
                         <NButton>Novo Cadastro +</NButton>
                       </Link>
                     </div>
