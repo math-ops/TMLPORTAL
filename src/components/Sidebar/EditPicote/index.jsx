@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Background, Container, TableName, Form, Label, Input, InputS, Select, Button } from './style'
+import { Background, Container, TableName, Form, Label, Input, InputS, Select, Button, Cancel } from './style'
 import './style.css'
 import PersistentDrawerLeft from '..'
+import {Link} from 'react-router-dom'
 import axios from '../../../services/api'
 import moment from 'moment'
 import 'moment/locale/pt-br'
@@ -108,7 +109,10 @@ export default function EditPct() {
                                 <option value="2">2º turno</option>
                                 <option value="3">3º turno</option>
                             </Select>
-                        </div>                        
+                        </div>
+                        <Link to="/view/picote">                        
+                        <Cancel>Cancelar</Cancel>
+                        </Link>
                         <Button>SALVAR</Button>
                         {isSucess ?
                             <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'right'}} open={open} autoHideDuration={6000} onClose={handleClose}>
