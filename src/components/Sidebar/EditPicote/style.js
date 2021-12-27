@@ -190,7 +190,7 @@ export const Button = styled.button`
   height: 50px;
   width: 150px;
   top: 83%;
-  left: 37%;
+  left: 53%;
   border: none;
   border-radius: 3px;
   background: #009add;
@@ -201,5 +201,44 @@ export const Button = styled.button`
     transition: 0.4s ease-out;
     background: #006add;
     color: #fff;
+  }
+`;
+
+export const Cancel = styled.button`
+@media only screen and (max-width: 1280px){
+  position: absolute;
+  height: 50px;
+  width: 150px;
+  top: 83%;
+  left: 37%;
+  border: #ff6b00;
+  border-radius: 3px;
+  background: none;
+  border-color: #ff6b00;
+  box-shadow: 0 0 3px #ff6b00;
+  cursor: pointer;
+  color: #ff6b00;
+  &:hover{
+    transition: 0.4s ease-out;
+    background: none;
+    color: #ff6b00;
+  }
+}
+  position: absolute;
+  height: 50px;
+  width: 150px;
+  top: 83%;
+  left: 17%;
+  border: #ff6b00;
+  border-radius: 3px;
+  background: none;
+  border-color: #ff6b00;
+  box-shadow: 0 0 3px #ff6b00;
+  cursor: pointer;
+  color: #ff6b00;
+  &:hover{
+    transition: 0.4s ease-out;
+    background: none;
+    color: #ff6b00;
   }
 `;

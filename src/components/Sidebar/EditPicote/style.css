@@ -68,6 +68,14 @@
   color: #333;
 }
 
+.button_save{
+  left: 20%; 
+}
+
+.button_error{
+  left: 20%;
+}
+
 @media only screen and (max-width: 1280px){
   .cadpct_pn {
     top: 20px;
