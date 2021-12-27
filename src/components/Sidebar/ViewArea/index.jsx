@@ -1,10 +1,5 @@
-<<<<<<< HEAD:src/components/Sidebar/ViewArea/index.jsx
 import PersistentDrawerLeft from '..'
-import { Background, Container, TableName, Campo, SButton } from './style'
-=======
-import PersistentDrawerLeft from '../'
 import { Background, Container, TableName, Campo, SButton, NButton } from './style'
->>>>>>> f2801327e90532799fc9897b2eef2be634dc0351:src/components/Sidebar/ViewCadastro/index.jsx
 import './style.css'
 
 import React, {useEffect, useState} from 'react';

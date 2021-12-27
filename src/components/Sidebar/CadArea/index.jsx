@@ -18,12 +18,7 @@ export default function CadArea() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-<<<<<<< HEAD
     axios.get('dmr/manaus').then((response) => {
-=======
-    //eslint-disable-next-line
-    const response = axios.get('dmr/manaus').then((response) => {
->>>>>>> f2801327e90532799fc9897b2eef2be634dc0351
       setData(response.data);
       setCia(response.data[0].CIA);
     });
