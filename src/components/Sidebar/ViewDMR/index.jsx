@@ -171,7 +171,7 @@ export default function ViewDMR() {
       <Container>
         <TableName>DMR Cadastrados</TableName>
         <div>
-          <Link to="/cdmr">
+          <Link to="/cad/dmr">
             <NButton>Novo Cadastro +</NButton>
           </Link>
         </div>

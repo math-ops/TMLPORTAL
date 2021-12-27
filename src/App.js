@@ -22,10 +22,11 @@ function App() {
           <Route path="/cad/area" exact component={CadArea} />
           <Route path="/cad/dmr" exact component={CadDMR} />
           <Route path="/cad/picote" exact component={CadPct} />
-
           <Route path="/view/area" exact component={ViewArea} />
           <Route path="/view/dmr" exact component={ViewDMR} />
           <Route path="/view/picote" exact component={ViewPct} />
+          <Route path="/area/:id" exact component={EditArea} />
+          <Route path="/picote" exact component={EditPct} />
         </Switch>
       </BrowserRouter>
       <GlobalStyle />

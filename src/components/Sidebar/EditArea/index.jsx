@@ -5,6 +5,7 @@ import PersistentDrawerLeft from '../';
 import axios from '../../../services/api';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import { useParams } from 'react-router';
 
 export default function EditArea() {
 
@@ -14,18 +15,35 @@ export default function EditArea() {
   const [cia, setCia] = useState('');
   const [data, setData] = useState([]);
 
+  const { id } = useParams();
+
   useEffect(() => {
-    //eslint-disable-next-line
-    const response = axios.get('dmr/manaus').then((response) => {
-      setData(response.data);
-      console.log(response.data);
-    });
+
+    (async () => {
+
+      const [
+        req_cias,
+        req_area
+      ] = await Promise.all([
+        axios.get('dmr/manaus'),
+        axios.get(`area/${id}`)
+      ]);
+
+      setData(req_cias.data);
+      setLinha(req_area.data.line);
+      setArea(req_area.data.area);
+      setCia(req_area.data.cia);
+
+      console.log(req_area.data);
+
+    })();
   }, []);
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const res = await axios.post('/area', {
+      const res = await axios.put('area', {
+        id:id,
         line: linha,
         area,
         cia
@@ -79,23 +97,23 @@ export default function EditArea() {
             </div>
             <div >
               <Label className="label_tres">Cia</Label>
-              <Select className="campo_tres" onChange={(e) => setCia(e.target.value)}>
+              <Select value={cia} className="campo_tres" onChange={(e) => setCia(e.target.value)}>
                 {data.map((value) => (
-                            <option value={value.CIA} key={value.CIA}>
-                                {value.CIA}
-                            </option>
-                        ))}
+                  <option value={value.CIA} key={value.CIA}>
+                    {value.CIA}
+                  </option>
+                ))}
               </Select>
             </div>
             <Button>Salvar</Button>
             {isSucess ?
-              <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'right'}} open={open} autoHideDuration={6000} onClose={handleClose}>
+              <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'right' }} open={open} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
                   Cadastrado com Sucesso!
                 </Alert>
               </Snackbar>
               :
-              <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'right'}} open={open} autoHideDuration={6000} onClose={handleClose}>
+              <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'right' }} open={open} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
                   Não Foi Possivel Fazer o Cadastro!
                 </Alert>

@@ -25,7 +25,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 import axios from '../../../services/api';
 
 
-
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: '#009add',
@@ -61,6 +60,7 @@ const useStyles = makeStyles({
 
 
 export function StickyHeadTable() { 
+
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [open, setOpen] = React.useState(false);
@@ -68,10 +68,17 @@ export function StickyHeadTable() {
   const [data, setData] = useState([]);
 
   useEffect(()=>{
-    axios.get('/area').then((response)=>{
-      setData(response.data);
-    })
-  },[])
+
+    (async () => {
+
+      const[
+        req_area
+      ] = await Promise.all([axios.get('/area')]);
+
+      setData(req_area.data);
+   
+    })();
+  },[]);
 
   const handleOpen = () => {
     setOpen(true);
@@ -91,11 +98,9 @@ const handleChangeRowsPerPage = (event) => {
 };
 
 const editButton = (
-  <Link to="/earea">
   <IconButton aria-label="edit">
     <EditIcon color="warning" />
   </IconButton>
-  </Link>
 )
 const deleteButton = (
   <IconButton aria-label="delete" onClick={handleOpen}>
@@ -144,7 +149,7 @@ return (
                       <StyledTableCell align="left">{row.line}</StyledTableCell>
                       <StyledTableCell align="left">{row.area}</StyledTableCell>
                       <StyledTableCell align="left">{row.cia}</StyledTableCell>
-                      <StyledTableCell align="center">{editButton}</StyledTableCell>
+                      <StyledTableCell align="center"><Link to={`/area/${row.id}`}>{editButton}</Link></StyledTableCell>
                       <StyledTableCell align="center">{deleteButton}</StyledTableCell>
                     </TableRow>
                   </>
@@ -175,7 +180,7 @@ export default function ViewArea() {
       <Container>
         <TableName>Áreas Cadastradas</TableName>
         <div>
-          <Link to="cad">
+          <Link to="/cad/area">
           <NButton>Novo Cadastro +</NButton>
           </Link>
         </div>
