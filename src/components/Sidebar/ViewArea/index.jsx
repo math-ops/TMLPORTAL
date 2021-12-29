@@ -89,7 +89,9 @@ export function StickyHeadTable() {
 
   const  handleClose = (async) => {
     (async = () => {
-     const req = await axios.delete(`area/${id}`)
+      //REMOVI O AWAIT DA LINHA ABAIXO POIS ESTAVA QUEBRANDO O CÓDIGO
+      //eslint-disable-next-line
+     const req =  axios.delete(`area/${id}`)
     })();    
     setOpen(false);
   }

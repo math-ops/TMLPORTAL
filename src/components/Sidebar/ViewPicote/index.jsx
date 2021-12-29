@@ -96,7 +96,7 @@ const handleChangeRowsPerPage = (event) => {
 };
 
 const editButton = (
-  <Link to="/epct">
+  <Link to="/picote">
   <IconButton aria-label="edit">
     <EditIcon color="warning" />
   </IconButton>

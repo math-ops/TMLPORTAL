@@ -173,7 +173,7 @@ export const Button = styled.button`
   height: 50px;
   width: 150px;
   top: 83%;
-  left: 37%;
+  left: 52%;
   border: none;
   border-radius: 3px;
   background: #009add;
@@ -210,7 +210,7 @@ export const Cancel = styled.button`
   height: 50px;
   width: 150px;
   top: 83%;
-  left: 37%;
+  left: 20%;
   border: #ff6b00;
   border-radius: 3px;
   background: none;
