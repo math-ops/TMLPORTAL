@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
-import { Background, Container, TableName, Form, Input, Label, Button, Select, Cancel } from './style';
+import { Background, Container, TableName, Form, Input, Label, Button, Select } from './style';
 import PersistentDrawerLeft from '../';
-import { Link } from 'react-router-dom'
 import axios from '../../../services/api';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import { useParams } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 export default function EditArea() {
+
+  const history = useHistory();
 
   const [isSucess, setIsSucess] = useState();
   const [linha, setLinha] = useState('');
@@ -35,8 +37,6 @@ export default function EditArea() {
       setArea(req_area.data.area);
       setCia(req_area.data.cia);
 
-      console.log(req_area.data);
-
     })();
   }, []);
 
@@ -51,6 +51,7 @@ export default function EditArea() {
       });
       if (!!res.data) {
         setIsSucess(true);
+        return history.push('/view/area');
       } else {
         setIsSucess(false);
       }
@@ -106,9 +107,6 @@ export default function EditArea() {
                 ))}
               </Select>
             </div>
-            <Link to='/view/area'>
-                  <Cancel>Cancelar</Cancel>
-             </Link> 
             <Button>Salvar</Button>
             {isSucess ?
               <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'right' }} open={open} autoHideDuration={6000} onClose={handleClose}>
