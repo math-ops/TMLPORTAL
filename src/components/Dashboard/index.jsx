@@ -100,7 +100,7 @@ export default function Dashboard() {
       <PersistentDrawerLeft />
 
       <Container>
-        <RiskValue>
+         <RiskValue>
           <Title>Material Risk Value $</Title>
           <Line>
             {
@@ -180,7 +180,7 @@ export default function Dashboard() {
                 <ChartScrapByShift data={dataScrapByShift} />
             }
           </Line>
-        </ScrapByShift>
+        </ScrapByShift> 
       </Container>
 
     </>
