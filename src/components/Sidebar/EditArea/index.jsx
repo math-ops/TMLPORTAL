@@ -38,6 +38,7 @@ export default function EditArea() {
       setCia(req_area.data.cia);
 
     })();
+    // eslint-disable-next-line
   }, []);
 
   async function handleSubmit(e) {

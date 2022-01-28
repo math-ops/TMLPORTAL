@@ -34,7 +34,11 @@ export const RiskValue = styled.div`
   margin-left: 5px;
   margin-top: 5px;
   @media (min-width: 1024px)  {
-    height: 29.6vh;
+    height: 29.3vh;
+    margin-top: 3px;
+  }
+  @media (min-width: 1440px){
+    height: 29.3vh;
     margin-top: 5px;
   }
 
@@ -50,7 +54,11 @@ export const ScrapOverall = styled.div`
   margin-left: 5px;
   margin-top: 5px;
   @media (min-width: 1024px){
-    height: 29.6vh;
+    height: 29.3vh;
+    margin-top: 3px;
+  }
+  @media (min-width: 1440px){
+    height: 29.3vh;
     margin-top: 5px;
   }
 `;
@@ -64,7 +72,11 @@ export const TrendWeek = styled.div`
   margin-left: 5px;
   margin-top: 7px;
   @media (min-width: 1024px){
-    height: 29.6vh;
+    height: 29.3vh;
+    margin-top: 3px;
+  }
+  @media (min-width: 1440px){
+    height: 29.3vh;
     margin-top: 5px;
   }
 
@@ -80,13 +92,13 @@ export const ScrapModel = styled.div`
   top: 5px;
   @media (min-width: 1024px){
     height: 44vh;
-    left: ${px2vw(443)};
-    top: ${px2vw(5)};
+    left: ${px2vw(435)};
+    top: ${px2vw(3)};
   }
 
   @media (min-width: 1440px){
-    height: 45vh;
-    left: ${px2vw(443)};
+    height: 44vh;
+    left: ${px2vw(435)};
     top: ${px2vw(5)};
   }
 `;
@@ -100,15 +112,15 @@ export const Classification = styled.div`
   left: 490px;
   top: 360px;
   @media (min-width: 1024px){
-    height: 44vh;
-    left: ${px2vw(443)};
-    top: ${px2vw(318)};
+    height: 44.5vh;
+    left: ${px2vw(435)};
+    top: ${px2vw(315)};
   }
 
   @media (min-width: 1440px){
     height: 44.5vh;
-    left: ${px2vw(443)};
-    top: ${px2vw(331)};
+    left: ${px2vw(435)};
+    top: ${px2vw(322)};
   }
 `;
 
@@ -122,13 +134,13 @@ export const OfensorClass = styled.div`
   top: 5px;
   @media (min-width: 1024px){
     height: 44vh;
-    left: ${px2vw(953)};
-    top: ${px2vw(5)};
+    left: ${px2vw(938)};
+    top: ${px2vw(3)};
   }
 
   @media (min-width: 1440px){
-    height: 45vh;
-    left: ${px2vw(953)};
+    height: 44vh;
+    left: ${px2vw(938)};
     top: ${px2vw(5)};
   }
 `;
@@ -142,15 +154,15 @@ export const ScrapByShift = styled.div`
   left: 1055px;
   top: 360px;
   @media (min-width: 1024px){
-    height: 44vh;
-    left: ${px2vw(953)};
-    top: ${px2vw(318)};
+    height: 44.5vh;
+    left: ${px2vw(938)};
+    top: ${px2vw(315)};
   }
 
   @media (min-width: 1440px){
     height: 44.5vh;
-    left: ${px2vw(953)};
-    top: ${px2vw(331)};
+    left: ${px2vw(938)};
+    top: ${px2vw(322)};
   }
 `;
 
