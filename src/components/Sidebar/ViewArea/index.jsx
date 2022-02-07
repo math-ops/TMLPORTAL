@@ -81,16 +81,20 @@ export function StickyHeadTable() {
       setData(req_area.data);
 
     })();
-  }, []);
+  }, [open]);
 
   const handleOpen = () => {
     setOpen(true);
   }
 
-  const  handleClose = (async) => {
-    (async = () => {
-     const req = await axios.delete(`area/${id}`)
+  const  handleDelete = () => {
+    (async () => {
+      await axios.delete(`area/${id}`);
     })();    
+    setOpen(false);
+  }
+
+  const  handleClose = () => {  
     setOpen(false);
   }
 
@@ -131,7 +135,7 @@ export function StickyHeadTable() {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancelar</Button>
-          <Button color="error" onClick={handleClose}>Remover</Button>
+          <Button color="error" onClick={handleDelete}>Remover</Button>
         </DialogActions>
       </Dialog>
 
