@@ -136,7 +136,7 @@ export default function PersistentDrawerLeft(props) {
   }
 
   return (
-    <Box sx={{ display: 'flex'}}>
+    <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'nowrap'}}>
        <ThemeProvider
         theme={createTheme({
           components: {

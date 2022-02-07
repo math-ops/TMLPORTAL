@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
-import { Background, Container, TableName, Form, Input, Label, Button, Select } from './style';
+import { Background, Container, TableName, Form, Input, Label, Button, Select, Cancel } from './style';
 import PersistentDrawerLeft from '../';
 import axios from '../../../services/api';
 import Snackbar from '@mui/material/Snackbar';
@@ -38,6 +38,7 @@ export default function EditArea() {
       setCia(req_area.data.cia);
 
     })();
+    // eslint-disable-next-line
   }, []);
 
   async function handleSubmit(e) {
@@ -107,6 +108,7 @@ export default function EditArea() {
                 ))}
               </Select>
             </div>
+            <Cancel>Cancelar</Cancel>
             <Button>Salvar</Button>
             {isSucess ?
               <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'right' }} open={open} autoHideDuration={6000} onClose={handleClose}>

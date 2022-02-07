@@ -11,14 +11,19 @@ export default function ExportCSV() {
 
   const {
     cia,
+    //eslint-disable-next-line
     setCia,
     dataInicio,
+    //eslint-disable-next-line
     setDataInicio,
     dataFim,
+    //eslint-disable-next-line
     setDataFim,
     resultado,
+    //eslint-disable-next-line
     setResultado,
     isSearch,
+    //eslint-disable-next-line
     setIsSearch
   } = React.useContext(FiltroContext);
 
@@ -31,6 +36,7 @@ export default function ExportCSV() {
       const response = await axios.get(`/dmr/csv/${cia}/${dataInicio_param}/${dataFim_param}/${resultado}`);
       setFileData(response.data);
     })();
+    //eslint-disable-next-line
   }, [isSearch])
 
   return (

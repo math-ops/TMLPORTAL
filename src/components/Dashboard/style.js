@@ -1,184 +1,175 @@
 import styled from 'styled-components'
+import px2vw from '../../styles/utils/px2vw'
 
 const light = '#fff';
-// eslint-disable-next-line
-const gray = '#dddd';
 const dark = '#333';
 
-
-export const Topbar = styled.div`
-@media only screen and (max-width: 1280px){
-  position: absolute;
-  margin: 0;
-  width: 100%;
-  height: 23vh;
-  background: ${dark};
-}
-  position: absolute;
-  margin: 0;
-  width: 100%;
-  height: 140px;
-  background: ${dark};
-`;
-
 export const Line = styled.div`
-@media only screen and (max-width: 1280px){
+@media only screen and (min-width: 1366px){
 
 }
 `;
 
 export const Container = styled.div`
-@media only screen and (max-width: 1280px){
-  position: absolute;
-  top: 65px;
-  width: 100%;  
-  height: 93vh;
-  background: ${dark};
-}
   position: absolute;
   top: 68px;
   width: 100%;
   height: 720px;
   background: ${dark};
+  @media (min-width: 1024px){
+    top: 65px;
+    width: 100%;  
+    height: 93vh;
+  }
 `;
 
+//CHARTS
+
 export const RiskValue = styled.div`
-@media only screen and (max-width: 1280px){
-  /* display: flexbox;
-  grid-template-columns: repeat(1, 1fr); */
-  background: ${light};
-  width: 30%;
-  height: 30vh;
-  margin-left: 5px;
-  margin-top: 5px;
-}
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   background: ${light};
   width: 30%;
-  height: 230px;
+  height: 235px;
   margin-left: 5px;
   margin-top: 5px;
+  @media (min-width: 1024px)  {
+    height: 29.3vh;
+    margin-top: 3px;
+  }
+  @media (min-width: 1440px){
+    height: 29.3vh;
+    margin-top: 5px;
+  }
+
+
 `;
 
 export const ScrapOverall = styled.div`
-@media only screen and (max-width: 1280px){
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   background: ${light};
   width: 30%;
-  height: 30vh;
+  height: 235px;
   margin-left: 5px;
   margin-top: 5px;
-}
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  background: ${light};
-  width: 30%;
-  height: 230px;
-  margin-left: 5px;
-  margin-top: 6px;
-
+  @media (min-width: 1024px){
+    height: 29.3vh;
+    margin-top: 3px;
+  }
+  @media (min-width: 1440px){
+    height: 29.3vh;
+    margin-top: 5px;
+  }
 `;
 
 export const TrendWeek = styled.div`
-@media only screen and (max-width: 1280px){
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   background: ${light};
   width: 30%;
-  height: 29vh;
-  margin-left: 5px;
-  margin-top: 5px;
-}
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  background: ${light};
-  width: 30%;
-  height: 230px;
+  height: 235px;
   margin-left: 5px;
   margin-top: 7px;
+  @media (min-width: 1024px){
+    height: 29.3vh;
+    margin-top: 3px;
+  }
+  @media (min-width: 1440px){
+    height: 29.3vh;
+    margin-top: 5px;
+  }
 
 `;
 
 export const ScrapModel = styled.div`
-@media only screen and (max-width: 1280px){
-  /* position: absolute;
-  grid-template-columns: repeat(2, 1fr); */
-  background: ${light};
-  width: 35%;
-  height: 45vh;
-  left: 389px;
-  top: 3px;
-}
   position: absolute;
   grid-template-columns: repeat(2, 1fr);
   background: ${light};
   width: 35%;
-  height: 44vh;
+  height: 43vh;
   left: 490px;
   top: 5px;
+  @media (min-width: 1024px){
+    height: 44vh;
+    left: ${px2vw(435)};
+    top: ${px2vw(3)};
+  }
+
+  @media (min-width: 1440px){
+    height: 44vh;
+    left: ${px2vw(435)};
+    top: ${px2vw(5)};
+  }
 `;
 
 export const Classification = styled.div`
-@media only screen and (max-width: 1280px){
-  /* position: absolute;
-  grid-template-columns: repeat(2, 1fr); */
-  background: ${light};
-  width: 35%;
-  height: 45vh;
-  left: 389px;
-  top: 287px;
-}
   position: absolute;
   grid-template-columns: repeat(2, 1fr);
   background: ${light};
   width: 35%;
-  height: 44vh;
+  height: 44.4vh;
   left: 490px;
   top: 360px;
+  @media (min-width: 1024px){
+    height: 44.5vh;
+    left: ${px2vw(435)};
+    top: ${px2vw(315)};
+  }
+
+  @media (min-width: 1440px){
+    height: 44.5vh;
+    left: ${px2vw(435)};
+    top: ${px2vw(322)};
+  }
 `;
 
 export const OfensorClass = styled.div`
-@media only screen and (max-width: 1280px){
-  /* position: absolute;
-  grid-template-columns: repeat(2, 1fr); */
-  background: ${light};
-  width: 33.5%;
-  height: 45vh;
-  left: 835px;
-  top: 3px;
-}
   position: absolute;
   grid-template-columns: repeat(2, 1fr);
   background: ${light};
   width: 33.5%;
-  height: 44vh;
+  height: 43vh;
   left: 1055px;
   top: 5px;
+  @media (min-width: 1024px){
+    height: 44vh;
+    left: ${px2vw(938)};
+    top: ${px2vw(3)};
+  }
+
+  @media (min-width: 1440px){
+    height: 44vh;
+    left: ${px2vw(938)};
+    top: ${px2vw(5)};
+  }
 `;
 
 export const ScrapByShift = styled.div`
-@media only screen and (max-width: 1280px){
-  /* position: absolute;
-  grid-template-columns: repeat(2, 1fr); */
-  background: ${light};
-  width: 33.5%;
-  height: 45vh;
-  left: 835px;
-  top: 287px;
-}
   position: absolute;
   grid-template-columns: repeat(2, 1fr);
   background: ${light};
   width: 33.5%;
-  height: 44vh;
+  height: 44.4vh;
   left: 1055px;
   top: 360px;
+  @media (min-width: 1024px){
+    height: 44.5vh;
+    left: ${px2vw(938)};
+    top: ${px2vw(315)};
+  }
+
+  @media (min-width: 1440px){
+    height: 44.5vh;
+    left: ${px2vw(938)};
+    top: ${px2vw(322)};
+  }
 `;
 
+//TOPBAR
+
 export const Input = styled.input`
-@media only screen and (max-width: 1280px){
+@media (min-width: 1366px){
   display: inline-block;
   position: relative;
   background: #eee;
@@ -205,7 +196,7 @@ export const Input = styled.input`
 `;
 
 export const Select = styled.select`
-  @media only screen and (max-width: 1280px){
+  @media only screen and (min-width: 1366px){
   display: inline-block;
   position: relative;
   background: #eee;
@@ -230,13 +221,13 @@ export const Select = styled.select`
 `;
 
 export const Option = styled.option`
-@media only screen and (max-width: 1280px){
+@media only screen and (min-width: 1366px){
 
 }
 `;
 
 export const Label = styled.label`
-@media only screen and (max-width: 1280px){
+@media only screen and (min-width: 1366px){
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 10px;
@@ -260,21 +251,6 @@ export const Label = styled.label`
 `;
 
 export const Button = styled.button`
-@media only screen and (max-width: 1280px){
-  position: relative;
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 15px;
-  cursor: pointer;
-  background: greenyellow;
-  left: 70px;
-  top: 0px;
-  &:hover{
-    background: 	#22bb33;
-    transition: 0.4s ease-out;
-  }
-}
   position: relative;
   border: none;
   width: 90px;
@@ -288,25 +264,23 @@ export const Button = styled.button`
     background: 	#22bb33;
     transition: 0.4s ease-out;
   }
+  @media only screen and (min-width: 1024px){
+    width: 40px;
+    height: 40px;
+    border-radius: 15px;
+    cursor: pointer;
+    background: greenyellow;
+    left: ${px2vw(80)};
+    top: 0px;
+    &:hover{
+      background: 	#22bb33;
+      transition: 0.4s ease-out;
+    }
+  }
 
 `;
 
 export const Download = styled.button`
-@media only screen and (max-width: 1280px){
-  position: relative;
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 15px;
-  cursor: pointer;
-  background: #dddd;
-  left: 75px;
-  top: 0px;
-  &:hover{
-    background: 	#fff;
-    transition: 0.4s ease-out;
-  }
-}
   position: relative;
   border: none;
   width: 50px;
@@ -320,11 +294,22 @@ export const Download = styled.button`
     background: 	#aaaaaa;
     transition: 0.4s ease-out;
   }
+  @media only screen and (min-width: 1024px){
+    width: 40px;
+    height: 40px;
+    border-radius: 15px;
+    left: ${px2vw(100)};
+    top: 0px;
+    &:hover{
+      background: 	#fff;
+      transition: 0.4s ease-out;
+    }
+  }
 
 `;
 
 export const Search = styled.img`
-  @media only screen and (max-width: 1280px){
+  @media only screen and (min-width: 1366px){
     height: 20px;
     width: 20px;    
   }
@@ -342,7 +327,7 @@ export const Title = styled.h2`
 `;
 
 export const Logo = styled.h1`
-  @media only screen and (max-width: 1280px){
+  @media only screen and (min-width: 1366px){
     position: absolute;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
@@ -359,7 +344,7 @@ export const Logo = styled.h1`
 `;
 
 export const Date = styled.h2`
-  @media only screen and (max-width: 1280px){
+  @media only screen and (min-width: 1366px){
     position: absolute;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
@@ -377,7 +362,7 @@ export const Date = styled.h2`
 `;
 
 export const Filter = styled.select`
-  @media only screen and (max-width: 1280px){
+  @media only screen and (min-width: 1366px){
     display: inline-block;
   position: relative;
   background: #eee;

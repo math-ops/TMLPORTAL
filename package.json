@@ -15,7 +15,7 @@
     "@testing-library/user-event": "^12.1.10",
     "@types/chart.js": "^2.9.34",
     "@types/react-chartjs-2": "^2.5.7",
-    "@types/styled-components": "^5.1.16",
+    "@types/styled-components": "^5.1.21",
     "axios": "^0.24.0",
     "chart.js": "^3.5.1",
     "chartjs-plugin-datalabels": "^2.0.0",
