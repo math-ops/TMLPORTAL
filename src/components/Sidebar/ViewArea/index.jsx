@@ -87,17 +87,9 @@ export function StickyHeadTable() {
     setOpen(true);
   }
 
-<<<<<<< HEAD
   const  handleDelete = () => {
     (async () => {
       await axios.delete(`area/${id}`);
-=======
-  const  handleClose = (async) => {
-    (async = () => {
-      //REMOVI O AWAIT DA LINHA ABAIXO POIS ESTAVA QUEBRANDO O CÓDIGO
-      //eslint-disable-next-line
-     const req =  axios.delete(`area/${id}`)
->>>>>>> 3fec947b4835e2bd715aca130a6fa21781e0ff4b
     })();    
     setOpen(false);
   }

@@ -30,6 +30,9 @@ import { FiltroContext } from '../../provider/filtros';
 import moment from 'moment';
 import { useHistory } from 'react-router-dom';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
+import axios from '../../services/api';
+import { useEffect, useState } from 'react';
+import ExportCSV from '../../components/ExportCSV';
 moment.locale('pt-br');
 
 const drawerWidth = 240;
@@ -62,8 +65,36 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 export default function PersistentDrawerLeft(props) {
 
-    const history = useHistory();
- 
+  const {
+    ciaDefault,
+    cia,
+    setCia,
+    area,
+    setArea,
+    dataInicio,
+    setDataInicio,
+    dataFim,
+    setDataFim,
+    resultado,
+    setResultado,
+    isSearch,
+    setIsSearch
+  } = React.useContext(FiltroContext);
+
+  const history = useHistory();
+  const [dataCIA, setDataCIA] = useState([]);
+  const [dataArea, setDataArea] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const response_CIA = await axios.get(`dmr/${ciaDefault}`);
+      setDataCIA(response_CIA.data);
+
+      const response_area = await axios.get(`area/${cia}`);
+      setDataArea(response_area.data);
+    })();
+  }, [cia])
+
   const menuItems = [
     {
       text: 'DASHBOARD',
@@ -73,25 +104,25 @@ export default function PersistentDrawerLeft(props) {
   ]
 
   const cadastros = [
-      {
-        text: 'Cadastro Area',
-        icon: <CreateIcon />,
-        path: '/cad/area'
-      },
-      {
-          text: 'Cadastro DMR',
-          icon: <CreateIcon />,
-          path: '/cad/dmr'
-      },
-      {
-        text: 'Cadastro de Picote',
-        icon: <CreateIcon />,
-        path: '/cad/picote'
-      }
+    {
+      text: 'Cadastro Area',
+      icon: <CreateIcon />,
+      path: '/cad/area'
+    },
+    {
+      text: 'Cadastro DMR',
+      icon: <CreateIcon />,
+      path: '/cad/dmr'
+    },
+    {
+      text: 'Cadastro de Picote',
+      icon: <CreateIcon />,
+      path: '/cad/picote'
+    }
   ]
 
   const visualizarCadastros = [
-     {
+    {
       text: 'View Areas',
       icon: <TableViewIcon />,
       path: '/view/area'
@@ -108,17 +139,7 @@ export default function PersistentDrawerLeft(props) {
     }
   ]
 
-  const { cia, 
-          setCia, 
-          dataInicio, 
-          setDataInicio,
-          dataFim,
-          setDataFim,
-          resultado,
-          setResultado,
-          isSearch,
-          setIsSearch
-        } = React.useContext(FiltroContext);
+
 
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -135,9 +156,30 @@ export default function PersistentDrawerLeft(props) {
     return moment(data).add(1, 'days').format('YYYY-MM-DD').toString();
   }
 
+  function OptionsCia({ options }) {
+    return (
+      options.map(option =>
+        <option key={option.CIA} value={option.CIA}>
+          {option.CIA}
+        </option>)
+
+    );
+  }
+
+  function OptionsArea({ options }) {
+    return (
+      options.map(option =>
+        <option key={option.id} value={option.area}>
+          {option.area}
+        </option>)
+
+    );
+  }
+
+
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'nowrap'}}>
-       <ThemeProvider
+    <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'nowrap' }}>
+      <ThemeProvider
         theme={createTheme({
           components: {
             MuiListItemButton: {
@@ -153,88 +195,93 @@ export default function PersistentDrawerLeft(props) {
           },
         })}
       >
-      <CssBaseline />
-      <AppBar position="absolute" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{ mr: 2, ...(open && { display: 'none' }) }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            TML Overview
-          </Typography>
+        <CssBaseline />
+        <AppBar position="absolute" open={open}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{ mr: 2, ...(open && { display: 'none' }) }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap component="div">
+              TML Overview
+            </Typography>
 
-          <Line>
-        <Label>Cia.:</Label>
-       <Select value={cia} onChange={(e)=> setCia(e.target.value)}>
-          <Option value="manaus">Manaus</Option>
-          <Option value="066">066</Option>
-          <Option value="338">338</Option>
-       </Select>
+            <Line>
+              <Label>Cia.:</Label>
+              <Select value={cia} onChange={(e) => setCia(e.target.value)}>
+                <Option value={ciaDefault}>{ciaDefault}</Option>
+                <OptionsCia options={dataCIA} />
+              </Select>
 
-       <Label>Area:</Label>
-       <Select value={cia} onChange={(e)=> setCia(e.target.value)}>
-          <Option value="#">Area</Option>
-          <Option value="#">value_01</Option>
-          <Option value="#">value_02</Option>
-       </Select>
+              <Label>Area:</Label>
+              <Select value={area} onChange={(e) => setArea(e.target.value)}>
+                <Option value="ALL">ALL</Option>
+                <OptionsArea options={dataArea} />
+              </Select>
 
-        <Label>Data Inicio:</Label>
-        <Input type="date" value={dataInicio} onChange={(e)=> setDataInicio(formatDataCalendar(e.target.valueAsDate))}/>
-        
-       <Label>Data Final:</Label>
-        <Input type="date" value={dataFim} onChange={(e)=> setDataFim(formatDataCalendar(e.target.valueAsDate))}/>
+              <Label>Data Inicio:</Label>
+              <Input type="date" value={dataInicio} onChange={(e) => setDataInicio(formatDataCalendar(e.target.valueAsDate))} />
 
-        <Label>Resultado:</Label>
-        <Select value={resultado} onChange={(e)=> setResultado(e.target.value)}>
-          <Option value="ALL">ALL</Option>
-          <Option value="1">RTV</Option>
-          <Option value="2">UAI</Option>
-          <Option value="3">REW</Option>
-          <Option value="4">SCRP</Option>
-          <Option value="5">HLD</Option>
-          <Option value="6">Cancelada</Option>
-          <Option value="7">E-SCRP</Option>
-          <Option value="8">RTC</Option>
-          <Option value="9">MRB</Option>
-          <Option value="4,7">SCRP/E-SCRP</Option>
-        </Select>
-        </Line> 
-        <Line>   
-         <Button onClick={(e) => setIsSearch(!isSearch)}><Search src={search} /></Button>
-          </Line>
-          
-          <Download><CloudDownloadIcon /></Download>
-        
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
+              <Label>Data Final:</Label>
+              <Input type="date" value={dataFim} onChange={(e) => setDataFim(formatDataCalendar(e.target.valueAsDate))} />
+
+              <Label>Resultado:</Label>
+              <Select value={resultado} onChange={(e) => setResultado(e.target.value)}>
+                <Option value="ALL">ALL</Option>
+                <Option value="1">RTV</Option>
+                <Option value="2">UAI</Option>
+                <Option value="3">REW</Option>
+                <Option value="4">SCRP</Option>
+                <Option value="5">HLD</Option>
+                <Option value="6">Cancelada</Option>
+                <Option value="7">E-SCRP</Option>
+                <Option value="8">RTC</Option>
+                <Option value="9">MRB</Option>
+                <Option value="4,7">SCRP/E-SCRP</Option>
+              </Select>
+            </Line>
+            <Line>
+              <Button onClick={(e) => setIsSearch(!isSearch)}><Search src={search} /></Button>
+            </Line>
+
+
+            <Download>
+              <ExportCSV>
+                <CloudDownloadIcon />
+              </ExportCSV>
+            </Download>
+
+
+
+          </Toolbar>
+        </AppBar>
+        <Drawer
+          sx={{
             width: drawerWidth,
-            boxSizing: 'border-box',
-          },
-        }}
-        anchor="left"
-        open={open}
-      >
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-       
+            flexShrink: 0,
+            '& .MuiDrawer-paper': {
+              width: drawerWidth,
+              boxSizing: 'border-box',
+            },
+          }}
+          anchor="left"
+          open={open}
+        >
+          <DrawerHeader>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            </IconButton>
+          </DrawerHeader>
+          <Divider />
+
           <List>
             {menuItems.map(item => (
-               <ListItem
+              <ListItem
                 button
                 key={item.text}
                 onClick={() => history.push(item.path)}
@@ -248,40 +295,40 @@ export default function PersistentDrawerLeft(props) {
               <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header"><ListItemIcon><CreateIcon /></ListItemIcon>CADASTROS</AccordionSummary>
               <AccordionActions>
                 <List>
-                {cadastros.map(cadastros => (
-                  <ListItem
-                  button
-                  key={cadastros.text}
-                  onClick={() => history.push(cadastros.path)}
-                >
-                  <ListItemIcon>{cadastros.icon}</ListItemIcon>
-                <ListItemText primary={cadastros.text} />
-              </ListItem>
-                ))}
+                  {cadastros.map(cadastros => (
+                    <ListItem
+                      button
+                      key={cadastros.text}
+                      onClick={() => history.push(cadastros.path)}
+                    >
+                      <ListItemIcon>{cadastros.icon}</ListItemIcon>
+                      <ListItemText primary={cadastros.text} />
+                    </ListItem>
+                  ))}
                 </List>
               </AccordionActions>
             </Accordion>
 
             <Accordion>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header"><ListItemIcon><TableViewIcon  /></ListItemIcon>VIEWS</AccordionSummary>
+              <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header"><ListItemIcon><TableViewIcon /></ListItemIcon>VIEWS</AccordionSummary>
               <AccordionActions>
                 <List>
-                {visualizarCadastros.map(visualizarCadastros => (
-                  <ListItem
-                  button
-                  key={visualizarCadastros.text}
-                  onClick={() => history.push(visualizarCadastros.path)}
-                >
-                  <ListItemIcon>{visualizarCadastros.icon}</ListItemIcon>
-                <ListItemText primary={visualizarCadastros.text} />
-              </ListItem>
-                ))}
+                  {visualizarCadastros.map(visualizarCadastros => (
+                    <ListItem
+                      button
+                      key={visualizarCadastros.text}
+                      onClick={() => history.push(visualizarCadastros.path)}
+                    >
+                      <ListItemIcon>{visualizarCadastros.icon}</ListItemIcon>
+                      <ListItemText primary={visualizarCadastros.text} />
+                    </ListItem>
+                  ))}
                 </List>
               </AccordionActions>
             </Accordion>
           </List>
-              
-      </Drawer>
+
+        </Drawer>
       </ThemeProvider>
     </Box>
   );

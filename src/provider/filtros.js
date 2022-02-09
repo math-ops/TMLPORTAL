@@ -8,14 +8,20 @@ export const FiltroContext = React.createContext({
 export const FiltroProvider = (props) => {
 
     const [cia, setCia] = useState('Manaus');
-    const [dataInicio, setDataInicio] = useState(moment().format('YYYY-MM-DD').toString());
+    const [ciaDefault, setCiaDefault] = useState('Manaus');
+    const [area,setArea] = useState('ALL');
+    const [dataInicio, setDataInicio] = useState(moment().add(-1,'days').format('YYYY-MM-DD').toString());
     const [dataFim, setDataFim] = useState(moment().format('YYYY-MM-DD').toString());
     const [resultado, setResultado] = useState('ALL');
-    const [isSearch, setIsSearch] = useState(false);
+    const [isSearch, setIsSearch] = useState(false);   
+
 
     return (
-        <FiltroContext.Provider value={{ cia, 
+        <FiltroContext.Provider value={{ ciaDefault,
+                                         cia, 
                                          setCia, 
+                                         area,
+                                         setArea,
                                          dataInicio, 
                                          setDataInicio,
                                          dataFim,

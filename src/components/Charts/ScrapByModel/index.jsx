@@ -64,7 +64,9 @@ export function ChartScrapModel({data}){
         ],
         
         datalabels: {
-          align: 'start',
+          align:  data.map((cias) => {
+            return cias.VL_TOTAL.toFixed(0) > 0 ? 'start' : 'end'
+          }),
           anchor: 'end',
           color: '#000',
         },

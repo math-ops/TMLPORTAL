@@ -27,7 +27,9 @@ export function ChartOfensorDescription({ data }) {
           '#B9CDE5',
         ],
         datalabels: {
-          align: 'start',
+          align:  data.map((defects) => {
+            return defects.VL_TOTAL.toFixed(0) < 25 ? 'end' : 'start'
+          }),
           anchor: 'end',
           color: '#000',
         },

@@ -28,9 +28,10 @@ export function ChartClassification({data}){
           'rgba(255, 159, 64, 1)',
         ],
         datalabels: {
-          align: 'center',
+          align: 'bottom',
           anchor: 'end',
-          color: '#000',       
+          color: '#000',    
+          rotation:'0'
         }
       }
     ]

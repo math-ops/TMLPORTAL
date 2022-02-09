@@ -35,6 +35,8 @@ export default function Dashboard() {
     cia,
     // eslint-disable-next-line
     setCia,
+    area,
+    setArea,
     dataInicio,
     // eslint-disable-next-line
     setDataInicio,
@@ -70,11 +72,11 @@ export default function Dashboard() {
         res_ScrapByShift,
         res_ScrapClassification,
       ] = await Promise.all([
-        axios.get(`dmr/site/${cia}/${dataInicio_param}/${dataFim_param}/${resultado}`),
-        axios.get(`dmr/family/${cia}/${dataInicio_param}/${dataFim_param}/${resultado}/1001`),
-        axios.get(`dmr/defect/${cia}/${dataInicio_param}/${dataFim_param}/${resultado}`),
-        axios.get(`dmr/shift/${cia}/${dataInicio_param}/${dataFim_param}/${resultado}`),
-        axios.get(`dmr/family/${cia}/${dataInicio_param}/${dataFim_param}/${resultado}/999001`),
+        axios.get(`dmr/site/${cia}/${area}/${dataInicio_param}/${dataFim_param}/${resultado}`),
+        axios.get(`dmr/family/${cia}/${area}/${dataInicio_param}/${dataFim_param}/${resultado}/1001`),
+        axios.get(`dmr/defect/${cia}/${area}/${dataInicio_param}/${dataFim_param}/${resultado}`),
+        axios.get(`dmr/shift/${cia}/${area}/${dataInicio_param}/${dataFim_param}/${resultado}`),
+        axios.get(`dmr/family/${cia}/${area}/${dataInicio_param}/${dataFim_param}/${resultado}/999001`),
       ]);
 
       setProcessDefectClassification(false);
