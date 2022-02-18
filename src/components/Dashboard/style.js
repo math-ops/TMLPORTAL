@@ -64,13 +64,11 @@ export const ScrapOverall = styled.div`
 `;
 
 export const TrendWeek = styled.div`
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  display: flex-inline;
+  flex-direction: column;
   background: ${light};
   width: 30%;
   height: 235px;
-  margin-left: 5px;
-  margin-top: 7px;
   @media (min-width: 1024px){
     height: 29.3vh;
     margin-top: 3px;

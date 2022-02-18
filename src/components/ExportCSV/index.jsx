@@ -13,6 +13,8 @@ export default function ExportCSV() {
     cia,
     //eslint-disable-next-line
     setCia,
+    area,
+    setArea,
     dataInicio,
     //eslint-disable-next-line
     setDataInicio,
@@ -33,7 +35,8 @@ export default function ExportCSV() {
     const dataFim_param = moment(dataFim).format("DD-MM-YYYY").toString();
 
     (async () => {
-      const response = await axios.get(`/dmr/csv/${cia}/${dataInicio_param}/${dataFim_param}/${resultado}`);
+      const response = await axios.get(`/dmr/csv/${cia}/${area}/${dataInicio_param}/${dataFim_param}/${resultado}`);
+      console.log('CSV',response.data);
       setFileData(response.data);
     })();
     //eslint-disable-next-line
@@ -42,10 +45,11 @@ export default function ExportCSV() {
   return (
     <div>
       <h6>CSV</h6>
+      
       {fileData?.length &&
         <CSVLink
           data={fileData}
-          enclosingCharacter={`'`}
+          // enclosingCharacter={`'`}
           separator={";"}
           fileName="results.csv"
           target="_blank"

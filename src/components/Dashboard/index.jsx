@@ -24,12 +24,14 @@ export default function Dashboard() {
   const [dataDefectClassification, setDataDefectClassification] = useState([]);
   const [dataScrapByShift, setDataScrapByShift] = useState([]);
   const [dataScrapClassification, setDataScrapClassification] = useState([]);
+  const [dataTrendWeek, setDataTreendWeek] = useState([]);
 
   const [processingDefectClassification, setProcessDefectClassification] = useState(true)
   const [processingRiskValue, setProcessRiskValue] = useState(true)
   const [processingScrapModel, setProcessScrapModel] = useState(true);
   const [processingScrapByShift, setProcessScrapByShift] = useState(true);
   const [processingScrapClassification, setProcessScrapClassification] = useState(true);
+  const [processingDataTreendWeek, setProcessTreendWeek] = useState(true);
 
   const {
     cia,
@@ -64,6 +66,7 @@ export default function Dashboard() {
       setProcessScrapModel(true);
       setProcessScrapByShift(true);
       setProcessScrapClassification(true);
+      setProcessTreendWeek(true);
 
       const [
         res_RiskValue,
@@ -71,12 +74,14 @@ export default function Dashboard() {
         res_DefectClassification,
         res_ScrapByShift,
         res_ScrapClassification,
+        res_TrendWeek,
       ] = await Promise.all([
         axios.get(`dmr/site/${cia}/${area}/${dataInicio_param}/${dataFim_param}/${resultado}`),
         axios.get(`dmr/family/${cia}/${area}/${dataInicio_param}/${dataFim_param}/${resultado}/1001`),
         axios.get(`dmr/defect/${cia}/${area}/${dataInicio_param}/${dataFim_param}/${resultado}`),
         axios.get(`dmr/shift/${cia}/${area}/${dataInicio_param}/${dataFim_param}/${resultado}`),
         axios.get(`dmr/family/${cia}/${area}/${dataInicio_param}/${dataFim_param}/${resultado}/999001`),
+        axios.get(`dmr/week/${cia}/${area}/${dataInicio_param}/${dataFim_param}/${resultado}`),
       ]);
 
       setProcessDefectClassification(false);
@@ -84,6 +89,7 @@ export default function Dashboard() {
       setProcessScrapModel(false);
       setProcessScrapByShift(false);
       setProcessScrapClassification(false);
+      setProcessTreendWeek(false);
 
 
       setDataRiskValue(res_RiskValue.data);
@@ -91,9 +97,10 @@ export default function Dashboard() {
       setDataDefectClassification(res_DefectClassification.data);
       setDataScrapByShift(res_ScrapByShift.data);
       setDataScrapClassification(res_ScrapClassification.data);
+      setDataTreendWeek(res_TrendWeek.data);
 
     })();
-// eslint-disable-next-line
+    // eslint-disable-next-line
   }, [isSearch]);
 
 
@@ -102,7 +109,7 @@ export default function Dashboard() {
       <PersistentDrawerLeft />
 
       <Container>
-         <RiskValue>
+        <RiskValue>
           <Title>Material Risk Value $</Title>
           <Line>
             {
@@ -124,66 +131,65 @@ export default function Dashboard() {
         <TrendWeek>
           <Title>Material Trend Week</Title>
           <Line className="ctw">
-            <Filter className="selects"></Filter>
-            <Filter className="selects"></Filter>
-            <Filter className="selects"></Filter>
-            <Filter className="selects"></Filter>
-            <ChartTrendWeek />
-
-          </Line>
-        </TrendWeek>
-
-        <ScrapModel>
-          <Title>Material Scrap by Model</Title>
-          <Line className="sbm">
-            <div className="charts">
-              {processingScrapModel ?
-                <SpinnerBg />
-                :
-                <ChartScrapModel data={dataScrapModel} />
-              }
-            </div>
-          </Line>
-        </ScrapModel>
-
-        <Classification>
-          <Title>Material Scrap by Classification</Title>
-          <Line className="sbc">
-            {
-              processingScrapClassification ?
-                <SpinnerBg />
-                :
-                <ChartClassification data={dataScrapClassification} />
+            {processingDataTreendWeek ?
+              <SpinnerSm /> :
+              <ChartTrendWeek data={dataTrendWeek} />
             }
           </Line>
-        </Classification>
 
-        <OfensorClass>
-          <Title>TOP 10 Ofensor by Defect Description</Title>
-          <Line className="sbm">
-            {
-              processingDefectClassification ?
+      </TrendWeek>
 
-                <SpinnerBg />
-                :
-                <ChartOfensorDescription data={dataDefectClassification} />
-
+      <ScrapModel>
+        <Title>Material Scrap by Model</Title>
+        <Line className="sbm">
+          <div className="charts">
+            {processingScrapModel ?
+              <SpinnerBg />
+              :
+              <ChartScrapModel data={dataScrapModel} />
             }
-          </Line>
-        </OfensorClass>
+          </div>
+        </Line>
+      </ScrapModel>
 
-        <ScrapByShift>
-          <Title>Material Scrap By Shift</Title>
-          <Line className="sbs">
-            {
-              processingScrapByShift ?
-                <SpinnerBg />
-                :
-                <ChartScrapByShift data={dataScrapByShift} />
-            }
-          </Line>
-        </ScrapByShift> 
-      </Container>
+      <Classification>
+        <Title>Material Scrap by Classification</Title>
+        <Line className="sbc">
+          {
+            processingScrapClassification ?
+              <SpinnerBg />
+              :
+              <ChartClassification data={dataScrapClassification} />
+          }
+        </Line>
+      </Classification>
+
+      <OfensorClass>
+        <Title>TOP 10 Ofensor by Defect Description</Title>
+        <Line className="sbm">
+          {
+            processingDefectClassification ?
+
+              <SpinnerBg />
+              :
+              <ChartOfensorDescription data={dataDefectClassification} />
+
+          }
+        </Line>
+      </OfensorClass>
+
+      <ScrapByShift>
+        <Title>Material Scrap By Shift</Title>
+        <Line className="sbs">
+          {
+            processingScrapByShift ?
+              <SpinnerBg />
+              :
+              <ChartScrapByShift data={dataScrapByShift} />
+          }
+        </Line>
+      </ScrapByShift>
+    </Container>
 
     </>
   )

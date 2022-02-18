@@ -169,10 +169,21 @@ export default function PersistentDrawerLeft(props) {
   function OptionsArea({ options }) {
     return (
       options.map(option =>
-        <option key={option.id} value={option.area}>
+        <option key={option.area} value={option.area}>
           {option.area}
         </option>)
+    );
+  }
 
+  function OptionsAreaUnique({ options }) {
+
+    const newData = [...new Map(options.map((x) => [x['area'], x])).values()];
+
+    return (
+      newData.map(option =>
+        <option key={option.area} value={option.area}>
+          {option.area}
+        </option>)
     );
   }
 
@@ -221,7 +232,7 @@ export default function PersistentDrawerLeft(props) {
               <Label>Area:</Label>
               <Select value={area} onChange={(e) => setArea(e.target.value)}>
                 <Option value="ALL">ALL</Option>
-                <OptionsArea options={dataArea} />
+                <OptionsAreaUnique options={dataArea} />
               </Select>
 
               <Label>Data Inicio:</Label>
@@ -249,14 +260,11 @@ export default function PersistentDrawerLeft(props) {
               <Button onClick={(e) => setIsSearch(!isSearch)}><Search src={search} /></Button>
             </Line>
 
-
             <Download>
               <ExportCSV>
                 <CloudDownloadIcon />
               </ExportCSV>
             </Download>
-
-
 
           </Toolbar>
         </AppBar>
