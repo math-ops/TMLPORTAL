@@ -3,9 +3,6 @@ import { Bar } from 'react-chartjs-2'
 import { Chart } from 'chart.js'
 import ChartDataLabels from 'chartjs-plugin-datalabels'
 
-//criando o spinner
-import CircularProgress from '@mui/material/CircularProgress'
-
 Chart.register(ChartDataLabels);
 
 export function ChartTrendWeek({ data }) {

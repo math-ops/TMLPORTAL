@@ -67,7 +67,8 @@ export const TrendWeek = styled.div`
   display: flex-inline;
   flex-direction: column;
   background: ${light};
-  width: 30%;
+  width: 30%;  
+  margin-left: 5px;
   height: 235px;
   @media (min-width: 1024px){
     height: 29.3vh;

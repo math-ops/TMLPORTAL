@@ -29,7 +29,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { FiltroContext } from '../../provider/filtros';
 import moment from 'moment';
 import { useHistory } from 'react-router-dom';
-import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
+// import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import axios from '../../services/api';
 import { useEffect, useState } from 'react';
 import ExportCSV from '../../components/ExportCSV';
@@ -235,11 +235,11 @@ export default function PersistentDrawerLeft(props) {
                 <OptionsAreaUnique options={dataArea} />
               </Select>
 
-              <Label>Data Inicio:</Label>
-              <Input type="date" value={dataInicio} onChange={(e) => setDataInicio(formatDataCalendar(e.target.valueAsDate))} />
+              <Label for="datain">Data Inicio:</Label>
+              <Input type="date" id="datain" value={dataInicio} onChange={(e) => setDataInicio(formatDataCalendar(e.target.valueAsDate))} />
 
-              <Label>Data Final:</Label>
-              <Input type="date" value={dataFim} onChange={(e) => setDataFim(formatDataCalendar(e.target.valueAsDate))} />
+              <Label for="datafi">Data Final:</Label>
+              <Input type="date" id="datafi" value={dataFim} onChange={(e) => setDataFim(formatDataCalendar(e.target.valueAsDate))} />
 
               <Label>Resultado:</Label>
               <Select value={resultado} onChange={(e) => setResultado(e.target.value)}>
@@ -261,8 +261,8 @@ export default function PersistentDrawerLeft(props) {
             </Line>
 
             <Download>
+                {/* <CloudDownloadIcon /> */}
               <ExportCSV>
-                <CloudDownloadIcon />
               </ExportCSV>
             </Download>
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+// eslint-disable-next-line
 import { Container, RiskValue, ScrapOverall, TrendWeek, ScrapModel, OfensorClass, ScrapByShift, Classification, Filter, Line, Title } from './style'
 import PersistentDrawerLeft from '../Sidebar/index'
 import { ChartScrapByShift } from '../Charts/ScrapByShift'
@@ -8,7 +9,7 @@ import { ChartTrendWeek } from '../Charts/MaterialTrendWeek'
 import { ChartScrapModel } from '../Charts/ScrapByModel'
 import { ChartClassification } from '../Charts/ScrapByClassification'
 import { ChartOfensorDescription } from '../Charts/OfensorByDescription'
-import { SpinnerSm, SpinnerBg } from '../Spinner';
+import { SpinnerSm, SpinnerBg, SpinnerTw } from '../Spinner';
 import moment from 'moment'
 import 'moment/locale/pt-br'
 import './style.css'
@@ -38,6 +39,7 @@ export default function Dashboard() {
     // eslint-disable-next-line
     setCia,
     area,
+    // eslint-disable-next-line
     setArea,
     dataInicio,
     // eslint-disable-next-line
@@ -132,7 +134,7 @@ export default function Dashboard() {
           <Title>Material Trend Week</Title>
           <Line className="ctw">
             {processingDataTreendWeek ?
-              <SpinnerSm /> :
+              <SpinnerTw /> :
               <ChartTrendWeek data={dataTrendWeek} />
             }
           </Line>
